@@ -4,10 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Teams from '@/components/Teams';
 import { FaMapMarkerAlt, FaEnvelopeOpen, FaPhoneAlt } from 'react-icons/fa';
-import dynamic from 'next/dynamic';
+import AosAnimation from '@/components/AosAnimation';
 import { createMetadata } from '@/lib/seo';
-
-const AosAnimation = dynamic(() => import('@/components/AosAnimation'), { ssr: false });
 
 export const metadata = createMetadata({
   title: 'About RankStack',
