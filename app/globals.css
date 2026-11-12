@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(
+      circle at 50% 0%,
+      rgba(99, 102, 241, 0.15),
+      rgba(124, 58, 237, 0.08) 38%,
+      rgba(15, 23, 42, 0) 68%
+    );
+  }
+
+  .bg-gradient-radial-purple {
+    background-image: radial-gradient(
+      circle at 80% 20%,
+      rgba(124, 58, 237, 0.15),
+      rgba(15, 23, 42, 0) 60%
+    );
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  .glass-card {
+    @apply border border-slate-800/80 bg-slate-900/60 shadow-2xl shadow-indigo-950/30 backdrop-blur-xl;
+  }
+
+  .glass-panel {
+    @apply border border-slate-800/80 bg-slate-950/60 backdrop-blur-xl;
+  }
+}
+
+.border-gradient {
+  border-width: 2px;
+  border-style: solid;
+  border-image-source: linear-gradient(90deg, #6a5acd, #48d1cc);
+  border-image-slice: 1;
+}
+
+.slider {
+  height: auto;
+  margin: auto;
+  position: relative;
+  width: 95%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(400px * 14); /* Adjust the width to match the number of slides */
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-400px * 7)
+    ); /* Adjust to match the number of slides */
+  }
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+.slide {
+  height: auto; /* Increase height */
+  width: 400px; /* Increase width */
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.img {
+  width: 700px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 1s;
+  border-radius: 20px;
+}
+
+.img:hover {
+  transform: translateZ(20px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.group:hover .overlay {
+  opacity: 1;
+}
+
+.overlay .text {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.overlay .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.overlay .description {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.overlay .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #6a5acd, #48d1cc); /* Gradient button */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+
+
+/* styles/globals.css or component-specific CSS */
+.ad-container {
+  max-width: 100%;
+  margin: 0 auto;  /* Centers the container horizontally */
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}

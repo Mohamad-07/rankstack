@@ -1,0 +1,1185 @@
+# MASTER PROMPT: RANKSTACK.DEV — COMPLETE SEO, KEYWORD CLUSTERING, INTERNAL LINKING, CONTENT REFRESH & AI SEARCH OPTIMISATION
+
+## ROLE & EXPERTISE
+
+Act as a world-class Senior SEO Architect, Technical SEO Engineer, Search Engine Optimisation Strategist, Programmatic SEO Engineer, SERP Analyst, Content Marketing Director and AI Search Optimisation Specialist.
+
+You are responsible for transforming RankStack.dev into a technically sound, content-rich, search-engine-friendly website that is ready for production launch.
+
+Your expertise must include:
+
+- Google Search algorithms and current Search Central guidelines.
+- Bing Webmaster Guidelines.
+- Technical SEO for Next.js 14 App Router.
+- Keyword research, clustering, search intent and keyword cannibalisation.
+- Topical authority and semantic SEO.
+- Internal linking and site architecture.
+- Programmatic SEO (pSEO).
+- Generative Engine Optimisation (GEO).
+- Answer Engine Optimisation (AEO).
+- Google AI Overviews, ChatGPT search, Perplexity and Gemini visibility.
+- Content refreshing, editorial quality and E-E-A-T.
+- Structured data and Schema.org.
+- SERP analysis, competitor analysis and organic growth strategies.
+
+Do not simply generate an SEO report. You must inspect the actual repository, identify problems, implement the fixes, improve existing content, validate the implementation and prepare the website for production.
+
+---
+
+# 1. PROJECT INFORMATION
+
+Website: https://rankstack.dev
+
+Framework: Next.js 14 App Router
+
+Language: JavaScript / JSX
+
+Styling: Tailwind CSS 3
+
+Website category: Developer Utilities, Technical SEO Tools, Network Diagnostics and Web Hosting Resources.
+
+Current website status: NOT LIVE. The project is being prepared for its production launch.
+
+The existing repository contains:
+
+- Interactive free tools.
+- Technical SEO and developer utilities.
+- DNS and IP diagnostic tools.
+- Image compression functionality.
+- Hosting recommendation functionality.
+- Hosting reviews and comparison articles.
+- English blog content.
+- Portuguese and Arabic blog sections.
+- Shared SEO metadata utilities.
+- Structured data components.
+- A dynamically generated sitemap.
+
+## Existing repository areas to inspect
+
+Inspect the actual files and dependencies before making changes.
+
+Important paths include:
+
+- `app/free-tools/`
+- `app/blogs/`
+- `app/blogs/[slug]/`
+- `content/blogs/`
+- `content/blogs/br/`
+- `content/blogs/sa/`
+- `content/blogs/index.js`
+- `lib/seo.js`
+- `lib/resource-map.js` (if present)
+- `components/SEO.js`
+- `components/SchemaMarkup.js`
+- `components/ToolsCard.js`
+- `components/QuickSummary.js`
+- `components/KeyTakeaways.js`
+- `components/FAQSection.js`
+- `app/sitemap.js`
+- `app/robots.js`
+- `next.config.mjs`
+- `app/layout.js`
+
+These are inspection targets, not an instruction to assume every file exists.
+
+Do not overwrite working functionality or rebuild the website unnecessarily.
+
+---
+
+# 2. IMPORTANT DEVELOPMENT RULES
+
+Before changing anything:
+
+1. Inspect the entire repository structure.
+2. Read the existing SEO implementation.
+3. Inspect every blog article and its metadata.
+4. Inspect every free tool and its functionality.
+5. Inspect all existing routes and sitemap entries.
+6. Inspect current internal links and navigation.
+7. Inspect canonical tags, redirects, robots directives and structured data.
+8. Run the existing lint and build commands to establish a baseline.
+9. Check Git status and preserve existing user changes.
+10. Create a detailed implementation plan.
+
+Do not:
+
+- Modify `node_modules` or third-party vendor packages.
+- Delete working tool functionality.
+- Break existing API routes.
+- Expose API keys or server secrets.
+- Change existing business functionality unnecessarily.
+- Replace existing working components without justification.
+- Invent statistics, product features, pricing or test results.
+- Publish automatically.
+- Use fabricated SEO metrics or pretend to have accessed Google Search Console.
+- Generate hundreds of low-value pages simply to increase indexed URLs.
+
+Preserve the existing architecture wherever possible.
+
+If an issue cannot be fixed safely, document it instead of introducing a risky workaround.
+
+The current working date for content review is **12 November 2026**. Use this as the editorial reference date, not as an excuse to fabricate current information.
+
+---
+
+# 3. REMOVE THIN AND INTERNATIONAL CONTENT
+
+I want to remove the thin Portuguese and Arabic content from the website.
+
+Currently, the repository audit reports:
+
+- One Portuguese blog article.
+- One Arabic blog article.
+- Thin Portuguese blog hub.
+- Thin Arabic blog hub.
+
+## Required actions
+
+1. Remove the Portuguese blog hub from public routing and indexable content.
+2. Remove the Arabic blog hub from public routing and indexable content.
+3. Remove the corresponding Portuguese and Arabic articles from the production content registry.
+4. Remove their URLs from the sitemap.
+5. Remove unnecessary hreflang declarations relating to these removed locales.
+6. Remove locale navigation and internal links if they only exist to support these sections.
+7. Remove orphaned locale-specific metadata and unused components if safe.
+8. Clean up any references to these pages in resource maps, navigation and related content.
+
+Do not remove the English content.
+
+## URL handling
+
+Inspect whether these URLs have any existing external backlinks, traffic or meaningful indexed history.
+
+If a removed URL has a genuinely equivalent English replacement, use an appropriate permanent redirect.
+
+If no relevant replacement exists, return an appropriate 404 or 410 response rather than redirecting everything to the homepage.
+
+Do not create irrelevant redirects.
+
+The final production website should have English as its sole supported editorial language.
+
+Ensure the sitemap and canonical configuration reflect this decision.
+
+---
+
+# 4. COMPLETE TECHNICAL SEO AUDIT AND IMPLEMENTATION
+
+Perform a full technical SEO audit and fix all verified issues.
+
+## 4.1 Metadata system
+
+Inspect `lib/seo.js` and all metadata generation functions.
+
+Implement:
+
+- Unique SEO titles.
+- Unique meta descriptions.
+- Correct canonical URLs.
+- Correct Open Graph titles and descriptions.
+- Appropriate Open Graph images.
+- Twitter metadata.
+- Page-specific metadata.
+- Proper robots index/follow directives.
+- Consistent URL formatting.
+
+Every indexable page must have metadata relevant to its own search intent.
+
+## 4.2 Fix tagline and description problems
+
+The existing blueprint reports that `lib/seo.js` appends an approximately 86-character tagline to descriptions.
+
+Remove this automatic long tagline append.
+
+Do not automatically append a sitewide promotional sentence to every meta description.
+
+RankStack should have a consistent brand identity, but the tagline must not damage individual page metadata.
+
+Use a concise brand description where appropriate.
+
+Suggested brand positioning:
+
+"RankStack — Free Developer Tools, Network Diagnostics & Technical SEO Utilities"
+
+This should be used as brand positioning, not blindly appended to every page.
+
+Requirements:
+
+- Write unique descriptions for every important page.
+- Avoid keyword stuffing.
+- Avoid repeated generic sentences.
+- Clearly communicate the page's functionality.
+- Keep descriptions concise and compelling.
+- Do not treat 155 or 158 characters as a hard Google indexing requirement.
+- Avoid truncating sentences through automatic string manipulation.
+
+## 4.3 URL and canonical corrections
+
+Inspect:
+
+- Trailing slash inconsistencies.
+- Uppercase URL slugs.
+- Duplicate URLs.
+- Incorrect canonical URLs.
+- Missing canonical declarations.
+- Incorrect redirects.
+- Sitemap and route mismatches.
+
+The previous audit identified:
+
+- Trailing slash inconsistencies in free-tools hub links.
+- An uppercase JetHost blog slug.
+- Potential inconsistencies between sitemap URLs and canonical URLs.
+
+Fix these properly.
+
+Where an existing URL changes, implement a permanent redirect from the old URL.
+
+Never create redirect chains or redirect unrelated pages.
+
+## 4.4 Sitemap and robots.txt
+
+Rebuild the sitemap logic around actual indexable production pages.
+
+Include:
+
+- Homepage.
+- Main hosting hub.
+- Free tools hub.
+- Individual functional tools.
+- English blog articles.
+- Relevant English content hubs.
+- Other valuable indexable landing pages.
+
+Exclude:
+
+- Removed Portuguese pages.
+- Removed Arabic pages.
+- Redirecting URLs.
+- 404 and 410 URLs.
+- Noindex pages.
+- Duplicate URLs.
+- Internal or administrative routes.
+- Unpublished draft content.
+
+Ensure:
+
+- Absolute URLs use the correct production domain.
+- Canonical URLs and sitemap URLs agree.
+- `lastModified` reflects genuine modifications.
+- There are no duplicate sitemap entries.
+- XML output is valid.
+
+Review `robots.js` and ensure search engine crawlers can access important public pages and assets.
+
+Do not block CSS, JavaScript or resources required to render the site.
+
+AI crawler rules must be considered separately from Google Search indexing. Do not assume that allowing an AI crawler guarantees citations or rankings.
+
+---
+
+# 5. KEYWORD RESEARCH AND CLUSTERING
+
+This is one of the most important parts of the project.
+
+Do not randomly distribute keywords across articles.
+
+Build a complete keyword-to-URL ownership architecture.
+
+Use the existing website content, actual functionality, Google SERP research and competitor research.
+
+If web research is available, research the current search results for each target keyword.
+
+Use real search intent and actual SERP evidence.
+
+Do not invent:
+
+- Monthly search volumes.
+- Keyword difficulty scores.
+- CPC values.
+- Ranking positions.
+- Competitor traffic figures.
+
+If these metrics are unavailable, label them as unverified and leave them blank.
+
+## CLUSTER A — DNS AND EMAIL CONFIGURATION
+
+Primary topic: DNS diagnostics, DNS records and email authentication.
+
+Target keyword families:
+
+- DNS propagation checker.
+- DNS checker.
+- DNS propagation.
+- DNS records checker.
+- DNS lookup tool.
+- DNS record lookup.
+- Check nameservers.
+- DNS propagation time.
+- SPF record checker.
+- DKIM checker.
+- DMARC checker.
+- SPF DKIM DMARC checker.
+- Cloudflare DNS setup.
+- GoDaddy DNS setup.
+- Namecheap DNS setup.
+- AWS Route 53 DNS setup.
+
+Suggested architecture:
+
+- `/free-tools/dns-propagation`
+- `/free-tools/email-authentication`
+- `/guides/dns-setup/cloudflare`
+- `/guides/dns-setup/godaddy`
+- `/guides/dns-setup/namecheap`
+
+Only implement the email authentication tool if the functionality can genuinely validate the relevant DNS records.
+
+Do not claim that a DNS tool performs checks it does not actually perform.
+
+## CLUSTER B — IP AND NETWORK DIAGNOSTICS
+
+Primary topic: IP addresses, geolocation and network information.
+
+Target keyword families:
+
+- What is my IP.
+- My public IP address.
+- IP checker.
+- IP address checker.
+- IP address lookup.
+- IP location lookup.
+- IP geolocation.
+- Reverse IP lookup.
+- ISP lookup.
+- ASN lookup.
+- HTTP headers checker.
+- IPv4 checker.
+- IPv6 checker.
+
+Separate the purpose of each page.
+
+Keyword ownership:
+
+`/free-tools/ipchecker`
+
+Primary: What is my IP?
+
+Secondary: Public IP address, IPv4 checker, IPv6 checker.
+
+`/free-tools/iplookup`
+
+Primary: IP address lookup.
+
+Secondary: IP geolocation lookup, ISP lookup, IP finder.
+
+Do not let these pages target identical primary search intent.
+
+## CLUSTER C — IMAGE OPTIMISATION AND WEB PERFORMANCE
+
+Primary topic: Image compression and website performance.
+
+Target keyword families:
+
+- Image compressor.
+- Compress image online.
+- Free image compressor.
+- Reduce image size.
+- Image size reducer.
+- Image optimisation.
+- WebP converter.
+- AVIF converter.
+- Website speed optimisation.
+- Core Web Vitals.
+- Largest Contentful Paint.
+- Cumulative Layout Shift.
+- Interaction to Next Paint.
+- Image optimisation for SEO.
+
+Suggested architecture:
+
+- `/free-tools/image-compressor`
+- `/free-tools/image-converter` (only if implemented)
+- `/blogs/website-speed-seo-rankings-guide`
+- `/blogs/quick-image-optimization-speed-guide`
+- `/blogs/ultimate-website-caching-guide-hosting`
+- `/blogs/core-web-vitals-checklist`
+- `/blogs/fix-lcp-cls-inp`
+
+Verify every tool capability against its actual API implementation.
+
+In particular, the existing image compressor reportedly supports JPEG, JPG, PNG and WebP, not GIF.
+
+Correct any unsupported GIF claims in metadata, FAQs and visible content.
+
+## CLUSTER D — WEB HOSTING AND HOSTING COMPARISONS
+
+Primary topic: Web hosting research, reviews and recommendations.
+
+Target keyword families:
+
+- Best web hosting.
+- Best web hosting providers.
+- Best hosting for small business.
+- Best shared hosting.
+- Best Linux hosting.
+- Best Windows hosting.
+- Best email hosting.
+- Hostinger review.
+- Bluehost review.
+- DreamHost review.
+- Hosting provider comparisons.
+- Hostinger vs Bluehost.
+- Bluehost vs DreamHost.
+- Web hosting pricing.
+- Hosting performance.
+- Hosting uptime.
+- Hosting renewal prices.
+
+Suggested architecture:
+
+- `/hosting`
+- Existing hosting review articles.
+- Existing hosting listicles.
+- `/compare/[host-a]-vs-[host-b]` (future curated pages).
+- `/free-tools/hosting-recommender`.
+
+Keep affiliate links appropriately marked with `rel="sponsored nofollow"`.
+
+Never invent first-hand testing, uptime measurements, speed results or product experience.
+
+If a review is based on research rather than direct testing, clearly state its methodology.
+
+## CLUSTER E — TECHNICAL SEO AND DEVELOPER UTILITIES
+
+Primary topic: Technical SEO tools and developer utilities.
+
+Target keyword families:
+
+- Free web tools.
+- Developer tools.
+- Technical SEO tools.
+- Schema markup generator.
+- JSON-LD generator.
+- Robots.txt validator.
+- Sitemap checker.
+- XML sitemap validator.
+- Technical SEO audit.
+- Programmable SEO.
+- Website SEO checker.
+
+Suggested architecture:
+
+- `/free-tools`
+- `/free-tools/schema-generator` (only if implemented)
+- `/free-tools/robots-sitemap-checker` (only if implemented)
+- `/blogs/technical-seo-audit-checklist`
+- `/blogs/programmable-seo-playbook`
+- `/blogs/sitemap-best-practices`
+- `/blogs/generative-engine-optimization`
+
+Do not create empty tool pages or publish pages for functionality that does not exist.
+
+## Keyword ownership rules
+
+For every indexable URL:
+
+1. Assign exactly one primary keyword.
+2. Assign relevant secondary keywords.
+3. Identify its search intent.
+4. Identify the parent cluster.
+5. Identify its pillar page.
+6. Identify related articles and tools.
+7. Identify similar existing pages that might compete with it.
+
+No two URLs should target the same primary search intent unless there is a documented reason.
+
+Do not forbid natural use of related terms across the website. Keyword ownership is an editorial and architectural rule, not a requirement to remove every shared phrase.
+
+Create a central keyword map.
+
+Recommended file:
+
+`lib/seo/keyword-map.js`
+
+If the project uses a different established architecture, adapt accordingly.
+
+The keyword map must be the single source of truth for internal linking and keyword ownership.
+
+---
+
+# 6. FIX INTERNAL LINKING THROUGHOUT THE WEBSITE
+
+This is a critical requirement.
+
+The previous audit reported that blog articles had no contextual links to the free tools.
+
+I want this corrected throughout the website.
+
+## 6.1 Build a central resource map
+
+Create:
+
+`lib/resource-map.js`
+
+It must contain mappings for every relevant existing blog article and tool.
+
+Each mapping should identify:
+
+- Primary keyword.
+- Topic cluster.
+- Pillar URL.
+- Related tools.
+- Related articles.
+- Relevant guides.
+- Contextual anchor suggestions.
+
+Example structure:
+
+```js
+export const resourceMap = {
+  "website-speed-seo-rankings-guide": {
+    cluster: "image-performance",
+    pillar: "/free-tools/image-compressor",
+    tools: [
+      "/free-tools/image-compressor"
+    ],
+    articles: [
+      "/blogs/quick-image-optimization-speed-guide",
+      "/blogs/ultimate-website-caching-guide-hosting"
+    ]
+  },
+
+  "dns-propagation-explained": {
+    cluster: "dns-network",
+    pillar: "/free-tools/dns-propagation",
+    tools: [
+      "/free-tools/dns-propagation"
+    ],
+    articles: [
+      "/blogs/point-interserver-domain-to-network-solutions"
+    ]
+  }
+};
+```
+
+Use real existing slugs. Do not create mappings to nonexistent pages.
+
+## 6.2 Create a reusable RelatedResources component
+
+Create or improve:
+
+`components/RelatedResources.js`
+
+Requirements:
+
+- Server-rendered internal links.
+- Relevant tool recommendations.
+- Related articles.
+- Descriptive anchor text.
+- No JavaScript-only fetching of essential links.
+- No random recommendations.
+- No broken links.
+- No duplicate links.
+- No excessive exact-match anchor repetition.
+
+The component should be usable in blog posts and tool pages.
+
+## 6.3 Internal linking rules
+
+Every relevant blog article should have:
+
+- A contextual link to its cluster's main tool or pillar.
+- Links to relevant supporting articles.
+- A related resources section where appropriate.
+
+Every tool page should have:
+
+- A link to its relevant content hub.
+- Links to educational articles.
+- Links to related tools where useful.
+
+Every pillar page should link to its important child pages.
+
+Every child page should link back to its parent pillar.
+
+Use natural anchor text.
+
+Examples:
+
+Instead of:
+
+"Click here"
+
+Use:
+
+"Check DNS propagation across global resolvers."
+
+Instead of:
+
+"Read more"
+
+Use:
+
+"Learn how website caching improves page speed."
+
+Instead of:
+
+"Try this tool"
+
+Use:
+
+"Compress your images with the free RankStack image compressor."
+
+Do not force links into unrelated paragraphs.
+
+## 6.4 Internal linking audit
+
+Create an automated internal-link validation script.
+
+It should detect:
+
+- Broken internal links.
+- Links pointing to nonexistent pages.
+- Orphaned articles.
+- Pages with no incoming internal links.
+- Missing pillar links.
+- Duplicate links.
+- Links pointing to redirected URLs.
+- Links to removed international pages.
+
+The script should generate a report.
+
+Do not use external links as substitutes for internal links.
+
+---
+
+# 7. REFRESH ALL EXISTING BLOG ARTICLES
+
+This is a major requirement.
+
+I want the existing English blog content reviewed and professionally refreshed to current standards as of 12 November 2026.
+
+Do not merely change the publication date.
+
+Read the entire content of every existing English article.
+
+Review each article against:
+
+- Current search intent.
+- Current Google SERP results.
+- Current product information.
+- Official technical documentation.
+- Updated hosting plans and pricing where relevant.
+- Current web standards.
+- Current Core Web Vitals guidance.
+- Current DNS and email authentication practices.
+- Current SEO best practices.
+- Current AI search developments.
+
+## 7.1 Content refresh rules
+
+For each article:
+
+1. Preserve its original topic and useful information.
+2. Identify outdated statements.
+3. Remove unsupported claims.
+4. Correct technical inaccuracies.
+5. Improve the introduction.
+6. Improve the H1 and H2 structure.
+7. Improve keyword targeting.
+8. Add missing search-intent coverage.
+9. Add relevant examples.
+10. Add contextual internal links.
+11. Improve the FAQ section where it genuinely helps.
+12. Improve the conclusion and CTA.
+13. Add trustworthy references where necessary.
+14. Ensure that the article is factually accurate.
+15. Update `dateModified` only when substantial changes are made.
+
+Do not rewrite every article into an identical AI-generated format.
+
+Keep natural editorial variation.
+
+## 7.2 Content freshness and research
+
+For hosting reviews:
+
+- Check official provider websites.
+- Verify current plan names.
+- Verify current advertised prices.
+- Check renewal pricing where available.
+- Verify features and limitations.
+- Identify promotional versus regular prices.
+- Cite official sources.
+- Record the verification date.
+
+For technical articles:
+
+- Prefer official developer documentation.
+- Check current standards and APIs.
+- Avoid outdated code examples.
+- Test code examples where practical.
+- Ensure the examples work with modern versions of the relevant software.
+
+For Core Web Vitals:
+
+Use current Google documentation and correctly distinguish LCP, INP and CLS.
+
+For AI search articles:
+
+Distinguish confirmed Google Search guidance from industry opinions and experimental SEO tactics.
+
+Do not make unsupported promises about ranking in ChatGPT, Gemini, Perplexity or Google AI Overviews.
+
+## 7.3 Blog quality requirements
+
+Every article should contain the following where appropriate:
+
+- One H1.
+- A strong opening paragraph that directly answers the search query.
+- A concise summary or key takeaways.
+- Logical H2 and H3 sections.
+- Useful examples.
+- Relevant tables.
+- Contextual internal links.
+- Author information where genuine.
+- Publication date.
+- Genuine modification date.
+- Useful FAQs where relevant.
+- Relevant external references.
+- A helpful CTA.
+
+Do not enforce arbitrary word counts.
+
+Content depth should match search intent.
+
+Do not expand an article with filler just to make it longer.
+
+## 7.4 Blog metadata
+
+Refresh:
+
+- SEO title.
+- Meta description.
+- Canonical.
+- OG title.
+- OG description.
+- OG image where necessary.
+- Keywords metadata where used for editorial organisation.
+
+Avoid duplicate titles and descriptions.
+
+Do not insert every sitewide target keyword into every article.
+
+---
+
+# 8. CONTENT STRATEGY FOR AI SEARCH ENGINES
+
+Optimise the content for both traditional search engines and AI-powered discovery.
+
+The goal is to make RankStack a useful, trustworthy source that search engines and AI systems can understand and cite.
+
+Focus on:
+
+- Clear definitions.
+- Direct answers.
+- Accurate technical explanations.
+- Structured information.
+- Original examples.
+- Verifiable data.
+- Transparent methodologies.
+- Clear comparisons.
+- Descriptive headings.
+- Well-structured HTML.
+- Accessible tool outputs.
+
+## Answer-first content
+
+Where appropriate, the first paragraph after the H1 should directly answer the user's search query.
+
+Aim for approximately 25–40 words when this naturally suits the subject.
+
+Do not force every article into an identical answer template.
+
+## E-E-A-T
+
+Improve trustworthiness by adding:
+
+- Genuine author profiles.
+- Accurate author credentials.
+- Editorial review information where applicable.
+- Primary-source citations.
+- Transparent testing methodologies.
+- Real product experience where available.
+- Accurate update dates.
+- Clear affiliate disclosures.
+
+Never invent authors, credentials, reviews or hands-on tests.
+
+## AI-readable content
+
+Use:
+
+- Semantic HTML.
+- Clear section headings.
+- Useful tables.
+- Concise definitions.
+- Explicit explanations of technical concepts.
+- Accurate examples.
+- Descriptive internal links.
+
+Do not add artificial keyword repetition for AI crawlers.
+
+Do not assume that `llms.txt`, FAQ schema or a particular content length guarantees AI citations.
+
+---
+
+# 9. STRUCTURED DATA AND SCHEMA
+
+Inspect the existing schema implementation before modifying it.
+
+Preserve and improve the existing global Organization and WebSite schema.
+
+Implement appropriate structured data for the actual content type.
+
+Potential schemas:
+
+- Organization.
+- WebSite.
+- BreadcrumbList.
+- SoftwareApplication.
+- BlogPosting or Article.
+- Person, where genuine author information exists.
+- HowTo, where the visible page genuinely contains a procedural guide and the schema is appropriate.
+- FAQPage only when the content meets applicable structured data requirements.
+
+Important:
+
+Google's FAQ rich results are no longer generally displayed, and HowTo rich results have been deprecated.
+
+Do not treat either as a ranking shortcut.
+
+Do not add fake ratings or reviews.
+
+Do not create duplicate JSON-LD scripts.
+
+All structured data must match the visible page content.
+
+Validate the output with Schema.org Validator and Google's Rich Results Test where applicable.
+
+---
+
+# 10. PROGRAMMATIC SEO — BUILD A SAFE FOUNDATION
+
+Do not immediately publish 300 ASN pages or 40 hosting comparisons.
+
+First implement the infrastructure correctly.
+
+Potential future templates:
+
+1. DNS provider setup guides.
+2. Curated ASN information pages.
+3. Hosting comparison pages.
+
+Create a reusable architecture with:
+
+- Curated datasets.
+- Allowlisted slugs.
+- Unique page content.
+- Verified data sources.
+- Dynamic metadata.
+- Self-canonical URLs.
+- Related internal links.
+- Indexation controls.
+- Sitemap integration.
+
+Unknown slugs must return 404.
+
+Incomplete entries must not accidentally become indexable.
+
+Do not use a fixed word-count threshold as the sole indexation decision.
+
+For ASN pages, use reliable network registration data and meaningful explanations. Avoid indexing generic RDAP-derived shells.
+
+For hosting comparisons, require genuine evidence and verified information for both providers.
+
+Only index pages that offer meaningful independent value.
+
+For this pre-launch phase, build the infrastructure only if it can be completed safely without delaying the core SEO repairs.
+
+Do not create hundreds of placeholder URLs.
+
+---
+
+# 11. BLOG SIDEBAR AND CONTENT COMPONENTS
+
+The previous audit identified a problem with `blog-sidebars.json`.
+
+Only a small number of existing entries match live article slugs.
+
+Inspect the file and fix its mappings.
+
+Remove dead references.
+
+Do not display generic coupon interfaces on articles that have no relevant coupons.
+
+Replace irrelevant fallback content with contextual related resources.
+
+Review the existing components:
+
+- QuickSummary.
+- KeyTakeaways.
+- FAQSection.
+- ToolsCard.
+- SEO.
+- SchemaMarkup.
+
+Reuse existing working components when appropriate.
+
+Avoid introducing unnecessary duplicate components.
+
+---
+
+# 12. PERFORMANCE AND TECHNICAL QUALITY
+
+SEO must not damage website performance.
+
+Inspect:
+
+- Core Web Vitals.
+- Largest Contentful Paint.
+- Interaction to Next Paint.
+- Cumulative Layout Shift.
+- Image optimisation.
+- Lazy loading.
+- Font loading.
+- JavaScript bundle sizes.
+- Server-side rendering.
+- Mobile responsiveness.
+- Accessibility.
+- Page layout stability.
+
+Use Next.js image optimisation appropriately.
+
+Avoid unnecessary client-side JavaScript.
+
+Ensure important content and internal links are available in the initial server-rendered HTML.
+
+Do not sacrifice tool functionality for marginal SEO improvements.
+
+---
+
+# 13. PRE-LAUNCH QUALITY ASSURANCE
+
+Before declaring the project complete, perform a comprehensive validation.
+
+## Technical tests
+
+Run:
+
+- Existing lint commands.
+- Production build.
+- Type and syntax checks where configured.
+- Internal link validation.
+- Sitemap validation.
+- Canonical validation.
+- Redirect validation.
+- Metadata checks.
+- Structured data checks.
+- Route validation.
+- Noindex and robots validation.
+
+## SEO acceptance criteria
+
+The following must be true:
+
+1. No thin Portuguese or Arabic content remains in public indexable routes.
+2. English blog content remains intact.
+3. Every important indexable URL has a unique title.
+4. Important pages have unique, relevant descriptions.
+5. No automatic long tagline is appended to descriptions.
+6. Canonicals are correct.
+7. Sitemap contains only valid indexable URLs.
+8. No unintended duplicate URLs exist.
+9. IP checker and IP lookup have differentiated keyword ownership.
+10. The free-tools hub no longer competes unnecessarily with individual tools.
+11. All relevant blog posts have contextual internal links.
+12. Important tools have links from relevant educational articles.
+13. No orphaned priority pages remain.
+14. Broken internal links are fixed.
+15. No unsupported feature claims remain.
+16. Existing tool functionality still works.
+17. Blog content has been reviewed and refreshed.
+18. Structured data is valid and accurately represents visible content.
+19. No placeholder pSEO pages are indexed.
+20. The production build completes successfully.
+
+Do not claim that Google has indexed or ranked pages. This website is not live, so live Google Search Console verification cannot be completed during this implementation.
+
+---
+
+# 14. REQUIRED DELIVERABLES
+
+I expect actual code changes, not just recommendations.
+
+Produce the following reports inside the repository:
+
+### A. SEO Audit Report
+
+`docs/SEO-AUDIT-REPORT.md`
+
+Include:
+
+- Issues discovered.
+- Issues confirmed.
+- Issues already working.
+- Issues fixed.
+- Remaining issues.
+- Technical changes.
+- Risk assessment.
+
+### B. Keyword Clustering Report
+
+`docs/KEYWORD-CLUSTER-MAP.md`
+
+Include:
+
+- Five keyword clusters.
+- Primary keyword for each important URL.
+- Secondary keywords.
+- Search intent.
+- Pillar and spoke architecture.
+- Keyword ownership.
+- Cannibalisation resolutions.
+- Research evidence and unverified metrics.
+
+### C. Internal Linking Report
+
+`docs/INTERNAL-LINKING-REPORT.md`
+
+Include:
+
+- Every relevant article.
+- Its pillar page.
+- Related tools.
+- Related articles.
+- Internal link coverage.
+- Broken links.
+- Orphaned pages.
+- Any unresolved linking issues.
+
+### D. Content Refresh Report
+
+`docs/BLOG-REFRESH-REPORT.md`
+
+Include:
+
+- All existing English articles reviewed.
+- Changes made to each article.
+- Outdated information removed.
+- New references added.
+- Metadata improvements.
+- Updated modification dates.
+- Articles that require further human review.
+
+### E. Pre-launch SEO Checklist
+
+`docs/PRE-LAUNCH-SEO-CHECKLIST.md`
+
+Include all technical and editorial checks, with PASS, FAIL or NEEDS REVIEW status.
+
+### F. Final implementation summary
+
+At the end, report:
+
+- Number of pages reviewed.
+- Number of pages refreshed.
+- Number of pages removed from international sections.
+- Number of metadata issues corrected.
+- Number of cannibalisation issues resolved.
+- Number of internal links added.
+- Number of broken links fixed.
+- Number of schema issues corrected.
+- Number of redirects created.
+- Build status.
+- Lint status.
+- Outstanding issues.
+
+Only report numbers that you can verify from the actual repository.
+
+---
+
+# 15. EXECUTION ORDER
+
+Follow this exact implementation sequence:
+
+PHASE 1 — Repository inspection and baseline audit.
+
+PHASE 2 — Remove thin international content and clean routing.
+
+PHASE 3 — Repair metadata, tagline, canonical URLs and redirects.
+
+PHASE 4 — Implement keyword clustering and resolve cannibalisation.
+
+PHASE 5 — Build central internal linking architecture.
+
+PHASE 6 — Refresh every existing English blog article.
+
+PHASE 7 — Improve structured data and content components.
+
+PHASE 8 — Improve AI search readability and technical SEO.
+
+PHASE 9 — Establish safe pSEO infrastructure.
+
+PHASE 10 — Run complete QA, lint, build and generate reports.
+
+After each phase:
+
+- Check for regressions.
+- Validate the affected files.
+- Preserve working code.
+- Record completed changes.
+- Do not leave half-implemented components.
+
+If a phase reveals a dependency or a problem that makes later changes unsafe, resolve it before continuing.
+
+Do not stop after generating the initial audit. Continue through implementation and testing.
+
+---
+
+# 16. FINAL INSTRUCTIONS
+
+I am preparing RankStack.dev for its first proper production launch.
+
+I want a clean, professional, technically correct SEO foundation.
+
+Do not focus on increasing the number of URLs.
+
+Focus on:
+
+1. Correct keyword targeting.
+2. Strong topical authority.
+3. No avoidable keyword cannibalisation.
+4. Excellent internal linking.
+5. Updated, genuinely useful English content.
+6. Correct metadata and canonical architecture.
+7. High-quality developer and SEO tools.
+8. Strong technical SEO.
+9. Search-engine and AI-readable content.
+10. Safe and sustainable programmatic SEO.
+
+Be critical of the existing implementation. If something in the original SEO blueprint is technically incorrect or outdated, correct it rather than blindly following it.
+
+Use official documentation as the primary reference for technical claims. Use real competitor SERPs and search intent for content decisions.
+
+Do not invent data.
+
+Do not deploy the website.
+
+Do not change the production domain.
+
+Do not expose secrets.
+
+Do not mark a task as complete until the actual implementation has been verified.
+
+**Your final objective is to deliver a fully repaired, content-refreshed, keyword-mapped and internally linked RankStack.dev codebase that is ready for me to review and publish.**
