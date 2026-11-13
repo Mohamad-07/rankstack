@@ -1,193 +1,153 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from '@/public/rankstack-logo.png';
+import logo from "@/public/rankstack-logo.png";
+
+const exploreLinks = [
+  { label: "Web Hosting", href: "/hosting" },
+  { label: "Domains", href: "/domain" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Courses", href: "/courses" },
+  { label: "Portfolio", href: "/portfolio" },
+];
+
+const toolLinks = [
+  { label: "All Free Tools", href: "/free-tools" },
+  { label: "IP Checker", href: "/free-tools/ipchecker" },
+  { label: "DNS Propagation", href: "/free-tools/dns-propagation" },
+  { label: "WHOIS Lookup", href: "/free-tools/whois-lookup" },
+  { label: "Image Compressor", href: "/free-tools/image-compressor" },
+];
+
+const companyLinks = [
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Disclaimer", href: "/disclaimer" },
+];
+
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/rankstack",
+    path: "M22.675 0H1.325C0.593 0 0 0.593 0 1.325v21.351C0 23.407 0.593 24 1.325 24h11.489V14.708h-3.13v-3.631h3.13V8.045c0-3.1 1.893-4.787 4.66-4.787 1.325 0 2.463 0.099 2.794 0.143v3.241l-1.918 0.001c-1.504 0-1.795 0.716-1.795 1.763v2.313h3.587l-0.467 3.631h-3.12V24h6.117C23.407 24 24 23.407 24 22.676V1.325C24 0.593 23.407 0 22.675 0z",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/rankstack/",
+    path: "M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.4.4.6.2 1.1.5 1.6 1 .5.5.8 1 1 1.6.2.5.4 1.2.4 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.4-.2.6-.5 1.1-1 1.6-.5.5-1 .8-1.6 1-.5.2-1.2.4-2.4.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.4-.4-.6-.2-1.1-.5-1.6-1-.5-.5-.8-1-1-1.6-.2-.5-.4-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.4.2-.6.5-1.1 1-1.6.5-.5 1-.8 1.6-1 .5-.2 1.2-.4 2.4-.4C8.4 2.2 8.8 2.2 12 2.2M12 0.3c-3.3 0-3.7 0-4.9.1-1.2.1-2.1.2-2.8.4-.9.2-1.7.6-2.4 1.3-.7.7-1.1 1.5-1.3 2.4-.2.7-.3 1.6-.4 2.8C0.3 9.5 0.3 9.9 0.3 13.2s0 3.7.1 4.9c.1 1.2.2 2.1.4 2.8.2.9.6 1.7 1.3 2.4.7.7 1.5 1.1 2.4 1.3.7.2 1.6.3 2.8.4 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c1.2-.1 2.1-.2 2.8-.4.9-.2 1.7-.6 2.4-1.3.7-.7 1.1-1.5 1.3-2.4.2-.7.3-1.6.4-2.8.1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.1-1.2-.2-2.1-.4-2.8-.2-.9-.6-1.7-1.3-2.4-.7-.7-1.5-1.1-2.4-1.3-.7-.2-1.6-.3-2.8-.4C15.7.3 15.3.3 12 .3z M12 5.8c-3.4 0-6.2 2.8-6.2 6.2 0 3.4 2.8 6.2 6.2 6.2 3.4 0 6.2-2.8 6.2-6.2 0-3.4-2.8-6.2-6.2-6.2z M12 16.3c-2.4 0-4.3-1.9-4.3-4.3 0-2.4 1.9-4.3 4.3-4.3 2.4 0 4.3 1.9 4.3 4.3 0 2.4-1.9 4.3-4.3 4.3z",
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@rankstack",
+    path: "M23.498 6.186c-.275-1.033-1.078-1.84-2.114-2.128C19.552 3.504 12 3.504 12 3.504s-7.552 0-9.384.554C1.579 4.346.777 5.154.502 6.186 0 8.023 0 12 0 12s0 3.977.502 5.814c.275 1.033 1.078 1.84 2.114 2.128 1.832.554 9.384.554 9.384.554s7.552 0 9.384-.554c1.036-.288 1.839-1.096 2.114-2.128C24 15.977 24 12 24 12s0-3.977-.502-5.814zM9.751 15.205V8.795L15.545 12l-5.794 3.205z",
+  },
+];
+
+const FooterLink = ({ href, children }) => (
+  <Link href={href} className="text-sm text-slate-400 transition hover:text-white">
+    {children}
+  </Link>
+);
 
 const Footer = () => {
-    return (
-        <footer className="relative bg-gradient-to-r from-indigo-400 to-pink-600 overflow-hidden">
-            <div className="absolute  z-10 overflow-hidden">
-                <svg
-                    className="absolute top-0 left-0 w-full h-full pointer-events-none"
-                    viewBox="0 0 1440 320"
-                    preserveAspectRatio="none"
-                >
-                    <path
-                        fill="white"
-                        d="M0,256L1440,160L1440,320L0,320Z"
-                        opacity="0.1"
-                    />
+  return (
+    <footer className="relative overflow-hidden bg-slate-950 text-slate-300">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500/70 to-transparent" />
+      <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-indigo-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-fuchsia-600/10 blur-3xl" />
+
+      <div className="relative mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
+            <Link
+              href="/"
+              className="inline-flex rounded-xl bg-white px-3 py-2 shadow-sm"
+              aria-label="RankStack home"
+            >
+              <Image
+                src={logo}
+                alt="RankStack"
+                className="h-8 w-auto"
+                width={640}
+                height={109}
+                loading="lazy"
+              />
+            </Link>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+              Practical developer utilities, network diagnostics, hosting research,
+              and technical SEO resources built for people who ship.
+            </p>
+            <a
+              href="mailto:support@rankstack.dev"
+              className="mt-5 inline-flex text-sm font-medium text-indigo-300 transition hover:text-white"
+            >
+              support@rankstack.dev
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
+            <div>
+              <h2 className="text-sm font-semibold text-white">Explore</h2>
+              <ul className="mt-4 space-y-3">
+                {exploreLinks.map((link) => (
+                  <li key={link.href}>
+                    <FooterLink href={link.href}>{link.label}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-sm font-semibold text-white">Free Tools</h2>
+              <ul className="mt-4 space-y-3">
+                {toolLinks.map((link) => (
+                  <li key={link.href}>
+                    <FooterLink href={link.href}>{link.label}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-sm font-semibold text-white">Company</h2>
+              <ul className="mt-4 space-y-3">
+                {companyLinks.map((link) => (
+                  <li key={link.href}>
+                    <FooterLink href={link.href}>{link.label}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-slate-500 sm:text-sm">
+            © {new Date().getFullYear()} RankStack. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-2">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`RankStack on ${social.label}`}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition hover:border-indigo-400/40 hover:bg-white/10 hover:text-white"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                  <path d={social.path} />
                 </svg>
-            </div>
-            <div className="px-4 z-40 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
-                    <div className="md:max-w-md lg:col-span-2">
-                        <div className="text-2xl font-bold">
-                     <Link href="/">
-                     <Image
-                     src={logo}
-                      alt="RankStack logo"
-                      className="h-10 w-auto"
-                      width={160}
-                      height={100}
-                      loading="lazy"
-                      />
-                     </Link>
-                        </div>
-                        <div className="mt-4 lg:max-w-sm">
-                            <p className="text-sm text-white">
-                                RankStack is an AI-powered toolkit for developers and site owners. Run network diagnostics, compress assets, audit technical SEO, and make faster infrastructure decisions.
-                            </p>
-                            <p className="mt-4 text-sm text-white">
-                                Free web tools, practical hosting research, and programmable SEO workflows — built for people who ship.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-                        <div>
-                            <p className="font-semibold tracking-wide text-white">
-                                Useful Links
-                            </p>
-                            <ul className="mt-2 space-y-2">
-
-                                <li>
-                                    <Link href="/about" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        About us
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/services" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        Services
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/blogs" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        Blogs
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/free-tools" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        Free Tools
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/disclaimer" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        Disclaimer
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/privacy" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        Privacy Policy
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/terms" className="transition-colors hover:underline cursor-pointer duration-300 text-white hover:text-teal-accent-400">
-                                        Terms & Conditions
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <div>
-                            <p className="font-semibold tracking-wide text-white ">
-                                Services
-                            </p>
-                            <ul className="mt-2 space-y-2">
-                                <li>
-                                    <p className="transition-colors duration-300 text-white hover:text-teal-accent-400">
-                                        Developer Utilities
-                                    </p>
-                                </li>
-                                <li>
-                                    <p className="transition-colors duration-300 text-white hover:text-teal-accent-400">
-                                        Network Diagnostics
-                                    </p>
-                                </li>
-                                <li>
-                                    <p className="transition-colors duration-300 text-white hover:text-teal-accent-400">
-                                        Technical SEO
-                                    </p>
-                                </li>
-                                <li>
-                                    <p className="transition-colors duration-300 text-white hover:text-teal-accent-400">
-                                        Image Optimization
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-
-
-                        <div className="col-span-2">
-                            <p className="font-semibold tracking-wide text-white">
-                                Contact Us
-                            </p>
-                            <ul className="mt-2 space-y-2">
-                                <li className="transition-colors duration-300 text-white">
-                                    
-                                </li>
-                                <li className="transition-colors duration-300 text-white">
-                                    <a href="mailto:support@rankstack.dev" className="hover:underline">
-                                        support@rankstack.dev
-                                    </a>
-                                </li>
-                                <li className="transition-colors duration-300 text-white">
-                                    
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-                <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
-                    <p className="text-sm text-gray-100">
-                        © Copyright {new Date().getFullYear()} RankStack. All rights reserved.
-                    </p>
-
-                    <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-                        <Link
-                            href="https://www.facebook.com/rankstack"
-                            className="transition-colors duration-300 text-white hover:text-teal-accent-400"
-                        >
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                                <path d="M22.675 0H1.325C0.593 0 0 0.593 0 1.325v21.351C0 23.407 0.593 24 1.325 24h11.489V14.708h-3.13v-3.631h3.13V8.045c0-3.1 1.893-4.787 4.66-4.787 1.325 0 2.463 0.099 2.794 0.143v3.241l-1.918 0.001c-1.504 0-1.795 0.716-1.795 1.763v2.313h3.587l-0.467 3.631h-3.12V24h6.117C23.407 24 24 23.407 24 22.676V1.325C24 0.593 23.407 0 22.675 0z" />
-                            </svg>
-                        </Link>
-
-                        <Link
-                            href="https://www.instagram.com/rankstack/"
-                            className="transition-colors duration-300 text-white hover:text-teal-accent-400"
-                        >
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                                <path d="M12,2.2c3.2,0,3.6,0,4.8,0.1c1.2,0.1,1.9,0.2,2.4,0.4c0.6,0.2,1.1,0.5,1.6,1c0.5,0.5,0.8,1,1,1.6c0.2,0.5,0.4,1.2,0.4,2.4
-                c0.1,1.2,0.1,1.6,0.1,4.8s0,3.6-0.1,4.8c-0.1,1.2-0.2,1.9-0.4,2.4c-0.2,0.6-0.5,1.1-1,1.6c-0.5,0.5-1,0.8-1.6,1
-                c-0.5,0.2-1.2,0.4-2.4,0.4c-1.2,0.1-1.6,0.1-4.8,0.1s-3.6,0-4.8-0.1c-1.2-0.1-1.9-0.2-2.4-0.4c-0.6-0.2-1.1-0.5-1.6-1
-                c-0.5-0.5-0.8-1-1-1.6c-0.2-0.5-0.4-1.2-0.4-2.4c-0.1-1.2-0.1-1.6-0.1-4.8s0-3.6,0.1-4.8c0.1-1.2,0.2-1.9,0.4-2.4
-                c0.2-0.6,0.5-1.1,1-1.6c0.5-0.5,1-0.8,1.6-1c0.5-0.2,1.2-0.4,2.4-0.4C8.4,2.2,8.8,2.2,12,2.2 M12,0.3c-3.3,0-3.7,0-4.9,0.1
-                c-1.2,0.1-2.1,0.2-2.8,0.4c-0.9,0.2-1.7,0.6-2.4,1.3c-0.7,0.7-1.1,1.5-1.3,2.4c-0.2,0.7-0.3,1.6-0.4,2.8C0.3,9.5,0.3,9.9,0.3,13.2
-                s0,3.7,0.1,4.9c0.1,1.2,0.2,2.1,0.4,2.8c0.2,0.9,0.6,1.7,1.3,2.4c0.7,0.7,1.5,1.1,2.4,1.3c0.7,0.2,1.6,0.3,2.8,0.4
-                c1.2,0.1,1.6,0.1,4.9,0.1s3.7,0,4.9-0.1c1.2-0.1,2.1-0.2,2.8-0.4c0.9-0.2,1.7-0.6,2.4-1.3c0.7-0.7,1.1-1.5,1.3-2.4
-                c0.2-0.7,0.3-1.6,0.4-2.8c0.1-1.2,0.1-1.6,0.1-4.9s0-3.7-0.1-4.9c-0.1-1.2-0.2-2.1-0.4-2.8c-0.2-0.9-0.6-1.7-1.3-2.4
-                c-0.7-0.7-1.5-1.1-2.4-1.3c-0.7-0.2-1.6-0.3-2.8-0.4C15.7,0.3,15.3,0.3,12,0.3L12,0.3z"/>
-                                <path d="M12,5.8c-3.4,0-6.2,2.8-6.2,6.2c0,3.4,2.8,6.2,6.2,6.2c3.4,0,6.2-2.8,6.2-6.2C18.2,8.6,15.4,5.8,12,5.8L12,5.8z
-                M12,16.3c-2.4,0-4.3-1.9-4.3-4.3c0-2.4,1.9-4.3,4.3-4.3c2.4,0,4.3,1.9,4.3,4.3C16.3,14.4,14.4,16.3,12,16.3L12,16.3z"/>
-                                <circle cx="18.4" cy="5.6" r="1.4" />
-                            </svg>
-                        </Link>
-
-                        <Link
-                            href="https://www.youtube.com/@rankstack"
-                            className="transition-colors duration-300 text-white hover:text-teal-accent-400"
-                        >
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                                <path d="M23.498,6.186c-0.275-1.033-1.078-1.84-2.114-2.128C19.552,3.504,12,3.504,12,3.504s-7.552,0-9.384,0.554 c-1.037,0.288-1.839,1.096-2.114,2.128C0,8.023,0,12,0,12s0,3.977,0.502,5.814c0.275,1.033,1.078,1.84,2.114,2.128 C4.448,20.496,12,20.496,12,20.496s7.552,0,9.384-0.554c1.037-0.288,1.839-1.096,2.114-2.128C24,15.977,24,12,24,12 S24,8.023,23.498,6.186z M9.751,15.205V8.795L15.545,12L9.751,15.205z" />
-                            </svg>
-                        </Link>
-
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
-}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;

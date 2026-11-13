@@ -12,7 +12,7 @@ export const metadata = createMetadata({
     "domain creation date lookup",
     "how old is a domain",
   ],
-  image: "https://rankstack.dev/logo.png",
+  image: "https://rankstack.dev/rankstack-logo.png",
   imageAlt: "RankStack domain age checker",
 });
 

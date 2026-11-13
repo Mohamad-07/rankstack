@@ -21,7 +21,7 @@ export default function SchemaMarkup() {
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/logo.png`,
+          url: `${SITE_URL}/rankstack-logo.png`,
         },
         email: "support@rankstack.dev",
         description: SITE_TAGLINE,

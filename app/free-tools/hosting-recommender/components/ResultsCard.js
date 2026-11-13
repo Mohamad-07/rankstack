@@ -1,44 +1,57 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { Star, ExternalLink } from "lucide-react";
+import { ExternalLink, Gauge, LifeBuoy, Star, Wallet } from "lucide-react";
+
+const badges = ["Top choice", "Great value", "Recommended"];
 
 export default function ResultsCard({ host, rank }) {
-  const badges = ["🏆 Top Choice", "🔥 Great Value", "💡 Recommended"];
-  const delay = 0.2 * rank;
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
+    <motion.article
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.6 }}
-      className="bg-white border border-gray-100 rounded-3xl p-6 shadow-md hover:shadow-lg transition-all flex flex-col justify-between"
+      transition={{ delay: 0.08 * rank, duration: 0.4 }}
+      className="card flex h-full flex-col p-5"
     >
-      <div>
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-semibold text-gray-800">{host.name}</h3>
-          <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
-            {badges[rank - 1]}
-          </span>
-        </div>
-
-        <p className="text-gray-600 mb-4 text-sm leading-relaxed">{host.description}</p>
-
-        <ul className="text-gray-700 text-sm space-y-1 mb-6">
-          <li className="flex items-center gap-1"><Star size={14} className="text-yellow-400" /> Rating: {host.rating}/5</li>
-          <li>💰 ${host.price}/month</li>
-          <li>⚡ {host.performance}</li>
-          <li>🎧 {host.support}</li>
-        </ul>
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="text-lg font-semibold text-slate-950">{host.name}</h3>
+        <span className="shrink-0 rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-700">
+          {badges[rank - 1]}
+        </span>
       </div>
+
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+        {host.description}
+      </p>
+
+      <ul className="mt-4 space-y-2 text-sm text-slate-700">
+        <li className="flex items-center gap-2">
+          <Star className="h-4 w-4 text-amber-500" aria-hidden="true" />
+          {host.rating}/5 rating
+        </li>
+        <li className="flex items-center gap-2">
+          <Wallet className="h-4 w-4 text-slate-400" aria-hidden="true" />
+          ${host.price}/month
+        </li>
+        <li className="flex items-center gap-2">
+          <Gauge className="h-4 w-4 text-slate-400" aria-hidden="true" />
+          {host.performance}
+        </li>
+        <li className="flex items-center gap-2">
+          <LifeBuoy className="h-4 w-4 text-slate-400" aria-hidden="true" />
+          {host.support}
+        </li>
+      </ul>
 
       <a
         href={host.affiliateLink}
         target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold py-2 rounded-xl hover:bg-blue-700 transition"
+        rel="noopener noreferrer sponsored"
+        className="btn-primary mt-5 w-full"
       >
-        Visit {host.name} <ExternalLink size={16} />
+        Visit {host.name}
+        <ExternalLink className="h-4 w-4" aria-hidden="true" />
       </a>
-    </motion.div>
+    </motion.article>
   );
 }

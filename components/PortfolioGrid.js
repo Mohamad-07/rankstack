@@ -38,13 +38,13 @@ const portfolioItems = [
     { ImageHref: img12, title: "SKMH Traders", category: "wordpress", description: "Online Store", link: "https://www.skmhtraders.com/" },
     { ImageHref: img08, title: "FaizanCars", category: "wordpress", description: "Qualified in the automotive field", link: "https://www.faizancars.com/" },
     { ImageHref: img09, title: "Portfolio Website", category: "wordpress", description: "Animated website", link: "https://www.muhammadmushtaq.com/" },
-    { ImageHref: img10, title: "Luqman Restuarant", category: "wordpress", description: "Restuarant Website", link: "https://www.luqmanrestaurant.com/" },
-    { ImageHref: img19, title: "Medely ", category: "development", description: "Online Restuarant", link: "https://medely.com/" },
-    { ImageHref: img20, title: "Redgramint", category: "development", description: "Online Restuarant", link: "https://redgramint.site/" },
-    { ImageHref: img21, title: "Chaudhry Mobiles", category: "development", description: "Online Restuarant", link: "https://chaudharymobiles.com/" },
+    { ImageHref: img10, title: "Luqman Restaurant", category: "wordpress", description: "Restaurant Website", link: "https://www.luqmanrestaurant.com/" },
+    { ImageHref: img19, title: "Medely ", category: "development", description: "Online Restaurant", link: "https://medely.com/" },
+    { ImageHref: img20, title: "Redgramint", category: "development", description: "Online Restaurant", link: "https://redgramint.site/" },
+    { ImageHref: img21, title: "Chaudhry Mobiles", category: "development", description: "Online Restaurant", link: "https://chaudharymobiles.com/" },
     { ImageHref: img22, title: "Active Cars", category: "development", description: "Cars Selling Store", link: "https://activecarspk.com/home" },
     
-    { ImageHref: img13, title: "Fire n Steak House", category: "development", description: "Online Restuarant", link: "https://firensteakhouse.com/" },
+    { ImageHref: img13, title: "Fire n Steak House", category: "development", description: "Online Restaurant", link: "https://firensteakhouse.com/" },
     { ImageHref: img14, title: "La Ruby", category: "shopify", description: "Online Store", link: "https://www.laruby.store/" },
     { ImageHref: img15, title: "Krete", category: "shopify", description: "Online Store", link: "https://krete.club/" },
     { ImageHref: img16, title: "Mable clothing", category: "shopify", description: "Online Store", link: "https://mableclothing.com/" },
@@ -55,17 +55,15 @@ const portfolioItems = [
 
 const PortfolioGrid = ({ showCard }) => {
     return (
-        <div className="flex flex-wrap">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {portfolioItems
                 .filter(
                     (item) =>
                         showCard === "all" || item.category.toLowerCase() === showCard
                 )
-                .map((item, index) => (
-                    <PortfolioCard key={index} {...item} />
+                .map((item) => (
+                    <PortfolioCard key={item.link} {...item} />
                 ))}
-
-                
         </div>
     );
 };

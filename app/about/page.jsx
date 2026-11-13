@@ -1,79 +1,150 @@
-import Image from 'next/image';
-import aboutImg from '@/public/about (1).jpg';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Teams from '@/components/Teams';
-import { FaMapMarkerAlt, FaEnvelopeOpen, FaPhoneAlt } from 'react-icons/fa';
-import AosAnimation from '@/components/AosAnimation';
-import { createMetadata } from '@/lib/seo';
+import Image from "next/image";
+import Link from "next/link";
+import aboutImg from "@/public/about (1).jpg";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Teams from "@/components/Teams";
+import PageHero from "@/components/PageHero";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: 'About RankStack',
+  title: "About RankStack",
   description:
-    'Learn how RankStack helps developers and site owners with AI-powered utilities, network diagnostics, hosting research, and technical SEO.',
-  path: '/about',
-  keywords: ['about RankStack', 'developer tools team', 'technical SEO experts'],
+    "Learn how RankStack helps developers and site owners with AI-powered utilities, network diagnostics, hosting research, and technical SEO.",
+  path: "/about",
+  keywords: ["about RankStack", "developer tools team", "technical SEO experts"],
 });
 
+const contactCards = [
+  {
+    icon: MapPin,
+    title: "Our office",
+    value: "Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi",
+    href: null,
+  },
+  {
+    icon: Mail,
+    title: "Email us",
+    value: "support@rankstack.dev",
+    href: "mailto:support@rankstack.dev",
+  },
+  {
+    icon: Phone,
+    title: "Call us",
+    value: "+44 7360 506217",
+    href: "tel:+447360506217",
+  },
+];
+
 const About = () => {
-    return (
-        <>
-            <div className="pt-10">
-                <Header />
-            </div>
-            <AosAnimation>
-                <div className="container px-5 lg:px-20 mx-auto pt-10 lg:pt-20">
-                    <div className="flex flex-col lg:flex-row items-center">
-                        <div className="w-full lg:w-1/2 relative">
-                            <Image className="mb-4 lg:mb-0" src={aboutImg} alt="About Us" data-aos="fade-up" />
-                        </div>
-                        <div className="w-full lg:w-1/2 lg:pl-10" data-aos="fade-left">
-                            <h1 className="text-3xl sm:text-4xl font-bold uppercase mb-4">AI-powered tools for developers and site owners</h1>
-                            <h5 className="text-lg uppercase text-primary mb-3 bg-gradient-to-r from-indigo-400 to-pink-600 bg-clip-text text-transparent">
-                                RankStack began in 2017 with a simple goal: make sense of inconsistent marketing, hosting, and technical SEO advice. Muhammad Luqman Pervez and Mohammad Shehzad wanted a clearer way to test what actually works.
-                            </h5>
-                            <p className="mb-4">
-                                Today, RankStack brings network diagnostics, asset optimization, hosting research, and technical SEO into one practical toolkit. Whether you are optimizing a WordPress site, launching an online store, or auditing infrastructure, our tools and guides help you make faster, evidence-based decisions.
-                            </p>
-                            <a href="#reach" className="inline-block rounded bg-gradient-to-r from-purple-400 to-blue-500 text-white uppercase py-3 px-5">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </AosAnimation>
-            <Teams />
+  return (
+    <>
+      <Header />
 
-            {/* About text */}
-            <AosAnimation>
-            <div className="container px-5 lg:px-20 mx-auto mb-14" id="reach">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-left">
-                        <FaMapMarkerAlt className="text-indigo-400 text-5xl mr-3" />
-                        <div className="flex flex-col">
-                            <h5 className="text-lg font-semibold uppercase">Our Office</h5>
-                            <p className="m-0"></p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-down">
-                        <FaEnvelopeOpen className="text-indigo-400 text-5xl mr-3" />
-                        <div className="flex flex-col">
-                            <h5 className="text-lg font-semibold uppercase">Email Us</h5>
-                            <p className="m-0">support@rankstack.dev</p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center bg-gray-100 rounded-lg p-5 h-40" data-aos="fade-right">
-                        <FaPhoneAlt className="text-indigo-400 text-5xl mr-3" />
-                        <div className="flex flex-col">
-                            <h5 className="text-lg font-semibold uppercase">Call Us</h5>
-                            <p className="m-0"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </AosAnimation>
+      <main>
+        <PageHero
+          eyebrow="About RankStack"
+          title="Clear answers for the technical side of the web"
+          description="RankStack began with a simple goal: make sense of inconsistent hosting, DNS, and technical SEO advice by testing what actually works."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "About" },
+          ]}
+        />
 
-            <Footer />
-        </>
-    );
-}
+        <section className="section bg-white">
+          <div className="shell">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-soft">
+                <Image
+                  src={aboutImg}
+                  alt="The RankStack team"
+                  className="h-full w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+
+              <div>
+                <span className="eyebrow">Our story</span>
+                <h2 className="section-title mt-4">
+                  Practical tools, honest research, and no hype
+                </h2>
+                <div className="mt-5 space-y-4 text-base leading-relaxed text-slate-600">
+                  <p>
+                    Muhammad Luqman Pervez and Mohammad Shehzad started RankStack
+                    to give developers and site owners a clearer way to evaluate
+                    hosting, network configuration, and technical SEO.
+                  </p>
+                  <p>
+                    Today, RankStack brings network diagnostics, asset
+                    optimization, hosting research, and technical SEO into one
+                    practical toolkit. Whether you are optimizing a WordPress
+                    site, launching a store, or auditing infrastructure, our
+                    tools and guides help you make faster, evidence-based
+                    decisions.
+                  </p>
+                </div>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Link href="/free-tools" className="btn-primary">
+                    Explore free tools
+                  </Link>
+                  <Link href="/contact" className="btn-secondary">
+                    Contact us
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section bg-slate-50" id="reach">
+          <div className="shell">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="eyebrow">Get in touch</span>
+              <h2 className="section-title mt-4">How to reach us</h2>
+              <p className="section-copy mt-4">
+                We reply to every genuine question about tools, hosting, and
+                technical SEO.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              {contactCards.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <div key={card.title} className="card p-6 text-center">
+                    <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <h3 className="mt-4 text-base font-semibold text-slate-950">
+                      {card.title}
+                    </h3>
+                    {card.href ? (
+                      <a
+                        href={card.href}
+                        className="mt-2 inline-block text-sm leading-relaxed text-slate-600 transition hover:text-indigo-600"
+                      >
+                        {card.value}
+                      </a>
+                    ) : (
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                        {card.value}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <Teams />
+      </main>
+
+      <Footer />
+    </>
+  );
+};
 
 export default About;

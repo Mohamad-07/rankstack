@@ -6,7 +6,7 @@ const SEO = ({ blog, path }) => {
   const { title, description, imageUrl, slug, author, date, updatedDate } = blog
   const canonicalUrl = `${SITE_URL}${path || `/blogs/${slug}`}`
   const image =
-    typeof imageUrl === "string" ? imageUrl : imageUrl?.src || `${SITE_URL}/logo.png`
+    typeof imageUrl === "string" ? imageUrl : imageUrl?.src || `${SITE_URL}/rankstack-logo.png`
 
   return (
     <script
@@ -28,7 +28,7 @@ const SEO = ({ blog, path }) => {
             url: SITE_URL,
             logo: {
               "@type": "ImageObject",
-              url: `${SITE_URL}/logo.png`,
+              url: `${SITE_URL}/rankstack-logo.png`,
             },
           },
           datePublished: date,

@@ -1,87 +1,175 @@
+"use client";
+
+import { useState } from "react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+
+const contactDetails = [
+  {
+    icon: MapPin,
+    label: "Office",
+    value: "Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "support@rankstack.dev",
+    href: "mailto:support@rankstack.dev",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+44 7360 506217",
+    href: "tel:+447360506217",
+  },
+];
 
 const ContactUs = () => {
-    return (
-        <section className="text-gray-600 body-font relative" id='contact'>
-            <div className="container px-5 py-14 mx-auto flex sm:flex-nowrap flex-wrap">
-                {/* map */}
-                <div
-                    className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative"
+  const [status, setStatus] = useState("");
 
-                >
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        className="absolute inset-0"
-                        frameBorder="0"
-                        title="map"
-                        marginHeight="0"
-                        marginWidth="0"
-                        scrolling="no"
-                        src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Asian%20Business%20Center,%20First%20Floor,%20Bahria%20Town%20Phase%207,%20Rawalpindi&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-                        style={{ filter: 'grayscale(1) contrast(1.2) opacity(0.4)' }}
-                    ></iframe>
-                    <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-                        <div className="lg:w-1/2 px-6">
-                            <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-                            <p className="mt-1">Asian Business Center, First Floor, Bahria Town Phase 7, Rawalpindi</p>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const subject = encodeURIComponent(`Website enquiry from ${name}`);
+    const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
+    window.location.href = `mailto:support@rankstack.dev?subject=${subject}&body=${body}`;
+    setStatus("Opening your email app…");
+  };
+
+  return (
+    <section className="section bg-slate-50" id="contact">
+      <div className="shell">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">Contact</span>
+          <h2 className="section-title mt-4">Let&apos;s talk about your next move</h2>
+          <p className="section-copy mt-4">
+            Questions about a tool, a hosting decision, or a technical SEO
+            audit? Send us a note and we will get back to you.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-8">
+          <div className="space-y-4 lg:col-span-5">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+              <div className="relative h-64 w-full bg-slate-200 sm:h-80">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  className="absolute inset-0"
+                  frameBorder="0"
+                  title="RankStack office location"
+                  marginHeight="0"
+                  marginWidth="0"
+                  scrolling="no"
+                  src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Asian%20Business%20Center,%20First%20Floor,%20Bahria%20Town%20Phase%207,%20Rawalpindi&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+                  style={{ filter: "grayscale(0.3) contrast(1.05)" }}
+                />
+              </div>
+
+              <div className="divide-y divide-slate-100 p-5">
+                {contactDetails.map((item) => {
+                  const Icon = item.icon;
+                  const value = item.href ? (
+                    <a href={item.href} className="link-inline break-words">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <span className="text-slate-700">{item.value}</span>
+                  );
+
+                  return (
+                    <div key={item.label} className="flex gap-3 py-4 first:pt-0 last:pb-0">
+                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                          {item.label}
                         </div>
-                        <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-                            <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-                            <a className="text-red-500 leading-relaxed">support@rankstack.dev</a>
-                            <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                            <p className="leading-relaxed">+44 7360506217</p>
-                        </div>
+                        <div className="mt-1 text-sm leading-relaxed">{value}</div>
+                      </div>
                     </div>
-                </div>
-
-                {/* form */}
-                <div
-                    className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
-
-                >
-                    <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Contact Us</h2>
-                    <p className="leading-relaxed mb-5 text-gray-600">
-                        We’re here to help you elevate your digital presence. </p>
-                    <div className="relative mb-4">
-                        <label htmlFor="name" className="leading-7 text-sm text-gray-600">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder='Enter your full name...'
-                            className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        />
-                    </div>
-                    <div className="relative mb-4">
-                        <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder='Enter your email address...'
-                            className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                        />
-                    </div>
-                    <div className="relative mb-4">
-                        <label htmlFor="message" className="leading-7 text-sm text-gray-600">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder='Share your thoughts or inquiries...'
-                            className="w-full bg-white rounded border border-gray-300 focus:border-gradient-focus focus:ring-2 focus:ring-gradient-focus h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                        ></textarea>
-                    </div>
-                    <button className="bg-gradient-to-r from-indigo-400 to-pink-600 text-white border-0 py-2 px-6 focus:outline-none hover:bg-gradient-to-r hover:from-indigo-500 hover:to-pink-700 rounded text-lg">
-                        Send Message
-                    </button>
-                    <p className="text-xs text-gray-500 mt-3">
-                        We look forward to connecting with you and exploring how we can help you achieve your digital goals.
-                    </p>
-                </div>
-
+                  );
+                })}
+              </div>
             </div>
-        </section>
-    );
-}
+          </div>
+
+          <div className="lg:col-span-7">
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:p-8"
+            >
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="field-label">
+                    Full name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autoComplete="name"
+                    placeholder="Your name"
+                    required
+                    className="field"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="field-label">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    required
+                    className="field"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-5">
+                <label htmlFor="message" className="field-label">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us what you are working on…"
+                  required
+                  rows={6}
+                  className="field resize-y"
+                />
+              </div>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-xs leading-relaxed text-slate-500">
+                  This opens your email app so you can send the message directly.
+                </p>
+                <button type="submit" className="btn-primary shrink-0">
+                  Send message
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </div>
+
+              {status && (
+                <p className="mt-4 text-sm font-medium text-indigo-600" role="status">
+                  {status}
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default ContactUs;

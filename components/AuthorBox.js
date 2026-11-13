@@ -1,74 +1,61 @@
 import Image from "next/image";
-import logo from '@/public/rankstack-logo.png';
+import Link from "next/link";
 
 export default function AuthorBox() {
   return (
     <section
-      className="max-w-3xl mx-auto my-10 px-6 py-8 bg-white border border-gray-100 rounded-2xl shadow-sm flex flex-col md:flex-row items-center gap-6"
+      className="mx-auto my-10 flex max-w-3xl flex-col items-start gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center"
       itemScope
       itemType="https://schema.org/Person"
     >
-      {/* Author Image */}
-      <figure className="flex-shrink-0">
+      <figure className="shrink-0">
         <Image
           src="https://res.cloudinary.com/dpgspconw/image/upload/v1759154339/web-hosting-for-bloggers_cbnl6u.avif"
-          alt="RankStack - Author photo"
-          width={96}
-          height={96}
-          className="rounded-xl object-cover border border-gray-200"
+          alt="RankStack editorial team"
+          width={80}
+          height={80}
+          className="h-20 w-20 rounded-xl object-cover"
           itemProp="image"
         />
       </figure>
 
-      {/* Author Info */}
-      <figcaption className="flex-1 text-center md:text-left">
-        <meta itemProp="jobTitle" content="Senior Content Writer & SEO Expert" />
+      <figcaption className="flex-1">
+        <meta itemProp="jobTitle" content="Hosting and SEO Research Team" />
         <meta itemProp="url" content="https://rankstack.dev/about" />
 
-        <div className="text-sm text-gray-500 mb-1">Written by</div>
-        <h3
-          className="text-lg font-semibold text-gray-900 tracking-tight"
-          itemProp="name"
-        >
+        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+          Written by
+        </p>
+        <h3 className="mt-1 text-lg font-semibold text-slate-950" itemProp="name">
           RankStack
         </h3>
-
-        <p
-          className="text-gray-600 text-sm mt-2 leading-relaxed"
-          itemProp="description"
-        >
-          Senior content writer, SEO expert, and hands-on hosting tester who runs
-          long-term hosting tests to reveal real-world performance and insights.
+        <p className="mt-2 text-sm leading-relaxed text-slate-600" itemProp="description">
+          The RankStack editorial team tests hosting, SEO, and performance tools
+          hands-on so recommendations reflect real-world results.
         </p>
 
-        {/* Social Links (optional, good for authority signals) */}
-        <div className="flex justify-center md:justify-start gap-4 mt-3 text-sm">
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
           <a
             href="https://twitter.com/RankStack"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600"
+            className="text-indigo-600 hover:text-indigo-700"
             itemProp="sameAs"
           >
-            Facebook
+            X / Twitter
           </a>
           <a
             href="https://www.linkedin.com/company/rankstack"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-700 hover:text-blue-800"
+            className="text-indigo-600 hover:text-indigo-700"
             itemProp="sameAs"
           >
-            Youtube
+            LinkedIn
           </a>
-          <a
-            href="https://rankstack.dev/about"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 hover:text-gray-900"
-          >
-            About
-          </a>
+          <Link href="/about" className="text-slate-600 hover:text-slate-950">
+            About RankStack
+          </Link>
         </div>
       </figcaption>
     </section>

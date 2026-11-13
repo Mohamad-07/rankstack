@@ -1,130 +1,106 @@
-import { blogData } from '@/content/blogs'
-import Link from 'next/link'
-import Image from 'next/image'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import Script from 'next/script'
-import { SITE_URL, createMetadata } from '@/lib/seo'
+import Script from "next/script";
+import { blogData } from "@/content/blogs";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import BlogCard from "@/components/BlogCard";
+import { SITE_URL, createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: 'Hosting, SEO & Developer Blog',
+  title: "Hosting, SEO & Developer Blog",
   description:
-    'Read RankStack guides on web hosting, DNS, IP diagnostics, image optimization, technical SEO audits, and programmable SEO.',
-  path: '/blogs',
+    "Read RankStack guides on web hosting, DNS, IP diagnostics, image optimization, technical SEO audits, and programmable SEO.",
+  path: "/blogs",
   keywords: [
-    'hosting reviews',
-    'technical SEO guides',
-    'DNS guides',
-    'IP lookup guides',
-    'image optimization',
+    "hosting reviews",
+    "technical SEO guides",
+    "DNS guides",
+    "IP lookup guides",
+    "image optimization",
   ],
-})
+});
+
+const sortByNewest = (a, b) => {
+  const dateA = new Date(a.updatedDate || a.date).getTime();
+  const dateB = new Date(b.updatedDate || b.date).getTime();
+  return (Number.isNaN(dateB) ? 0 : dateB) - (Number.isNaN(dateA) ? 0 : dateA);
+};
 
 const BlogsPage = () => {
-  const siteUrl = `${SITE_URL}/blogs`
+  const siteUrl = `${SITE_URL}/blogs`;
+  const posts = [...blogData].sort(sortByNewest);
 
   return (
     <>
-      {/* ✅ Breadcrumb Schema */}
-      <Script id="breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
             { "@type": "ListItem", position: 2, name: "Blogs", item: siteUrl },
           ],
         })}
       </Script>
 
-      {/* ✅ Blog List Schema for Google */}
-      <Script id="bloglist-schema" type="application/ld+json" strategy="afterInteractive">
+      <Script
+        id="bloglist-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Blog",
           name: "RankStack Blog",
           description:
-            "Explore the latest articles and guides on SEO, web design, digital marketing, and branding from RankStack.",
+            "Hosting reviews, technical SEO guides, and practical developer tutorials from RankStack.",
           url: siteUrl,
-          blogPost: blogData.map((blog) => ({
+          blogPost: posts.slice(0, 12).map((blog) => ({
             "@type": "BlogPosting",
             headline: blog.title,
             description: blog.description,
             author: { "@type": "Person", name: blog.author },
             datePublished: blog.date,
-            url: `https://rankstack.dev/blogs/${blog.slug}`,
+            url: `${SITE_URL}/blogs/${blog.slug}`,
             image:
-              typeof blog.imageUrl === 'string'
+              typeof blog.imageUrl === "string"
                 ? blog.imageUrl
-                : blog.imageUrl?.src || 'https://rankstack.dev/default-blog.jpg',
+                : blog.imageUrl?.src || `${SITE_URL}/blog-banner-1200x675.webp`,
           })),
         })}
       </Script>
 
-      <div className="pt-10">
-        <Header />
-      </div>
+      <Header />
 
-      {/* ✅ Main Content Section */}
-      <main role="main" className="max-w-7xl mx-auto py-10 px-4">
-        <h1 className="text-5xl font-bold mb-6 text-center text-gray-900">
-          RankStack Blogs — Expert Insights & Tips
-        </h1>
-        <p className="max-w-2xl mx-auto text-center text-gray-600 mb-10 leading-relaxed">
-          Dive into the world of digital marketing, SEO, and web design with expert articles from
-          RankStack. Stay updated on the latest trends, strategies, and tools shaping the digital
-          world.
-        </p>
+      <main>
+        <PageHero
+          eyebrow="RankStack journal"
+          title="Hosting, SEO, and developer guides"
+          description="Evidence-based reviews and practical tutorials to help you choose better infrastructure, fix technical issues, and grow organic traffic."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Blogs" },
+          ]}
+        />
 
-        <div className="grid gap-3 md:grid-cols-3">
-          {blogData.map((blog) => (
-            <article
-              key={blog.id}
-              className="p-5 border rounded-lg shadow hover:shadow-lg transition bg-white"
-              itemScope
-              itemType="https://schema.org/BlogPosting"
-            >
-              {/* ✅ Next.js Image with Lazy Loading */}
-              {blog.imageUrl && (
-                <Image
-                  src={typeof blog.imageUrl === 'string' ? blog.imageUrl : blog.imageUrl.src}
-                  alt={blog.title}
-                  width={600}
-                  height={400}
-                  loading="lazy"
-                  className="w-full h-48 object-cover rounded"
-                />
-              )}
-
-              <h2
-                className="text-2xl font-semibold mt-4"
-                itemProp="headline"
-              >
-                {blog.title}
-              </h2>
-              <p className="text-gray-500 text-sm" itemProp="author">
-                By {blog.author} – <time itemProp="datePublished">{blog.date}</time>
-              </p>
-              <p className="mt-2 text-gray-700" itemProp="description">
-                {blog.description}
-              </p>
-
-              <Link
-                href={`/blogs/${blog.slug}`}
-                className="text-blue-600 mt-3 inline-block hover:underline font-medium"
-                aria-label={`Read more about ${blog.title}`}
-                itemProp="url"
-              >
-                Read More →
-              </Link>
-            </article>
-          ))}
-        </div>
+        <section className="section bg-white">
+          <div className="shell">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {posts.map((blog) => (
+                <BlogCard key={blog.slug} blog={blog} />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default BlogsPage
+export default BlogsPage;

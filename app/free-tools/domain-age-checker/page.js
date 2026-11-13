@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import RelatedResources from "@/components/RelatedResources";
 import { ArrowRight, CalendarDays, Check, ChevronDown, Clock3, ExternalLink, RotateCcw, Search } from "lucide-react";
 
@@ -117,36 +118,25 @@ export default function DomainAgeCheckerPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Header />
 
-      <main className="min-h-screen bg-[#f5f7f8] text-slate-900">
-        <div className="border-b border-slate-200 bg-white">
-          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-            <nav aria-label="Breadcrumb" className="text-sm text-slate-500">
-              <ol className="flex items-center gap-2">
-                <li><Link href="/" className="hover:text-slate-900">Home</Link></li>
-                <li aria-hidden="true">/</li>
-                <li><Link href="/free-tools" className="hover:text-slate-900">Free Tools</Link></li>
-                <li aria-hidden="true">/</li>
-                <li aria-current="page" className="text-slate-800">Domain Age Checker</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
+      <main>
+        <PageHero
+          eyebrow="Free tool"
+          title="Domain age checker"
+          description="Calculate how long a domain has been registered using its registry-reported creation date. See its registration anniversary, registrar, and RDAP source."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Free Tools", href: "/free-tools" },
+            { label: "Domain Age Checker" },
+          ]}
+        />
 
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-          <header className="mb-8 max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-800">
-              <Clock3 className="h-4 w-4" aria-hidden="true" />
-              DOMAIN HISTORY
-            </div>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Domain age checker</h1>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Calculate how long a domain has been registered using its registry-reported creation date. See its registration anniversary, registrar, and the RDAP source.
-            </p>
-          </header>
+        <section className="section bg-white">
+          <div className="shell">
+          
 
           <section aria-labelledby="age-check-heading" className="grid gap-8 lg:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.75fr)]">
             <div className="min-w-0">
-              <form onSubmit={checkAge} className="border-y border-slate-300 bg-white px-5 py-6 sm:px-7">
+              <form onSubmit={checkAge} className="card px-5 py-6 sm:px-7">
                 <label id="age-check-heading" htmlFor="age-domain-input" className="mb-2 block text-sm font-semibold text-slate-800">Domain name</label>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <input
@@ -162,9 +152,9 @@ export default function DomainAgeCheckerPage() {
                     onChange={(event) => setDomain(event.target.value)}
                     placeholder="example.com"
                     aria-describedby="age-domain-help"
-                    className="h-12 min-w-0 flex-1 border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+                    className="field h-12 min-w-0 flex-1"
                   />
-                  <button type="submit" disabled={loading || !domain.trim()} className="inline-flex h-12 items-center justify-center gap-2 bg-amber-800 px-6 text-sm font-semibold text-white transition hover:bg-amber-900 disabled:cursor-not-allowed disabled:bg-slate-400">
+                  <button type="submit" disabled={loading || !domain.trim()} className="btn-primary h-12 shrink-0">
                     {loading ? <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" /> : <Search className="h-4 w-4" />}
                     {loading ? "Checking registry" : "Check domain age"}
                   </button>
@@ -173,10 +163,10 @@ export default function DomainAgeCheckerPage() {
                 {error && <p role="alert" className="mt-4 border-l-2 border-rose-700 bg-rose-50 px-3 py-2 text-sm text-rose-800">{error}</p>}
               </form>
 
-              {loading && <div role="status" className="mt-6 flex items-center gap-3 border-y border-slate-300 bg-white px-5 py-5 text-sm text-slate-600"><span className="h-4 w-4 animate-spin rounded-full border-2 border-amber-800/20 border-t-amber-800" />Reading the authoritative registry record…</div>}
+              {loading && <div role="status" className="mt-6 flex items-center gap-3 border-y border-slate-300 bg-white px-5 py-5 text-sm text-slate-600"><span className="h-4 w-4 animate-spin rounded-full border-2 border-indigo-800/20 border-t-indigo-800" />Reading the authoritative registry record…</div>}
 
               {record && age && createdAt && anniversary && nextMilestone && lastMilestone && (
-                <section aria-live="polite" className="mt-8 border-y border-slate-300 bg-white">
+                <section aria-live="polite" className="card mt-8 overflow-hidden">
                   <div className="border-b border-slate-200 px-5 py-5 sm:px-7">
                     <p className="text-xs font-semibold uppercase text-slate-500">Calculated registration age</p>
                     <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -188,7 +178,7 @@ export default function DomainAgeCheckerPage() {
                   <div className="grid grid-cols-3 divide-x divide-slate-200 border-b border-slate-200">
                     {[[age.years, "Years"], [age.months, "Months"], [age.days, "Days"]].map(([value, label]) => (
                       <div key={label} className="px-3 py-6 text-center sm:px-6 sm:py-8">
-                        <div className="text-3xl font-bold tabular-nums text-amber-900 sm:text-4xl">{value}</div>
+                        <div className="text-3xl font-bold tabular-nums text-indigo-900 sm:text-4xl">{value}</div>
                         <div className="mt-1 text-xs font-semibold uppercase text-slate-500">{label}</div>
                       </div>
                     ))}
@@ -200,10 +190,10 @@ export default function DomainAgeCheckerPage() {
                         <h3 className="text-sm font-bold text-slate-900">Registration timeline</h3>
                         <p className="mt-1 text-xs text-slate-500">Time since the previous 5-year mark</p>
                       </div>
-                      <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-700"><CalendarDays className="h-4 w-4 text-amber-800" />{age.years} years registered</span>
+                      <span className="inline-flex items-center gap-2 text-sm font-medium text-slate-700"><CalendarDays className="h-4 w-4 text-indigo-800" />{age.years} years registered</span>
                     </div>
                     <div className="mt-5 h-2 overflow-hidden bg-slate-100" role="progressbar" aria-label="Progress toward next five-year domain-age milestone" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress)}>
-                      <div className="h-full bg-amber-700 transition-all" style={{ width: `${progress}%` }} />
+                      <div className="h-full bg-indigo-700 transition-all" style={{ width: `${progress}%` }} />
                     </div>
                     <div className="mt-2 flex justify-between gap-4 text-xs text-slate-500">
                       <span>{formatDate(lastMilestone)}</span>
@@ -231,20 +221,20 @@ export default function DomainAgeCheckerPage() {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2 border-t border-slate-200 bg-slate-50 px-5 py-4 text-xs leading-5 text-slate-600 sm:px-7">
-                    <RotateCcw className="h-4 w-4 shrink-0 text-amber-800" />
+                    <RotateCcw className="h-4 w-4 shrink-0 text-indigo-800" />
                     Registration age is not the same as website age, ownership history, or search-engine trust. Registry dates may be missing or reflect a re-registration.
-                    <Link href={`/free-tools/whois-lookup?domain=${encodeURIComponent(record.domain)}`} className="inline-flex items-center gap-1 font-semibold text-amber-900 underline underline-offset-2">View full record <ArrowRight className="h-3 w-3" /></Link>
+                    <Link href={`/free-tools/whois-lookup?domain=${encodeURIComponent(record.domain)}`} className="inline-flex items-center gap-1 font-semibold text-indigo-900 underline underline-offset-2">View full record <ArrowRight className="h-3 w-3" /></Link>
                   </div>
                 </section>
               )}
             </div>
 
             <aside className="space-y-6">
-              <section className="border-y border-slate-300 bg-white p-5 sm:p-6">
+              <section className="card p-5 sm:p-6">
                 <h2 className="text-sm font-bold uppercase text-slate-800">What the age means</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">The result uses the registry&apos;s domain creation event. It does not show when a website first launched, how long the current owner has held the domain, or whether the domain changed hands.</p>
               </section>
-              <section className="border-y border-slate-300 bg-white p-5 sm:p-6">
+              <section className="card p-5 sm:p-6">
                 <h2 className="text-sm font-bold uppercase text-slate-800">Data limitations</h2>
                 <ul className="mt-3 space-y-3 text-sm leading-6 text-slate-600">
                   <li>Some TLD registries do not publish RDAP records or creation dates.</li>
@@ -268,13 +258,14 @@ export default function DomainAgeCheckerPage() {
               </details>
               <details className="group px-4 py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-slate-800">Can this tell me who owns a domain?<ChevronDown className="h-4 w-4 shrink-0 transition group-open:rotate-180" /></summary>
-                <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">No. Registration data may show a registrar or redacted registrant details, but this age check does not verify current ownership. Use the <Link className="text-amber-900 underline underline-offset-2" href="/free-tools/whois-lookup">WHOIS domain lookup</Link> for other public registry fields.</p>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">No. Registration data may show a registrar or redacted registrant details, but this age check does not verify current ownership. Use the <Link className="text-indigo-900 underline underline-offset-2" href="/free-tools/whois-lookup">WHOIS domain lookup</Link> for other public registry fields.</p>
               </details>
             </div>
           </section>
 
           <RelatedResources context="/free-tools/domain-age-checker" />
-        </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

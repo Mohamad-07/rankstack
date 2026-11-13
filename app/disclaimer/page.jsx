@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import PageHero from '@/components/PageHero';
 import React from 'react';
 import { createMetadata } from '@/lib/seo';
 
@@ -14,18 +15,23 @@ export const metadata = createMetadata({
 const Disclaimer = () => {
     return (
         <div className=" min-h-screen">
-            <div className="pt-10">
-                <Header />
-            </div>
+            <Header />
 
-            <div className="relative px-6 mt-10 mb-10 md:mt-20 mx-auto max-w-4xl bg-white">
-                <h2 className="text-black font-bold text-4xl sm:text-5xl mb-6">
-                    Disclaimer
-                </h2>
-                
-                <hr className="my-4 border-gray-300" />
+      <main>
+        <PageHero
+          eyebrow="Legal"
+          title="Disclaimer"
+          description="Important limits on tool results, hosting recommendations, SEO guidance, and third-party links."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Disclaimer" },
+          ]}
+        />
 
-                <p className="text-gray-600 leading-relaxed mb-4">
+        <section className="section bg-white">
+          <div className="shell max-w-3xl prose-site">
+
+                <p >
                     At <strong>RankStack</strong>, we are committed to providing high-quality web development, SEO, and digital marketing services designed to enhance your online presence and drive growth. While we strive to deliver optimal results, we acknowledge that individual experiences and outcomes may vary based on numerous factors, including but not limited to:
                 </p>
 
@@ -36,28 +42,30 @@ const Disclaimer = () => {
                     <li>Client involvement and resources allocated to the projects.</li>
                 </ul>
 
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p >
                     Therefore, while we make every effort to ensure the accuracy of the information provided and the effectiveness of our services, <strong>RankStack</strong> cannot guarantee specific results. We encourage our clients to engage in thorough research and due diligence prior to making decisions based on the information and recommendations we provide.
                 </p>
 
                 <hr className="my-4 border-gray-300" />
 
-                <h3 className="text-gray-700 font-semibold text-2xl mt-4 mb-2">
+                <h3 >
                     Limitation of Liability
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p >
                     RankStack shall not be liable for any direct, indirect, incidental, or consequential damages that may arise from the use of our services, or reliance on the information provided on our website or through our communications. By utilizing our services, you acknowledge that you have read, understood, and agree to this disclaimer.
                 </p>
 
-                <h3 className="text-gray-700 font-semibold text-2xl mt-4 mb-2">
+                <h3 >
                     Contact Us
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p >
                     If you have any questions or concerns regarding our services or this disclaimer, please feel free to contact us for further clarification.
                 </p>
-            </div>
+          </div>
+        </section>
+      </main>
 
-            <Footer />
+      <Footer />
         </div>
     );
 }

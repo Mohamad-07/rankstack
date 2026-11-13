@@ -3,37 +3,41 @@
 import React, { useState } from "react";
 import PortfolioGrid from "./PortfolioGrid";
 
+const categories = ["all", "wordpress", "shopify", "development"];
+
 const PortfolioFilter = () => {
-    const [showCard, setShowCard] = useState("all");
+  const [showCard, setShowCard] = useState("all");
 
-    const handleProject = (category) => {
-        setShowCard(category);
-    };
+  return (
+    <>
+      <div className="mb-10 flex justify-center">
+        <div
+          className="flex flex-wrap justify-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1.5"
+          role="tablist"
+          aria-label="Filter projects by category"
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              role="tab"
+              aria-selected={showCard === category}
+              onClick={() => setShowCard(category)}
+              className={`rounded-full px-4 py-2 text-sm font-semibold capitalize transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
+                showCard === category
+                  ? "bg-slate-950 text-white shadow-sm"
+                  : "text-slate-600 hover:bg-white hover:text-slate-950"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
 
-    return (
-        <>
-            <div className="w-full flex justify-center mb-10">
-                <div className="sm:bg-gray-100 sm:border-4 border-gradient-to-br from-indigo-400 to-pink-600 py-2 px-4 rounded-full">
-                    <ul className="flex flex-wrap gap-3 space-x-1">
-                        {["all", "wordpress", "shopify", "development"].map((category) => (
-                            <li key={category}>
-                                <button
-                                    onClick={() => handleProject(category)}
-                                    className={`py-2 px-5 font-semibold transition ${showCard === category
-                                        ? " bg-gray-100 sm:border-0 border-2 border-opacity-80 border-y-indigo-400 border-x-pink-600 sm:bg-white text-black rounded-full"
-                                        : "text-black  sm:border-0 border-2 rounded-full border-y-indigo-400 border-x-pink-600"
-                                        }`}
-                                >
-                                    {category.charAt(0).toUpperCase() + category.slice(1)}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-            <PortfolioGrid showCard={showCard} />
-        </>
-    );
+      <PortfolioGrid showCard={showCard} />
+    </>
+  );
 };
 
 export default PortfolioFilter;

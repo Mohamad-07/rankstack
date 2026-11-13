@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import RelatedResources from "@/components/RelatedResources";
 import Ipcheckerfaq from '@/components/Ipcheckerfaq';
 import IpDetails from "@/components/IpDetails";
@@ -11,12 +12,10 @@ import TechnicalSpecs from "@/components/TechnicalSpecs";
 import GeolocationPrivacyMap from "@/components/Geolocation";
 import IPv4IPv6Guide from "@/components/IPv4vsIPv6";
 import useIpDetails from "@/hooks/useIpDetails";
-import Link from "next/link";
 import { 
   ShieldCheckIcon, 
   GlobeAltIcon, 
-  LockClosedIcon, 
-  DevicePhoneMobileIcon,
+  LockClosedIcon,
   CheckCircleIcon,
   UserGroupIcon,
   ChartBarIcon,
@@ -48,7 +47,7 @@ export default function IPCheckerPage() {
       url: "https://rankstack.dev",
       logo: {
         "@type": "ImageObject",
-        url: "https://rankstack.dev/logo.png",
+        url: "https://rankstack.dev/rankstack-logo.png",
       },
     },
     featureList: "Public IP detection, ISP Lookup, Geolocation finding, IPv4/IPv6 check",
@@ -138,69 +137,22 @@ export default function IPCheckerPage() {
       />
 
       {/* Header */}
-      <div className="pt-10">
-        <Header />
-      </div>
+      <Header />
 
-      {/* Hero Section with Breadcrumbs */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          {/* Breadcrumbs */}
-          <nav className="flex items-center text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
-            <ol className="inline-flex items-center space-x-2">
-              <li>
-                <Link href="/" className="hover:text-blue-600 transition-colors duration-200">
-                  Home
-                </Link>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li>
-                <Link href="/free-tools" className="hover:text-blue-600 transition-colors duration-200">
-                  Free Tools
-                </Link>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li className="text-blue-600 font-medium">What Is My IP</li>
-            </ol>
-          </nav>
+      <main>
+        <PageHero
+          eyebrow="Free tool"
+          title="What is my IP address?"
+          description="Instantly see your public IP address, approximate location, and network details. No account needed, and lookups are not used to build a profile."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Free Tools", href: "/free-tools" },
+            { label: "What Is My IP" },
+          ]}
+        />
 
-          {/* Main Heading */}
-          <div className="text-center max-w-4xl mx-auto mb-6">
-            <div className="inline-flex items-center bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <ShieldCheckIcon className="h-4 w-4 mr-2" />
-              100% Free & No Sign-up Required
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-              What Is My <span className="text-blue-600">IP Address</span>?
-            </h1>
-            
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed max-w-3xl mx-auto">
-              Instantly discover your public IP address, location, and network details. 
-              Your privacy is protected - we don't store or track your data.
-            </p>
-          </div>
-
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-4 mb-4">
-            <div className="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
-              <LockClosedIcon className="h-4 w-4 text-green-500 mr-2" />
-              <span className="text-sm text-gray-700">No Data Storage</span>
-            </div>
-            <div className="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
-              <GlobeAltIcon className="h-4 w-4 text-green-500 mr-2" />
-              <span className="text-sm text-gray-700">Real-time Detection</span>
-            </div>
-            <div className="flex items-center bg-white px-4 py-2 rounded-lg shadow-sm">
-              <DevicePhoneMobileIcon className="h-4 w-4 text-green-500 mr-2" />
-              <span className="text-sm text-gray-700">Mobile Optimized</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section className="section bg-white">
+          <div className="shell">
         {/* Combined IP Display and Privacy Score Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Main IP Card (2/3 width) */}
@@ -521,11 +473,15 @@ export default function IPCheckerPage() {
             </div>
           </div>
         </section>
+          </div>
+        </section>
       </main>
 
-      <div className="max-w-6xl mx-auto px-4 pb-10">
+      <section className="section bg-slate-50">
+        <div className="shell max-w-6xl">
         <RelatedResources context="/free-tools/ipchecker" />
-      </div>
+        </div>
+      </section>
 
       <Footer />
     </>

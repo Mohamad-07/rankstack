@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import RelatedResources from '@/components/RelatedResources';
 
 export default function DNSPropagationPage() {
@@ -208,199 +209,187 @@ export default function DNSPropagationPage() {
     }
   };
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "resolved": return "border-green-500 bg-green-50";
-      case "not_resolved": return "border-yellow-500 bg-yellow-50";
-      case "error": return "border-red-500 bg-red-50";
-      default: return "border-gray-300 bg-gray-50";
-    }
+  const statusStyles = {
+    resolved: "border-emerald-200 bg-emerald-50",
+    not_resolved: "border-amber-200 bg-amber-50",
+    error: "border-red-200 bg-red-50",
   };
 
-  const getStatusText = (status) => {
-    switch (status) {
-      case "resolved": return "✅ Resolved";
-      case "not_resolved": return "❌ Not Resolved";
-      case "error": return "⚠️ Error";
-      default: return "⏳ Checking";
-    }
+  const statusText = {
+    resolved: "Resolved",
+    not_resolved: "Not resolved",
+    error: "Error",
   };
 
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              DNS Propagation Checker
-            </h1>
-            <p className="text-gray-600">
-              Check DNS record propagation across global DNS servers
-            </p>
-          </div>
 
-        {/* Input Form */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <form onSubmit={handleCheck} className="space-y-4">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="flex-1">
-                <input
-                  type="text"
-                  placeholder="Enter domain (example.com)"
-                  value={domain}
-                  onChange={(e) => setDomain(e.target.value)}
-                  className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  disabled={loading}
-                />
-              </div>
-              
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                className="p-3 border rounded-lg bg-white border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                disabled={loading}
-              >
-                <option value="A">A Record</option>
-                <option value="AAAA">AAAA Record</option>
-                <option value="CNAME">CNAME Record</option>
-                <option value="MX">MX Record</option>
-                <option value="TXT">TXT Record</option>
-                <option value="NS">NS Record</option>
-              </select>
+      <main>
+        <PageHero
+          eyebrow="Free tool"
+          title="DNS propagation checker"
+          description="Check how a domain's DNS records resolve across major public resolvers around the world."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Free Tools", href: "/free-tools" },
+            { label: "DNS Propagation" },
+          ]}
+        />
 
-              <button
-                type="submit"
-                disabled={loading || !domain.trim()}
-                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed min-w-[140px]"
-              >
-                {loading ? (
-                  <div className="flex items-center gap-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    Checking...
+        <section className="section bg-white">
+          <div className="shell max-w-6xl">
+            <div className="card p-5 sm:p-7">
+              <form onSubmit={handleCheck}>
+                <div className="flex flex-col gap-3 lg:flex-row">
+                  <div className="flex-1">
+                    <label htmlFor="dns-domain" className="sr-only">
+                      Domain name
+                    </label>
+                    <input
+                      id="dns-domain"
+                      type="text"
+                      placeholder="example.com"
+                      value={domain}
+                      onChange={(event) => setDomain(event.target.value)}
+                      className="field h-12"
+                      disabled={loading}
+                    />
                   </div>
-                ) : (
-                  "Check DNS"
-                )}
-              </button>
-            </div>
-          </form>
 
-          {loading && (
-            <div className="mt-4">
-              <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>Checking DNS servers...</span>
-                <span>{progress}%</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${progress}%` }}
-                ></div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
-            <div className="flex items-center gap-2 text-red-700">
-              <span>⚠️</span>
-              <span>{error}</span>
-            </div>
-          </div>
-        )}
-
-        {results.length > 0 && (
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Results for {domain} ({type} Record)
-            </h2>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              <div className="bg-green-50 rounded-lg p-3 text-center">
-                <div className="text-xl font-bold text-green-600">
-                  {results.filter(r => r.status === 'resolved').length}
-                </div>
-                <div className="text-sm text-green-600">Resolved</div>
-              </div>
-              <div className="bg-yellow-50 rounded-lg p-3 text-center">
-                <div className="text-xl font-bold text-yellow-600">
-                  {results.filter(r => r.status === 'not_resolved').length}
-                </div>
-                <div className="text-sm text-yellow-600">Not Resolved</div>
-              </div>
-              <div className="bg-red-50 rounded-lg p-3 text-center">
-                <div className="text-xl font-bold text-red-600">
-                  {results.filter(r => r.status === 'error').length}
-                </div>
-                <div className="text-sm text-red-600">Errors</div>
-              </div>
-              <div className="bg-blue-50 rounded-lg p-3 text-center">
-                <div className="text-xl font-bold text-blue-600">
-                  {results.length}
-                </div>
-                <div className="text-sm text-blue-600">Total</div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {results.map((result, index) => (
-                <div
-                  key={index}
-                  className={`border-2 rounded-lg p-4 ${getStatusColor(result.status)}`}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <div className="text-2xl">{result.flag}</div>
-                      <div>
-                        <h3 className="font-semibold">{result.name}</h3>
-                        <p className="text-sm text-gray-600">{result.location}</p>
-                      </div>
-                    </div>
-                    <div className={`text-sm font-medium ${getStatusColor(result.status)}`}>
-                      {getStatusText(result.status)}
-                    </div>
+                  <div>
+                    <label htmlFor="dns-type" className="sr-only">
+                      DNS record type
+                    </label>
+                    <select
+                      id="dns-type"
+                      value={type}
+                      onChange={(event) => setType(event.target.value)}
+                      className="field h-12 lg:w-44"
+                      disabled={loading}
+                    >
+                      <option value="A">A record</option>
+                      <option value="AAAA">AAAA record</option>
+                      <option value="CNAME">CNAME record</option>
+                      <option value="MX">MX record</option>
+                      <option value="TXT">TXT record</option>
+                      <option value="NS">NS record</option>
+                    </select>
                   </div>
-                  
-                  <p className="text-xs text-gray-500 mb-2">IP: {result.ip}</p>
-                  
-                  {result.responseTime && (
-                    <p className="text-sm text-gray-600">Time: {result.responseTime}ms</p>
-                  )}
-                  
-                  {result.message && (
-                    <p className="text-xs text-gray-500 mt-1">{result.message}</p>
-                  )}
-                  
-                  {result.error && (
-                    <p className="text-xs text-red-600 mt-1">Error: {result.error}</p>
-                  )}
-                  
-                  {result.records && result.records.length > 0 && (
-                    <div className="mt-3">
-                      <p className="text-sm font-medium mb-1">Records:</p>
-                      {result.records.slice(0, 2).map((record, idx) => (
-                        <div key={idx} className="text-xs font-mono bg-gray-100 p-1 rounded mb-1">
-                          {record.data || record.address || JSON.stringify(record)}
+
+                  <button
+                    type="submit"
+                    disabled={loading || !domain.trim()}
+                    className="btn-primary h-12 shrink-0"
+                  >
+                    {loading ? "Checking..." : "Check DNS"}
+                  </button>
+                </div>
+              </form>
+
+              {loading ? (
+                <div className="mt-5">
+                  <div className="flex justify-between text-sm text-slate-600">
+                    <span>Checking DNS servers...</span>
+                    <span>{progress}%</span>
+                  </div>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                    <div
+                      className="h-full rounded-full bg-indigo-600 transition-all duration-300"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            {error ? (
+              <p role="alert" className="mt-6 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+                {error}
+              </p>
+            ) : null}
+
+            {results.length > 0 ? (
+              <div className="mt-8">
+                <div className="flex flex-wrap items-end justify-between gap-3">
+                  <div>
+                    <h2 className="text-xl font-bold text-slate-950">
+                      Results for {domain}
+                    </h2>
+                    <p className="mt-1 text-sm text-slate-600">{type} record across {results.length} resolvers</p>
+                  </div>
+                </div>
+
+                <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+                  {[
+                    ["Resolved", results.filter((item) => item.status === "resolved").length, "text-emerald-700"],
+                    ["Not resolved", results.filter((item) => item.status === "not_resolved").length, "text-amber-700"],
+                    ["Errors", results.filter((item) => item.status === "error").length, "text-red-700"],
+                    ["Total", results.length, "text-indigo-700"],
+                  ].map(([label, value, color]) => (
+                    <div key={label} className="card p-4 text-center">
+                      <div className={`text-2xl font-bold tabular-nums ${color}`}>{value}</div>
+                      <div className="mt-1 text-xs font-medium text-slate-500">{label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {results.map((result, index) => (
+                    <div
+                      key={index}
+                      className={`rounded-2xl border p-5 ${statusStyles[result.status] || "border-slate-200 bg-slate-50"}`}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <h3 className="text-sm font-semibold text-slate-950">{result.name}</h3>
+                          <p className="mt-1 font-mono text-xs text-slate-500">{result.ip}</p>
                         </div>
-                      ))}
-                      {result.records.length > 2 && (
-                        <p className="text-xs text-gray-500">+{result.records.length - 2} more</p>
-                      )}
+                        <span className="rounded-full bg-white/70 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                          {statusText[result.status] || "Checking"}
+                        </span>
+                      </div>
+
+                      <p className="mt-3 text-xs text-slate-500">{result.location}</p>
+
+                      {result.responseTime ? (
+                        <p className="mt-1 text-xs text-slate-600">{result.responseTime} ms</p>
+                      ) : null}
+
+                      {result.records?.length ? (
+                        <div className="mt-3 space-y-1.5">
+                          {result.records.slice(0, 2).map((record, recordIndex) => (
+                            <code
+                              key={recordIndex}
+                              className="block break-all rounded-md bg-white/70 px-2 py-1.5 text-xs text-slate-700"
+                            >
+                              {record.data || record.address || JSON.stringify(record)}
+                            </code>
+                          ))}
+                          {result.records.length > 2 ? (
+                            <p className="text-xs text-slate-500">+{result.records.length - 2} more</p>
+                          ) : null}
+                        </div>
+                      ) : null}
+
+                      {result.error ? (
+                        <p className="mt-2 text-xs text-red-700">{result.error}</p>
+                      ) : null}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ) : null}
           </div>
-        )}
-        </div>
-      </div>
-      <div className="max-w-6xl mx-auto px-4 pb-10">
-        <RelatedResources context="/free-tools/dns-propagation" />
-      </div>
+        </section>
+
+        <section className="section bg-slate-50">
+          <div className="shell max-w-5xl">
+            <RelatedResources context="/free-tools/dns-propagation" />
+          </div>
+        </section>
+      </main>
+
       <Footer />
     </>
   );

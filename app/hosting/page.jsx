@@ -6,6 +6,8 @@ import Card from '@/constant/Card';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Content from '@/components/Content';
+import PageHero from '@/components/PageHero';
+import Link from 'next/link';
 
 // ✅ Your existing imports remain the same
 import img01 from '@/public/misshosting.webp';
@@ -175,7 +177,7 @@ const Hosting = () => {
           "@type": "Organization",
           name: "RankStack",
           url: "https://rankstack.dev",
-          logo: "https://rankstack.dev/logo.png",
+          logo: "https://rankstack.dev/rankstack-logo.png",
           sameAs: [
         "https://twitter.com/rankstack",
         "https://www.linkedin.com/company/rankstack",
@@ -183,52 +185,84 @@ const Hosting = () => {
         })}
       </Script>
 
-      {/* ✅ Actual Page UI (unchanged) */}
-      <div className="pt-10">
-        <Header />
-      </div>
+      <Header />
 
       <main role="main">
-        <div className="relative px-6 mt-10 mb-10 md:mt-20 mx-auto max-w-5xl text-center">
-          <h1 className="block w-full text-black font-bold text-3xl sm:text-4xl">
-            Best Web Hosting Providers 2025 — Expert Reviews
-          </h1>
-          <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
-            Compare leading hosting services with real-world tests by RankStack experts. Choose the best fit for your website performance and budget.
-          </p>
-        </div>
+        <PageHero
+          eyebrow="Web hosting"
+          title="Best web hosting providers, reviewed with real tests"
+          description="Compare leading hosting services by speed, uptime, support, and pricing. Every recommendation is based on hands-on testing, not marketing copy."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Web Hosting" },
+          ]}
+          actions={
+            <Link href="/free-tools/hosting-recommender" className="btn-primary">
+              Find my hosting match
+            </Link>
+          }
+        />
 
-        {[dataOne, dataTwo, dataThree].map((group, i) => (
-          <div key={i} className="flex flex-wrap justify-center gap-4 p-4 mb-10">
-            {group.map((item, index) => (
-              <div key={index} className="w-full sm:w-1/2 lg:w-1/4 p-2">
-                <Card link={item.link}>
-                  <Image
-                    src={item.img}
-                    alt={`${item.description.split('.')[0]} logo`}
-                    fill
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </Card>
-                <div className="p-4 text-center">
-                  <p className="text-gray-700">{item.description}</p>
-                </div>
-              </div>
-            ))}
+        <section className="section bg-white">
+          <div className="shell">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {[...dataOne, ...dataTwo, ...dataThree].map((item, index) => (
+                <article
+                  key={`${item.link}-${index}`}
+                  className="card card-hover flex h-full flex-col p-5"
+                >
+                  <Card link={item.link}>
+                    <Image
+                      src={item.img}
+                      alt={`${item.description.split(".")[0]} logo`}
+                      fill
+                      loading="lazy"
+                      className="object-contain p-2"
+                    />
+                  </Card>
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
+                    {item.description}
+                  </p>
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="btn-secondary mt-5 w-full"
+                  >
+                    Visit provider
+                  </Link>
+                </article>
+              ))}
+            </div>
           </div>
-        ))}
+        </section>
 
-        {contentData.map((item, index) => (
-          <Content
-            key={index}
-            title={item.title}
-            imageUrl={item.imageUrl}
-            content={item.content}
-            btnText={item.btnText}
-            btnLink={item.btnLink}
-          />
-        ))}
+        <section className="section bg-slate-50">
+          <div className="shell">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="eyebrow">In-depth reviews</span>
+              <h2 className="section-title mt-4">Compare the details before you commit</h2>
+              <p className="section-copy mt-4">
+                Features, performance notes, and renewal pricing for the
+                providers we test most often.
+              </p>
+            </div>
+
+            <div className="mt-12 space-y-14 lg:space-y-20">
+              {contentData.map((item, index) => (
+                <Content
+                  key={index}
+                  index={index}
+                  title={item.title}
+                  imageUrl={item.imageUrl}
+                  content={item.content}
+                  btnText={item.btnText}
+                  btnLink={item.btnLink}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

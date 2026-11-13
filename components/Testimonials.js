@@ -1,86 +1,92 @@
-"use client"
-import React, { useState } from "react"
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
-import TestimonialCard from "./TestimonialCard"
-import { testimonials } from '@/Data/ClientData'
+"use client";
+
+import { useState } from "react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import { ChevronLeft, ChevronRight, MessageSquareQuote } from "lucide-react";
+import TestimonialCard from "./TestimonialCard";
+import { testimonials } from "@/Data/ClientData";
 
 const Testimonials = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [loaded, setLoaded] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
+    slides: { perView: 1, spacing: 16 },
     slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
+      setCurrentSlide(slider.track.details.rel);
     },
     created() {
-      setLoaded(true)
+      setLoaded(true);
     },
-  })
+  });
 
   return (
-    <div className="relative max-w-4xl mx-auto">
-      <div className="relative flex flex-col items-center">
-        <div className="relative mx-auto max-w-5xl px-6 text-center">
-          <span className="text-black my-3 flex items-center justify-center font-medium uppercase tracking-wider"> What Our Clients Say </span>
-          <h2 className="block w-full text-black font-bold text-3xl sm:text-4xl"> Hear from Our Satisfied Clients </h2>
-          <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400"> Our clients feedback is a testament to our commitment to excellence. Read what they have to say about our dedicated service and impactful solutions. </p>
+    <section className="section bg-white">
+      <div className="shell">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="eyebrow">
+            <MessageSquareQuote className="h-3.5 w-3.5" aria-hidden="true" />
+            Client feedback
+          </span>
+          <h2 className="section-title mt-4">Hear from people we have helped</h2>
+          <p className="section-copy mt-4">
+            Real feedback from founders, marketers, and publishers who use
+            RankStack research and tools.
+          </p>
         </div>
-        <div className="navigation-wrapper relative w-full">
-          <div ref={sliderRef} className="keen-slider flex">
-            {testimonials.map((elm, i) => (
-              <TestimonialCard elm={elm} index={i} key={i} />
+
+        <div className="mx-auto mt-10 max-w-3xl">
+          <div ref={sliderRef} className="keen-slider">
+            {testimonials.map((elm) => (
+              <TestimonialCard elm={elm} key={elm.name} />
             ))}
           </div>
+
           {loaded && instanceRef.current && (
-            <>
+            <div className="mt-6 flex items-center justify-center gap-4">
               <button
-                className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gradient-to-r from-indigo-400 to-pink-600 p-2 rounded-full"
+                type="button"
                 onClick={() => instanceRef.current?.prev()}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600 disabled:opacity-40"
+                aria-label="Previous testimonial"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  className="w-5 h-5 text-white"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
+                <ChevronLeft className="h-5 w-5" aria-hidden="true" />
               </button>
-              <button
-                className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gradient-to-r from-indigo-400 to-pink-600 p-2 rounded-full"
-                onClick={() => instanceRef.current?.next()}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  className="w-5 h-5 text-white"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <div className="dots flex justify-center mt-4">
-                {[
-                  ...Array(instanceRef.current.track.details.slides.length).keys(),
-                ].map((idx) => (
+
+              <div className="flex items-center gap-2">
+                {Array.from({
+                  length: instanceRef.current.track.details.slides.length,
+                }).map((_, index) => (
                   <button
-                    key={idx}
-                    onClick={() => {
-                      instanceRef.current?.moveToIdx(idx)
-                    }}
-                    className={"dot mx-1 w-3 h-3 rounded-full" + (currentSlide === idx ? " bg-blue-500" : " bg-gray-300")}
-                  ></button>
+                    key={index}
+                    type="button"
+                    onClick={() => instanceRef.current?.moveToIdx(index)}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                    aria-current={currentSlide === index ? "true" : undefined}
+                    className={`h-2 rounded-full transition-all ${
+                      currentSlide === index
+                        ? "w-6 bg-indigo-600"
+                        : "w-2 bg-slate-300 hover:bg-slate-400"
+                    }`}
+                  />
                 ))}
               </div>
-            </>
+
+              <button
+                type="button"
+                onClick={() => instanceRef.current?.next()}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-indigo-300 hover:text-indigo-600 disabled:opacity-40"
+                aria-label="Next testimonial"
+              >
+                <ChevronRight className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
           )}
         </div>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
-export default Testimonials
+export default Testimonials;

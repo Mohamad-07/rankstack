@@ -1,43 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-const Content = ({ title, imageUrl, content, btnText, btnLink }) => {
+const Content = ({ title, imageUrl, content, btnText, btnLink, index = 0 }) => {
   return (
-    <div className="max-w-5xl mx-auto px-4 pb-10 sm:px-6">
-      <div className="max-w-3xl mx-auto">
-        {/* Blog post header */}
-        <div className="py-8">
-          <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
-        </div>
+    <article className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
+      <div
+        className={`relative aspect-[16/9] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft ${
+          index % 2 === 1 ? "lg:order-2" : ""
+        }`}
+      >
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={title || "Hosting provider"}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-contain p-4"
+          />
+        ) : null}
+      </div>
 
-        {/* Featured image */}
-        {imageUrl && (
-          <div className="relative w-full h-52 lg:h-72 mb-8">
-            <Image
-              src={imageUrl}
-              alt={title || "Featured image"}
-              fill
-              className="object-contain lg:object-cover rounded-xl shadow-sm"
-            />
-          </div>
-        )}
-
-        {/* Blog post content */}
-        <div className="prose prose-sm sm:prose mb-5 lg:prose-lg xl:prose-xl mx-auto text-gray-700">
-          <p>{content}</p>
-        </div>
-
-        {/* Button (render only if btnLink is provided) */}
-        {btnLink && (
+      <div>
+        <h2 className="text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
+          {title}
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-slate-600">{content}</p>
+        {btnLink ? (
           <Link
             href={btnLink}
-            className="inline-block px-5 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium rounded-full hover:shadow-lg transition duration-300"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="btn-primary group mt-6"
           >
-            {btnText || "Learn More"}
+            {btnText || "Learn more"}
+            <ArrowRight
+              className="h-4 w-4 transition group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
           </Link>
-        )}
+        ) : null}
       </div>
-    </div>
+    </article>
   );
 };
 

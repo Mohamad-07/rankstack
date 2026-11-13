@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { SITE_TAGLINE, SITE_URL, createMetadata } from "@/lib/seo";
+import PageHero from "@/components/PageHero";
+import { SITE_URL, createMetadata } from "@/lib/seo";
 import {
+  ArrowRight,
   Globe,
   Search,
   Network,
   Fingerprint,
   Clock3,
   Rocket,
-  Sparkles,
-  Image
+  Image,
 } from "lucide-react";
 
 export const metadata = createMetadata({
@@ -211,166 +212,194 @@ const ToolsPage = () => {
         }}
       />
 
-       <div className="pt-10">
-        <Header />
-      </div>
+       <Header />
 
-      {/* Breadcrumb */}
-      <nav className="text-center text-xs text-gray-500 mt-4 mb-6" aria-label="Breadcrumb">
-        <ol className="inline-flex items-center space-x-2">
-          <li><Link href="/" className="hover:text-blue-600">Home</Link></li>
-          <li>/</li>
-          <li><Link href="/free-tools" className="hover:text-blue-600">Free Tools</Link></li>
-        </ol>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative mx-auto mb-10 max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-slate-950 bg-gradient-radial px-6 py-14 text-center text-white shadow-2xl shadow-indigo-950/20">
-        <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-fuchsia-500/20 blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-cyan-400/20 blur-3xl"></div>
-        <div className="relative">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-indigo-100 backdrop-blur-xl">
-            <Sparkles className="w-4 h-4" />
-            New: AI Hosting Recommender & AI Image Compressor
-          </div>
-          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
-            Free Online Tools by <span className="text-gradient">RankStack</span>
-          </h1>
-          <p className="mx-auto mb-3 max-w-3xl text-base font-medium text-indigo-200">
-            {SITE_TAGLINE}
-          </p>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-            Check domain registration and DNS, inspect IP details, compress images, and compare hosting options with tools built for practical technical work.
-          </p>
-        </div>
-      </section>
-
-      {/* Featured Tools Banner */}
-      <section className="max-w-6xl mx-auto px-6 mb-8">
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* AI Hosting Recommender Banner */}
-          <div className="glass-card rounded-2xl p-6 text-center">
-            <h2 className="mb-3 text-xl font-bold text-white">
-              🚀 Try Our AI Hosting Recommender
-            </h2>
-            <p className="mb-4 text-sm text-slate-300">
-              Take our 2-minute AI-powered quiz to find your perfect hosting match from 30+ providers.
-            </p>
-            <Link
-              href="/free-tools/hosting-recommender"
-              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition-all duration-300 hover:shadow-lg"
-            >
-              <Rocket className="w-4 h-4" />
-              Start AI Quiz
+      <main>
+        <PageHero
+          eyebrow="Free tools"
+          title="Free online tools for developers and site owners"
+          description="Check domain registration and DNS, inspect IP details, compress images, and compare hosting options with tools built for practical technical work."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Free Tools" },
+          ]}
+          actions={
+            <Link href="/free-tools/hosting-recommender" className="btn-primary">
+              Find my hosting match
             </Link>
-          </div>
+          }
+        />
 
-          {/* AI Image Compressor Banner */}
-          <div className="glass-card rounded-2xl p-6 text-center">
-            <h2 className="mb-3 text-xl font-bold text-white">
-              🖼️ New AI Image Compressor
-            </h2>
-            <p className="mb-4 text-sm text-slate-300">
-              Compress images by up to 80% without quality loss. Perfect for SEO and faster websites.
-            </p>
-            <Link
-              href="/free-tools/image-compressor"
-              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-400 via-indigo-400 to-fuchsia-500 px-4 py-2 text-sm font-semibold text-slate-950 transition-all duration-300 hover:shadow-lg"
-            >
-              <Image className="w-4 h-4" />
-              Compress Images
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Tools Cards */}
-      <section className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6 mb-20">
-        {cardsData.map((card, index) => (
-          <Link
-            key={index}
-            href={card.url}
-            className={`group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400 hover:shadow-xl ${
-              card.featured ? 'ring-2 ring-purple-500 ring-opacity-50' : ''
-            }`}
-          >
-            <div className="flex flex-col items-center text-center h-full">
-              <div
-                className={`w-16 h-16 mb-4 flex items-center justify-center rounded-full bg-gradient-to-r ${card.bg} ${
-                  card.featured ? 'ring-2 ring-white ring-opacity-50' : ''
-                }`}
-              >
-                {card.icon}
+        <section className="section bg-white">
+          <div className="shell">
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="relative overflow-hidden rounded-2xl border border-indigo-100 bg-indigo-50 p-6 sm:p-7">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white">
+                    <Rocket className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h2 className="text-lg font-semibold text-slate-950">
+                        AI Hosting Recommender
+                      </h2>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-indigo-700">
+                        New
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      Take a two-minute quiz to shortlist hosting plans that fit
+                      your traffic, budget, and technical comfort level.
+                    </p>
+                    <Link href="/free-tools/hosting-recommender" className="btn-primary mt-4">
+                      Start the quiz
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600">
-                {card.title}
-                {card.featured && (
-                  <span className="inline-block ml-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                )}
-              </h2>
-              <p className="text-gray-600 text-sm leading-relaxed flex-grow">
-                {card.description}
+
+              <div className="relative overflow-hidden rounded-2xl border border-cyan-100 bg-cyan-50 p-6 sm:p-7">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-600 text-white">
+                    <Image className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h2 className="text-lg font-semibold text-slate-950">
+                        AI Image Compressor
+                      </h2>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-cyan-700">
+                        New
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      Compress JPG, PNG, WebP, and GIF files in your browser
+                      without a noticeable drop in quality.
+                    </p>
+                    <Link href="/free-tools/image-compressor" className="btn-primary mt-4">
+                      Compress images
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section bg-slate-50">
+          <div className="shell">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="eyebrow">All tools</span>
+              <h2 className="section-title mt-4">Pick a tool and get an answer</h2>
+              <p className="section-copy mt-4">
+                Every tool runs in your browser where possible, requires no
+                account, and is free to use.
               </p>
-              <div className="mt-4 text-blue-600 font-medium text-sm group-hover:underline">
-                Use Tool →
-              </div>
             </div>
-          </Link>
-        ))}
-      </section>
 
-      {/* Tools Categories */}
-      <section className="max-w-6xl mx-auto px-6 mb-16">
-        <div className="bg-gray-50 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            Tool Categories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Rocket className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2">AI & Hosting Tools</h3>
-              <p className="text-gray-600 text-sm">Smart tools for hosting selection and optimization</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Image className="w-6 h-6 text-cyan-600" />
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Image Optimization</h3>
-              <p className="text-gray-600 text-sm">AI-powered image compression and optimization</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2">Network Tools</h3>
-              <p className="text-gray-600 text-sm">IP analysis and network diagnostics</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Network className="w-6 h-6 text-orange-600" />
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-2">DNS Tools</h3>
-              <p className="text-gray-600 text-sm">Domain and DNS management utilities</p>
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {cardsData.map((card) => (
+                <Link
+                  key={card.url}
+                  href={card.url}
+                  className="card card-hover group flex h-full flex-col p-5"
+                >
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${card.bg}`}
+                  >
+                    {card.icon}
+                  </div>
+                  <div className="mt-4 flex items-start gap-2">
+                    <h3 className="flex-1 text-base font-semibold text-slate-950 group-hover:text-indigo-700">
+                      {card.title}
+                    </h3>
+                    {card.featured ? (
+                      <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-indigo-700">
+                        New
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+                    {card.description}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600">
+                    Use tool
+                    <ArrowRight
+                      className="h-4 w-4 transition group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Author / Trust Section */}
-      <section className="max-w-3xl mx-auto mb-16 px-6 text-center border-t border-gray-200 pt-8">
-        <p className="text-gray-700 text-base">
-          Developed and maintained by{" "}
-          <span className="font-semibold text-blue-600">
-            RankStack Experts
-          </span>{" "}
-          — combining real-world hosting, SEO, and performance testing experience 
-          to deliver tools you can trust.
-        </p>
-      </section>
+        <section className="section bg-white">
+          <div className="shell">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <span className="eyebrow">Tool categories</span>
+                <h2 className="section-title mt-4">Browse by what you need</h2>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  {
+                    icon: Rocket,
+                    title: "AI & hosting",
+                    copy: "Hosting selection and optimization",
+                    color: "bg-violet-50 text-violet-600",
+                  },
+                  {
+                    icon: Image,
+                    title: "Image optimization",
+                    copy: "Compression without visible quality loss",
+                    color: "bg-cyan-50 text-cyan-600",
+                  },
+                  {
+                    icon: Globe,
+                    title: "Network tools",
+                    copy: "IP analysis and network diagnostics",
+                    color: "bg-emerald-50 text-emerald-600",
+                  },
+                  {
+                    icon: Network,
+                    title: "DNS tools",
+                    copy: "Domain and DNS management",
+                    color: "bg-orange-50 text-orange-600",
+                  },
+                ].map((category) => {
+                  const Icon = category.icon;
+                  return (
+                    <div key={category.title} className="rounded-xl border border-slate-200 bg-white p-5">
+                      <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${category.color}`}>
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </div>
+                      <h3 className="mt-4 text-sm font-semibold text-slate-950">
+                        {category.title}
+                      </h3>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                        {category.copy}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-slate-600">
+              Built and maintained by{" "}
+              <Link href="/about" className="link-inline">
+                RankStack Experts
+              </Link>{" "}
+              using real-world hosting, SEO, and performance testing experience.
+            </p>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </>

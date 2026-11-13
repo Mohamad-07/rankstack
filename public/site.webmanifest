@@ -2,6 +2,7 @@
   "name": "RankStack",
   "short_name": "RankStack",
   "description": "AI-powered developer utilities, network diagnostics, and technical SEO tools.",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -12,9 +13,15 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "theme_color": "#6366f1",
-  "background_color": "#0f172a",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
   "display": "standalone"
 }

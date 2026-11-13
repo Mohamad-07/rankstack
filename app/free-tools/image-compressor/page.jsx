@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import RelatedResources from "@/components/RelatedResources";
 import ToolUniqueFeatures from './components/ToolUniqueFeatures';
 import BenefitsSection from "./components/BenefitsSection";
@@ -162,49 +163,23 @@ export default function ImageCompressorPage() {
         }}
       />
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
-        {/* Professional Header with proper spacing */}
-        <div className="bg-white/95 backdrop-blur-sm border-b border-gray-200/80 sticky top-0 z-50 shadow-sm">
-          <div className="max-w-7xl mx-auto">
-            <div className="px-4 sm:px-6 lg:px-8 py-4">
-              <Header />
-            </div>
-          </div>
-        </div>
+      <Header />
 
-        <main className="flex-1 px-4 sm:px-6 lg:px-8 py-16">
-          {/* 🚀 HERO SECTION WITH INTEGRATED OUTPUT */}
-          <section className="text-center max-w-6xl mx-auto mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full border border-blue-200 mb-6"
-            >
-              <Zap className="w-4 h-4 text-blue-600 mr-2" />
-              <span className="text-sm font-medium text-blue-700">AI-Powered Compression</span>
-            </motion.div>
+      <main>
+        <PageHero
+          eyebrow="Free tool"
+          title="Image compressor"
+          description="Reduce JPG, PNG, WebP, and GIF file sizes in your browser. Images never leave your device, and no account is required."
+          breadcrumb={[
+            { label: "Home", href: "/" },
+            { label: "Free Tools", href: "/free-tools" },
+            { label: "Image Compressor" },
+          ]}
+        />
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            >
-              Free Online Image Compressor - 
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Reduce Size, Boost Speed</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed"
-            >
-              Reduce image file sizes by up to 80% without quality loss using our advanced compression technology. 
-              Perfect for SEO, faster websites, and better user experience.
-            </motion.p>
-
-            {/* UPLOAD SECTION */}
+        <section className="section bg-white">
+          <div className="shell max-w-4xl">
+          {/* UPLOAD SECTION */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -421,9 +396,10 @@ export default function ImageCompressorPage() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </section>
+          </div>
+        </section>
 
-          <ToolUniqueFeatures />
+        <ToolUniqueFeatures />
           <BenefitsSection />
           <HowItWorks />
 
@@ -652,12 +628,15 @@ export default function ImageCompressorPage() {
           </section>
           <FAQSection />
           <CallToActionSection />
-        </main>
-        <div className="max-w-6xl mx-auto px-4 pb-10">
+      </main>
+
+      <section className="section bg-slate-50">
+        <div className="shell max-w-6xl">
           <RelatedResources context="/free-tools/image-compressor" />
         </div>
-        <Footer />
-      </div>
+      </section>
+
+      <Footer />
     </>
   );
 }

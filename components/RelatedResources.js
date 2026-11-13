@@ -132,10 +132,10 @@ const RelatedResources = ({ context, title = "Related tools & diagnostic guides"
 
   return (
     <section
-      className="mt-12 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8"
+      className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8"
       aria-label="Related tools and guides"
     >
-      <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">{title}</h2>
+      <h2 className="text-xl font-bold tracking-tight text-slate-950 sm:text-2xl">{title}</h2>
 
       {toolPaths.length > 0 && (
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -156,7 +156,7 @@ const RelatedResources = ({ context, title = "Related tools & diagnostic guides"
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-blue-700 underline-offset-2 hover:underline"
+                className="text-sm font-medium text-indigo-600 underline-offset-2 hover:text-indigo-700 hover:underline"
               >
                 {link.text}
               </Link>
