@@ -1,7 +1,6 @@
 // content/blogs/hostarmada-review-2025.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -26,39 +25,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1765128862/hostarmada_review_blog_soc6g4.jpg"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/hostarmada-review-2025"
-    },
-    "description": "7-month comprehensive testing of HostArmada's cloud SSD hosting reveals unprecedented global performance with 9 data centers, sub-100ms TTFB, and enterprise features at budget prices."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -70,7 +36,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-12-05",
-    "dateModified": "2025-12-05",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -115,35 +81,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "HostArmada Review 2025", 
-        "item": "https://rankstack.dev/blogs/hostarmada-review-2025" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const HostArmadaContent = () => {
   const title = "HostArmada Review: Cloud Hosting Features and Trade-offs";
@@ -219,18 +156,8 @@ const HostArmadaContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"Review HostArmada's hosting features, performance considerations, and plan trade-offs. Verify current plan resources, server locations, and billing terms with the provider."}
-        image={"res.cloudinary.com/dpgspconw/image/upload/v1765128862/hostarmada_review_blog_soc6g4.jpg"}
-        url={"https://rankstack.dev/blogs/hostarmada-review-2025"}
-        publishedTime={"2025-12-05"}
-        modifiedTime={"2025-12-05"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-12-05"} dateModified={"2025-12-05"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">
@@ -252,7 +179,7 @@ const HostArmadaContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">HostArmada Review: Cloud Hosting Features and Trade-offs</h1>
+        <h2 className="text-3xl font-bold mt-6">HostArmada Review: Cloud Hosting Features and Trade-offs</h2>
         
         <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg my-6">
           <p className="font-semibold text-xl">🚀 SHOCKING FINDING:</p>

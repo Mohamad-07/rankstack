@@ -1,8 +1,7 @@
-// content/blogs/best-web-hosting-for-new-bloggers.js
+// content/blogs/best-web-hosting-for-new-bloggers-in-2025.js
 import React from "react";
 import Link from "next/link";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 
 const BestHostingContent = () => {

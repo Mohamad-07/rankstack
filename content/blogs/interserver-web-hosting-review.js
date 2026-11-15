@@ -1,7 +1,6 @@
 // content/blogs/interserver-web-hosting-review.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -23,39 +22,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/interserver-review_mgxseq.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/interserver-web-hosting-review"
-    },
-    "description": "9-month independent test and review of InterServer's $2.50 plan with raw data, TTFB, uptime minutes and real-world comparisons to Bluehost and Hostinger."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -67,7 +33,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-10-02",
-    "dateModified": "2025-10-02",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -112,35 +78,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "InterServer Web Hosting Review", 
-        "item": "https://rankstack.dev/blogs/interserver-web-hosting-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const InterServerContent = () => {
   const title = "InterServer Review: Plans, Performance, and Trade-offs";
@@ -195,18 +132,8 @@ const InterServerContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 9 months of rigorous testing, discover if InterServer's $2.50/month hosting is worth it. Real performance data, speed tests vs Bluehost & Hostinger, and honest pros/cons."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/interserver-review_mgxseq.avif"}
-        url={"https://rankstack.dev/blogs/interserver-web-hosting-review"}
-        publishedTime={"2025-10-02"}
-        modifiedTime={"2025-10-02"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-10-02"} dateModified={"2025-10-02"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">
@@ -228,7 +155,7 @@ const InterServerContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">Is InterServer a Good Web Host? A 9-Month, Data-Driven Review</h1>
+        <h2 className="text-3xl font-bold mt-6">Is InterServer a Good Web Host? A 9-Month, Data-Driven Review</h2>
         <p>
           For the past nine months, I've been running a rigorous test on InterServer's web hosting. 
           I purchased their $2/month plan, meticulously tracked performance, ran speed tests, 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Script from "next/script";
 import { createMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Card from '@/constant/Card';
@@ -146,44 +145,36 @@ const Hosting = () => {
 
   return (
     <>
-      <Script id="breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
-            { "@type": "ListItem", position: 2, name: "Web Hosting", item: "https://rankstack.dev/hosting" },
-          ],
-        })}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
+              { "@type": "ListItem", position: 2, name: "Web Hosting", item: "https://rankstack.dev/hosting" },
+            ],
+          }),
+        }}
+      />
 
-      <Script id="itemlist-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: "Top Web Hosting Providers 2025",
-          itemListElement: dataOne.concat(dataTwo, dataThree).map((item, i) => ({
-            "@type": "ListItem",
-            position: i + 1,
-            name: item.description.split('.')[0],
-            url: item.link,
-          })),
-        })}
-      </Script>
-
-      <Script id="organization-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "RankStack",
-          url: "https://rankstack.dev",
-          logo: "https://rankstack.dev/rankstack-logo.png",
-          sameAs: [
-        "https://twitter.com/rankstack",
-        "https://www.linkedin.com/company/rankstack",
-          ],
-        })}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Top Web Hosting Providers 2025",
+            itemListElement: dataOne.concat(dataTwo, dataThree).map((item, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: item.description.split('.')[0],
+              url: item.link,
+            })),
+          }),
+        }}
+      />
 
       <Header />
 

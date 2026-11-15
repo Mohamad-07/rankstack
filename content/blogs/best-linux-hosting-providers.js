@@ -34,7 +34,7 @@ const LinuxHostingContent = () => {
 
             {/* Badge */}
             <span className="inline-block mb-6 px-4 py-2 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full">
-              UPDATED: January 25, 2026 • LINUX HOSTING EXPERT REVIEW
+              UPDATED: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} • LINUX HOSTING EXPERT REVIEW
             </span>
 
             {/* Heading */}

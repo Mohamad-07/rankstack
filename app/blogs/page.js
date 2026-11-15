@@ -1,10 +1,10 @@
-import Script from "next/script";
 import { blogData } from "@/content/blogs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import BlogCard from "@/components/BlogCard";
 import { SITE_URL, createMetadata } from "@/lib/seo";
+import { modifiedDate, publishedDate, toIso } from "@/lib/blog-dates";
 
 export const metadata = createMetadata({
   title: "Hosting, SEO & Developer Blog",
@@ -32,47 +32,46 @@ const BlogsPage = () => {
 
   return (
     <>
-      <Script
-        id="breadcrumb-schema"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-            { "@type": "ListItem", position: 2, name: "Blogs", item: siteUrl },
-          ],
-        })}
-      </Script>
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Blogs", item: siteUrl },
+            ],
+          }),
+        }}
+      />
 
-      <Script
-        id="bloglist-schema"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
-      >
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          name: "RankStack Blog",
-          description:
-            "Hosting reviews, technical SEO guides, and practical developer tutorials from RankStack.",
-          url: siteUrl,
-          blogPost: posts.slice(0, 12).map((blog) => ({
-            "@type": "BlogPosting",
-            headline: blog.title,
-            description: blog.description,
-            author: { "@type": "Person", name: blog.author },
-            datePublished: blog.date,
-            url: `${SITE_URL}/blogs/${blog.slug}`,
-            image:
-              typeof blog.imageUrl === "string"
-                ? blog.imageUrl
-                : blog.imageUrl?.src || `${SITE_URL}/blog-banner-1200x675.webp`,
-          })),
-        })}
-      </Script>
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            name: "RankStack Blog",
+            description:
+              "Hosting reviews, technical SEO guides, and practical developer tutorials from RankStack.",
+            url: siteUrl,
+            blogPost: posts.slice(0, 12).map((blog) => ({
+              "@type": "BlogPosting",
+              headline: blog.title,
+              description: blog.description,
+              author: { "@type": "Person", name: blog.author },
+              datePublished: toIso(publishedDate(blog)),
+              dateModified: toIso(modifiedDate(blog)),
+              url: `${SITE_URL}/blogs/${blog.slug}`,
+              image:
+                typeof blog.imageUrl === "string"
+                  ? blog.imageUrl
+                  : blog.imageUrl?.src || `${SITE_URL}/blog-banner-1200x675.webp`,
+            })),
+          }),
+        }}
+      />
 
       <Header />
 

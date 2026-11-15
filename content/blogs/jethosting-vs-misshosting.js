@@ -1,4 +1,4 @@
-// content/blogs/jet-vs-misshosting.js
+// content/blogs/jet-web-hosting-vs-misshosting.js
 import React from "react"
 import Link from "next/link"
 import QuickSummary from "@/components/QuickSummary"

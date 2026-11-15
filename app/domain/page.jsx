@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import Card from "@/constant/Card";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -62,46 +61,38 @@ const cardsData = [
 const Domain = () => {
   return (
     <>
-      <Script id="breadcrumb-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
-            { "@type": "ListItem", position: 2, name: "Domain Partners", item: "https://rankstack.dev/domain" },
-          ],
-        })}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
+              { "@type": "ListItem", position: 2, name: "Domain Partners", item: "https://rankstack.dev/domain" },
+            ],
+          }),
+        }}
+      />
 
-      <Script id="offers-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ItemList",
-          name: "Domain Registration Offers 2026",
-          itemListElement: cardsData.map((card, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            name: card.buttonText,
-            url: card.link,
-            description:
-              "Domain registration offer and promo code available via RankStack partner links.",
-          })),
-        })}
-      </Script>
-
-      <Script id="organization-schema" type="application/ld+json" strategy="afterInteractive">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "RankStack",
-          url: "https://rankstack.dev",
-          logo: "https://rankstack.dev/rankstack-logo.png",
-          sameAs: [
-            "https://www.linkedin.com/company/rankstack",
-            "https://twitter.com/rankstack",
-          ],
-        })}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Domain Registration Offers 2026",
+            itemListElement: cardsData.map((card, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: card.buttonText,
+              url: card.link,
+              description:
+                "Domain registration offer and promo code available via RankStack partner links.",
+            })),
+          }),
+        }}
+      />
 
       <Header />
 

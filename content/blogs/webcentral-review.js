@@ -1,6 +1,5 @@
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -25,39 +24,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes,d
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/webcentral-review-cover.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/webcentral-review-2025"
-    },
-    "description": "8-month comprehensive testing reveals WebCentral delivers sub-50ms TTFB in Australia, 99.99% uptime, and enterprise performance that dominates Australian hosting competitors."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -69,7 +35,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-12-28",
-    "dateModified": "2025-12-28",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -102,7 +68,7 @@ const ReviewJsonLd = () => {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/webcentral-review-2025"
+      "@id": "https://rankstack.dev/blogs/webcentral-review"
     }
   };
 
@@ -114,35 +80,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "WebCentral Review 2025", 
-        "item": "https://rankstack.dev/blogs/webcentral-review-2025" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const WebCentralContent = () => {
   const title = "WebCentral Review: Australian Hosting Plans and Trade-offs";
@@ -226,18 +163,8 @@ const WebCentralContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"8-month testing reveals WebCentral delivers sub-50ms TTFB in Australia, 150% faster than competitors, with local data centers and Australian compliance advantages."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1765110435/webcentral_web_hosting_fzzm4y.jpg"}
-        url={"https://rankstack.dev/blogs/webcentral-review-2025"}
-        publishedTime={"2025-12-28"}
-        modifiedTime={"2025-12-28"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-12-28"} dateModified={"2025-12-28"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">
@@ -259,7 +186,7 @@ const WebCentralContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">WebCentral Review: Australian Hosting Plans and Trade-offs</h1>
+        <h2 className="text-3xl font-bold mt-6">WebCentral Review: Australian Hosting Plans and Trade-offs</h2>
         
         <div className="bg-gradient-to-r from-blue-600 to-red-600 text-white p-6 rounded-lg my-6">
           <p className="font-semibold text-xl">🇦🇺 REVOLUTIONARY FINDING:</p>

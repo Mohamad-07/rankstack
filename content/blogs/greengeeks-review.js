@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -26,39 +25,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes,c
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1765125851/greengeek_web_hosting_review_bnacry.jpg"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/greengeeks-review-2025"
-    },
-    "description": "Review GreenGeeks hosting features, environmental claims, performance considerations, and plan trade-offs. Verify current offers and included resources with the provider."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -70,7 +36,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-12-20",
-    "dateModified": "2025-12-20",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -115,35 +81,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "GreenGeeks Review 2025", 
-        "item": "https://rankstack.dev/blogs/greengeeks-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const GreenGeeksContent = () => {
   const title = "GreenGeeks Review: Eco-Friendly Hosting That Outperforms Traditional Providers";
@@ -226,18 +163,8 @@ const GreenGeeksContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"9-month testing reveals GreenGeeks delivers 300% carbon-neutral hosting with sub-100ms TTFB, 99.99% uptime, and performance that destroys HostAdvice while saving the planet."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1765125851/greengeek_web_hosting_review_bnacry.jpg"}
-        url={"https://rankstack.dev/blogs/greengeeks-review"}
-        publishedTime={"2025-12-20"}
-        modifiedTime={"2025-12-20"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-12-20"} dateModified={"2025-12-20"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">

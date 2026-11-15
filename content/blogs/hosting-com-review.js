@@ -1,4 +1,4 @@
-// content/blogs/hosting-dot-com-review-2025.js
+// content/blogs/hosting-dot-com-review.js
 import React from "react"
 import KeyTakeaways from "@/components/KeyTakeaways";
 import RatingBreakdown from "@/components/RatingBreakdown";

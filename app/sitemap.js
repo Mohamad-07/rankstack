@@ -1,14 +1,11 @@
 import { blogData } from '@/content/blogs';
 import { SITE_URL } from '@/lib/seo';
-
-const toIsoDate = (value, fallback) => {
-  if (!value) return fallback;
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? fallback : date.toISOString();
-};
+import { modifiedDate, toIso } from '@/lib/blog-dates';
 
 export default function sitemap() {
-  const currentDate = new Date().toISOString();
+  // Date-only timestamp (matches blog lastModified format; Google ignores
+  // time components in sitemap lastmod anyway).
+  const currentDate = new Date().toISOString().slice(0, 10);
 
   const staticRoutes = [
     { path: '/', changeFrequency: 'weekly', priority: 1.0 },
@@ -53,7 +50,7 @@ export default function sitemap() {
     })
     .map((blog) => ({
       path: `/blogs/${blog.slug}`,
-      lastModified: toIsoDate(blog.updatedDate || blog.date, currentDate),
+      lastModified: (toIso(modifiedDate(blog)) || currentDate).slice(0, 10),
       changeFrequency: 'monthly',
       priority: 0.7,
     }));

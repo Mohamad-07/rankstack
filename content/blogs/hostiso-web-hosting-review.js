@@ -1,7 +1,6 @@
 // content/blogs/hostiso-web-hosting-review.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -23,39 +22,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/hostiso-review-banner.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/hostiso-web-hosting-review"
-    },
-    "description": "7-month comprehensive review of Hostiso budget hosting with real performance data, European focus analysis, and comparisons with US-based providers."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -67,7 +33,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-01-12",
-    "dateModified": "2025-01-12",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -112,35 +78,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "Hostiso Web Hosting Review", 
-        "item": "https://rankstack.dev/blogs/hostiso-web-hosting-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const HostisoContent = () => {
   const title = "Hostiso Review: European Budget Hosting Overview";
@@ -197,18 +134,8 @@ const HostisoContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 7 months of testing, discover if Hostiso's European-focused budget hosting delivers real value. Performance analysis for EU vs global audiences."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/hostiso-web-hosting_emc4hr.avif"}
-        url={"https://rankstack.dev/blogs/hostiso-web-hosting-review"}
-        publishedTime={"2025-01-12"}
-        modifiedTime={"2025-01-12"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-01-12"} dateModified={"2025-01-12"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center bg-gray-800 text-white">
@@ -230,7 +157,7 @@ const HostisoContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">Hostiso Hosting Review: Europe's Best Kept Secret or Geographic Limitation?</h1>
+        <h2 className="text-3xl font-bold mt-6">Hostiso Hosting Review: Europe's Best Kept Secret or Geographic Limitation?</h2>
         <p>
           For seven months, I've been conducting a unique experiment: testing Hostiso's European hosting 
           from multiple global perspectives. The results reveal a hosting provider that defies simple 

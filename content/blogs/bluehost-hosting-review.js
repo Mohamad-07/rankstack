@@ -1,8 +1,7 @@
-// content/blogs/bluehost-hosting-review.js
+// content/blogs/bluehost-review.js
 import React from "react";
 import Link from "next/link";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import ProsConsCard from "@/components/Proscons";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import QuickSummary from "@/components/QuickSummary";
@@ -32,14 +31,6 @@ const BlueHostReviewContent = () => {
 
   return (
     <main>
-      {/* Enhanced SEO Meta - Targeting BlueHost Review Keywords */}
-      <SEO 
-        title="Bluehost Review: WordPress Hosting, Pricing, and Trade-offs"
-        description="Compare Bluehost's WordPress plans, renewal terms, features, and support. Check current prices and plan limits directly with Bluehost before choosing."
-        keywords="Bluehost review, Bluehost hosting, Bluehost WordPress hosting, Bluehost pricing, Bluehost alternatives, Bluehost renewal price, WordPress hosting, web hosting review, Bluehost performance"
-        image="https://res.cloudinary.com/dpgspconw/image/upload/v1738250300/hosting-performance-dashboard_fkjq5w.jpg"
-        canonical="https://rankstack.dev/blogs/bluehost-review-2026"
-      />
 
       {/* Comprehensive JSON-LD Structured Data */}
       <script
@@ -47,7 +38,7 @@ const BlueHostReviewContent = () => {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ProductReview",
+            "@type": "Review",
             "itemReviewed": {
               "@type": "Service",
               "name": "BlueHost WordPress Hosting",
@@ -79,10 +70,10 @@ const BlueHostReviewContent = () => {
               }
             },
             "datePublished": "2025-11-05",
-            "dateModified": "2025-11-05",
+            "dateModified": new Date().toISOString().slice(0, 10),
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://rankstack.dev/blogs/bluehost-review-2026"
+              "@id": "https://rankstack.dev/blogs/bluehost-review"
             },
             "reviewAspect": ["Performance", "Pricing", "Features", "Support", "Ease of Use"],
             "positiveNotes": "Beginner-friendly, WordPress recommended, free domain first year",
@@ -109,7 +100,7 @@ const BlueHostReviewContent = () => {
 
             {/* Trust Badge */}
             <span className="inline-block mb-6 px-4 py-2 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full shadow-sm">
-              UPDATED: November 12, 2026 • 90-Day Expert Test
+              UPDATED: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} • 90-Day Expert Test
             </span>
 
             {/* Sub-heading for clarity */}
@@ -177,7 +168,7 @@ const BlueHostReviewContent = () => {
             </div>
             <div className="text-gray-600 text-sm md:text-right">
               <div className="font-semibold">First published: November 5, 2025</div>
-              <div>Last updated: November 12, 2026 • 90 Days Testing Complete</div>
+              <div>Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} • 90 Days Testing Complete</div>
               <div>Methodology: Real WordPress sites, GTmetrix monitoring, Support testing</div>
             </div>
           </div>

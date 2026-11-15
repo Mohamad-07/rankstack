@@ -1,7 +1,6 @@
-// content/blogs/scalahosting-review-2025.js
+// content/blogs/scalahosting-review.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -43,39 +42,6 @@ DreamHost,97 days,None,99.9%,Free,Yes,No,No`;
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/scalahosting-review-banner.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/scalahosting-review-2025"
-    },
-    "description": "4-month comprehensive review of ScalaHosting's managed VPS with real performance data, analysis of their 2-second load guarantee, and evaluation of unique features like free SEO audits and 1:1 CPU allocation."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -87,7 +53,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2024-11-15",
-    "dateModified": "2025-02-14",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -120,7 +86,7 @@ const ReviewJsonLd = () => {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/scalahosting-review-2025"
+      "@id": "https://rankstack.dev/blogs/scalahosting-review"
     }
   };
 
@@ -132,35 +98,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "ScalaHosting Review", 
-        "item": "https://rankstack.dev/blogs/scalahosting-review-2025" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 // Custom Feature Highlight Section
 const FeatureHighlight = ({ icon, title, description, value, color = "blue" }) => {
@@ -345,18 +282,8 @@ const ScalaHostingContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"Review ScalaHosting's VPS plans, features, and trade-offs. Compare current resources, support, renewal pricing, and guarantees directly with the provider before choosing."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/scalahosting-review-banner.avif"}
-        url={"https://rankstack.dev/blogs/scalahosting-review-2025"}
-        publishedTime={"2024-11-15"}
-        modifiedTime={"2025-02-14"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2024-11-15"} dateModified={"2025-02-14"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center bg-gray-800 text-white">
@@ -378,7 +305,7 @@ const ScalaHostingContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">ScalaHosting Review: The Hosting Industry's Best-Kept Secret</h1>
+        <h2 className="text-3xl font-bold mt-6">ScalaHosting Review: The Hosting Industry's Best-Kept Secret</h2>
         <p>
           In a market saturated with flashy marketing and empty promises, ScalaHosting has quietly built 
           a reputation for something remarkable: <strong>actually delivering what other hosts only promise.</strong> 

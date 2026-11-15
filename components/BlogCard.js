@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
+import { displayDate } from "@/lib/blog-dates";
 
 const getImageSrc = (image) => {
   if (!image) return "/blog-banner-1200x675.webp";
@@ -42,7 +43,7 @@ const BlogCard = ({ blog, featured = false }) => {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-slate-500">
           <span className="inline-flex items-center gap-1.5">
             <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
-            {blog.date}
+            {displayDate(blog)}
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />

@@ -1,7 +1,6 @@
-// content/blogs/dreamhost-review-2025.js
+// content/blogs/dreamhost-review.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -36,39 +35,6 @@ A2 Hosting,Startup,145,165,320,1.45,1.68,2.45,2.99,12.99,Yes,Yes,No,anytime,cPan
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/dreamhost-review-banner.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/dreamhost-review-2025"
-    },
-    "description": "4-month comprehensive review of DreamHost with real performance data, custom panel analysis, and evaluation of their unique 97-day money-back guarantee and free domain privacy."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -80,7 +46,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2024-11-10",
-    "dateModified": "2025-02-16",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -113,7 +79,7 @@ const ReviewJsonLd = () => {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/dreamhost-review-2025"
+      "@id": "https://rankstack.dev/blogs/dreamhost-review"
     }
   };
 
@@ -125,35 +91,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "DreamHost Review", 
-        "item": "https://rankstack.dev/blogs/dreamhost-review-2025" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const DreamHostContent = () => {
   const title = "DreamHost Review: Value, Features, and Trade-offs";
@@ -213,18 +150,8 @@ const DreamHostContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 4 months of testing, discover if DreamHost's unique features like 97-day money-back guarantee and free domain privacy deliver real value for WordPress users and developers."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/dreamhost-review-banner.avif"}
-        url={"https://rankstack.dev/blogs/dreamhost-review-2025"}
-        publishedTime={"2024-11-10"}
-        modifiedTime={"2025-02-16"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2024-11-10"} dateModified={"2025-02-16"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center bg-gray-800 text-white">
@@ -246,7 +173,7 @@ const DreamHostContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">DreamHost Review: When Transparency and Value Matter More Than Hype</h1>
+        <h2 className="text-3xl font-bold mt-6">DreamHost Review: When Transparency and Value Matter More Than Hype</h2>
         <p>
           In a hosting industry dominated by flashy marketing, hidden upsells, and confusing pricing structures, 
           DreamHost stands apart with a refreshingly straightforward approach. But does their commitment to 

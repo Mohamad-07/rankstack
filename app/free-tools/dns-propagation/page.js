@@ -223,6 +223,37 @@ export default function DNSPropagationPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "RankStack DNS Propagation Checker",
+            applicationCategory: "NetworkApplication",
+            operatingSystem: "Any",
+            description:
+              "Check how a domain's DNS records resolve across major public resolvers around the world.",
+            url: "https://rankstack.dev/free-tools/dns-propagation",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
+              { "@type": "ListItem", position: 2, name: "Free Tools", item: "https://rankstack.dev/free-tools" },
+              { "@type": "ListItem", position: 3, name: "DNS Propagation", item: "https://rankstack.dev/free-tools/dns-propagation" },
+            ],
+          }),
+        }}
+      />
+
       <Header />
 
       <main>

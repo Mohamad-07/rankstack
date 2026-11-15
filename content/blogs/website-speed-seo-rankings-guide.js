@@ -14,7 +14,7 @@ const WebsiteSpeedSEORankingsContent = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold mb-4">
             🔥 SEO CRITICAL UPDATE
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">How Website Speed Affects SEO: Core Web Vitals Guide</h1>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">How Website Speed Affects SEO: Core Web Vitals Guide</h2>
           <p className="text-xl md:text-2xl opacity-90">The Complete Technical Guide to Page Experience & Core Web Vitals</p>
         </div>
       </section>

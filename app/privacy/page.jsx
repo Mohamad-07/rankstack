@@ -15,6 +15,20 @@ export const metadata = createMetadata({
 const Privacy = () => {
     return (
         <div className="min-h-screen">
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  itemListElement: [
+                    { "@type": "ListItem", position: 1, name: "Home", item: "https://rankstack.dev" },
+                    { "@type": "ListItem", position: 2, name: "Privacy", item: "https://rankstack.dev/privacy" },
+                  ],
+                }),
+              }}
+            />
+
             <Header />
 
       <main>

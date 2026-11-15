@@ -2,7 +2,6 @@
 import React from "react"
 import CTA from "@/components/Cta";
 import KeyTakeaways from "@/components/KeyTakeaways";
-import SEO from "@/components/SEO";
 
 const UltimateWebsiteCachingGuideContent = () => {
   return (

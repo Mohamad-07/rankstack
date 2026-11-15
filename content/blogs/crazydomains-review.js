@@ -1,7 +1,6 @@
 // content/blogs/crazydomains-review.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -26,39 +25,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes,d
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1762348026/Untitled-design-_1__jj2e4n.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/crazydomains-review-2025"
-    },
-    "description": "7-month comprehensive testing reveals CrazyDomains delivers sub-40ms TTFB in Australia, 99.98% uptime, and complete Australian compliance with data sovereignty guarantees."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -70,7 +36,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-11-05",
-    "dateModified": "2025-11-05",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -103,7 +69,7 @@ const ReviewJsonLd = () => {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/crazydomains-review-2025"
+      "@id": "https://rankstack.dev/blogs/crazydomains-review"
     }
   };
 
@@ -115,35 +81,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "CrazyDomains Review", 
-        "item": "https://rankstack.dev/blogs/crazydomains-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const CrazyDomainsContent = () => {
   const title = "CrazyDomains Review: Australian Hosting which beat Hostinger and Webcentral in benchmark";
@@ -208,18 +145,8 @@ const CrazyDomainsContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"7-month testing reveals CrazyDomains delivers sub-40ms TTFB in Australia, complete data sovereignty, and compliance advantages that destroy Hostinger for Australian businesses."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1762348026/Untitled-design-_1__jj2e4n.avif"}
-        url={"https://rankstack.dev/blogs/crazydomains-review"}
-        publishedTime={"2025-11-05"}
-        modifiedTime={"2025-11-05"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-11-05"} dateModified={"2025-11-05"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">

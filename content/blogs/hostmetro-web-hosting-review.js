@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -25,39 +24,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/hostmetro-review-cover.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/hostmetro-web-hosting-review"
-    },
-    "description": "6-month independent test and review of Hostmetro's budget hosting with raw performance data, uptime analysis, and real-world comparisons with InterServer and Bluehost."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -69,7 +35,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-10-15",
-    "dateModified": "2025-10-15",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -114,35 +80,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "Hostmetro Web Hosting Review", 
-        "item": "https://rankstack.dev/blogs/hostmetro-web-hosting-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const HostmetroContent = () => {
   const title = "HostMetro Review: Budget Hosting Features and Trade-offs";
@@ -197,18 +134,8 @@ const HostmetroContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 6 months of rigorous testing, discover if Hostmetro's $2.95/month hosting delivers adequate performance for budget-conscious website owners. Real data and honest assessment."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1769671329/hostmestro_kjt4yw.png"}
-        url={"https://rankstack.dev/blogs/hostmetro-web-hosting-review"}
-        publishedTime={"2025-10-15"}
-        modifiedTime={"2025-10-15"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-10-15"} dateModified={"2025-10-15"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">

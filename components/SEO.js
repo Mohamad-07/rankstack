@@ -1,9 +1,10 @@
 import { SITE_NAME, SITE_URL } from "@/lib/seo"
+import { modifiedDate, publishedDate, toIso } from "@/lib/blog-dates"
 
 const SEO = ({ blog, path }) => {
   if (!blog) return null
 
-  const { title, description, imageUrl, slug, author, date, updatedDate } = blog
+  const { title, description, imageUrl, slug, author } = blog
   const canonicalUrl = `${SITE_URL}${path || `/blogs/${slug}`}`
   const image =
     typeof imageUrl === "string" ? imageUrl : imageUrl?.src || `${SITE_URL}/rankstack-logo.png`
@@ -31,8 +32,8 @@ const SEO = ({ blog, path }) => {
               url: `${SITE_URL}/rankstack-logo.png`,
             },
           },
-          datePublished: date,
-          dateModified: updatedDate || date,
+          datePublished: toIso(publishedDate(blog)),
+          dateModified: toIso(modifiedDate(blog)),
           mainEntityOfPage: {
             "@type": "WebPage",
             "@id": canonicalUrl,

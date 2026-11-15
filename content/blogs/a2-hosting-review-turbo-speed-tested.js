@@ -1,7 +1,6 @@
 // content/blogs/a2-hosting-review-turbo-speed-tested.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -37,39 +36,6 @@ InMotion,Power,180,200,290,1.75,1.85,2.55,4.99,9.99,Yes,Yes,90`;
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/a2-hosting-review-banner.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/a2-hosting-review-turbo-speed-tested"
-    },
-    "description": "4-month comprehensive review of A2 Hosting Turbo servers with real performance data, speed comparisons, and analysis of whether the premium pricing delivers real value."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -81,7 +47,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2024-10-15",
-    "dateModified": "2025-01-28",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -126,35 +92,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "A2 Hosting Review", 
-        "item": "https://rankstack.dev/blogs/a2-hosting-review-turbo-speed-tested" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const A2HostingContent = () => {
   const title = "A2 Hosting Review: Turbo Performance and Plan Trade-offs";
@@ -213,18 +150,8 @@ const A2HostingContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 4 months of testing, discover if A2 Hosting's Turbo servers deliver genuine performance benefits worth the premium price. Real speed data and competitor comparisons."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/a2-hosting-review-banner.avif"}
-        url={"https://rankstack.dev/blogs/a2-hosting-review-turbo-speed-tested"}
-        publishedTime={"2024-10-15"}
-        modifiedTime={"2025-01-28"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2024-10-15"} dateModified={"2025-01-28"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center bg-gray-800 text-white">
@@ -246,7 +173,7 @@ const A2HostingContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">A2 Hosting Review: When Website Speed Actually Matters</h1>
+        <h2 className="text-3xl font-bold mt-6">A2 Hosting Review: When Website Speed Actually Matters</h2>
         <p>
           In the world of web hosting, "speed" has become the most overused—and often misleading—marketing term. 
           Every host claims to be fast, but few deliver measurable performance differences that justify premium pricing.

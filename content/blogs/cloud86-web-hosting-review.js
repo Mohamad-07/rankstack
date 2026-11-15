@@ -1,7 +1,6 @@
 // content/blogs/cloud86-web-hosting-review.js
 import React from "react";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -23,39 +22,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/cloud86-review-banner.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/cloud86-web-hosting-review"
-    },
-    "description": "6-month comprehensive test and review of Cloud86 hosting with real performance data, speed comparisons, and analysis of their cloud infrastructure advantages."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -67,7 +33,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-10-15",
-    "dateModified": "2025-10-15",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -112,35 +78,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "Cloud86 Web Hosting Review", 
-        "item": "https://rankstack.dev/blogs/cloud86-web-hosting-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const Cloud86Content = () => {
   const title = "Cloud86 Hosting Review: Cloud Performance at Budget Prices";
@@ -196,18 +133,8 @@ const Cloud86Content = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 6 months of rigorous testing, discover if Cloud86's cloud hosting delivers premium performance at budget prices. Real data comparing Cloud86 vs InterServer & Hostinger."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/cloud86-review-banner.avif"}
-        url={"https://rankstack.dev/blogs/cloud86-web-hosting-review"}
-        publishedTime={"2025-01-15"}
-        modifiedTime={"2025-01-15"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-01-15"} dateModified={"2025-01-15"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center bg-gray-800 text-white">
@@ -229,7 +156,7 @@ const Cloud86Content = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">Cloud86 Hosting Review: Does Cloud Performance Justify the Price?</h1>
+        <h2 className="text-3xl font-bold mt-6">Cloud86 Hosting Review: Does Cloud Performance Justify the Price?</h2>
         <p>
           For the past six months, I've been putting Cloud86's hosting through its paces. While everyone claims 
           "cloud hosting" benefits, I wanted to see if Cloud86 actually delivers tangible performance advantages 
@@ -735,7 +662,7 @@ const cloud86Review = {
   slug: "cloud86-web-hosting-review",
   title: "Cloud86 Hosting Review: Cloud Performance at Budget Prices",
   author: "RankStack",
-  date: "Octobar 15, 2025",
+  date: "October 15, 2025",
   description: "After 6 months of rigorous testing, discover if Cloud86's cloud hosting delivers premium performance at budget prices. Real data comparing Cloud86 vs InterServer & Hostinger.",
   imageUrl: "https://res.cloudinary.com/dpgspconw/image/upload/v1759510843/cloud86-web-hosting-review_jjalnw.avif",
   keywords: [

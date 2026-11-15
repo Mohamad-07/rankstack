@@ -1,8 +1,7 @@
-// content/blogs/accuweb-hosting-review-2025.js
+// content/blogs/accuweb-hosting-review.js
 import React from "react";
 import Link from "next/link";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -43,39 +42,6 @@ HostGator,All plans,2,Yes,No,Free,No,cPanel,Linux only,Basic`;
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/accuweb-hosting-review-banner.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/accuweb-hosting-review-2025"
-    },
-    "description": "4-month comprehensive review of AccuWeb Hosting with real performance data, analysis of their global infrastructure, and evaluation of developer-friendly features across 20+ data centers."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -87,7 +53,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2024-12-10",
-    "dateModified": "2025-02-25",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -120,7 +86,7 @@ const ReviewJsonLd = () => {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/accuweb-hosting-review-2025"
+      "@id": "https://rankstack.dev/blogs/accuweb-hosting-review"
     }
   };
 
@@ -132,35 +98,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "AccuWeb Hosting Review", 
-        "item": "https://rankstack.dev/blogs/accuweb-hosting-review-2025" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 // Custom Key Highlights Grid Component
 const KeyHighlightsGrid = ({ highlights }) => {
@@ -353,18 +290,8 @@ const AccuWebHostingContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"Review AccuWeb Hosting's plans, features, performance considerations, and pricing terms. Verify current limits and renewal rates with the provider before choosing a plan."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1759513309/accuweb-hosting-review-banner.avif"}
-        url={"https://rankstack.dev/blogs/accuweb-hosting-review-2025"}
-        publishedTime={"2024-12-10"}
-        modifiedTime={"2025-02-25"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2024-12-10"} dateModified={"2025-02-25"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center bg-gray-800 text-white">

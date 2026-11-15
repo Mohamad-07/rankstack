@@ -25,13 +25,13 @@ const SharedHostingContent = () => {
 
             {/* Badge */}
             <span className="inline-block mb-6 px-4 py-2 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full">
-              UPDATED: January 25, 2026 • SHARED HOSTING EXPERT REVIEW
+              UPDATED: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} • SHARED HOSTING EXPERT REVIEW
             </span>
 
             {/* Heading */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
               Best Shared Hosting Providers: Compare Plans and Features
-            </h1>
+            </h2>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-600 mb-12">

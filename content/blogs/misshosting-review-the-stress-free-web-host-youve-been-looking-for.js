@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link"
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -24,39 +23,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1757848297/misshosting_sqdbuz.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/misshosting-review-the-stress-free-web-host-youve-been-looking-for"
-    },
-    "description": "4-month comprehensive review of MissHosting beginner-friendly hosting with real performance data, support analysis, and value assessment for new website owners."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -68,7 +34,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2024-09-14",
-    "dateModified": "2025-01-20",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -113,35 +79,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "MissHosting Review", 
-        "item": "https://rankstack.dev/blogs/misshosting-review-the-stress-free-web-host-youve-been-looking-for" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const MissHostingContent = () => {
   const title = "MissHosting Review: Stress-Free Web Hosting for Beginners";
@@ -200,18 +137,8 @@ const MissHostingContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"After 4 months of testing, discover if MissHosting's beginner-friendly hosting delivers stress-free website management. Real performance data and support analysis."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1757848297/misshosting_sqdbuz.avif"}
-        url={"https://rankstack.dev/blogs/misshosting-review-the-stress-free-web-host-youve-been-looking-for"}
-        publishedTime={"2025-11-10"}
-        modifiedTime={"2025-11-10"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-11-10"} dateModified={"2025-11-10"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">
@@ -233,7 +160,7 @@ const MissHostingContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">MissHosting Review: Finally, Web Hosting That Doesn't Overwhelm Beginners</h1>
+        <h2 className="text-3xl font-bold mt-6">MissHosting Review: Finally, Web Hosting That Doesn't Overwhelm Beginners</h2>
         <p>
           Have you ever felt that choosing a web host is like trying to find a needle in a haystack… while blindfolded? 
           You're bombarded with technical terms, unbelievable prices, and promises that all sound too good to be true. 

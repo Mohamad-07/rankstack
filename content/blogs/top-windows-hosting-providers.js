@@ -1,4 +1,4 @@
-// content/blogs/top-windows-hosting-providers.js
+// content/blogs/best-windows-hosting-providers.js
 import React from "react";
 import QuickSummary from "@/components/QuickSummary";
 import KeyTakeaways from "@/components/KeyTakeaways";
@@ -27,7 +27,7 @@ const WindowsHostingContent = () => {
 
             {/* Trust Badge */}
             <span className="inline-block mb-6 px-4 py-2 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full shadow-sm">
-              UPDATED: January 25, 2026 • 6 MONTHS TESTING • 12 PROVIDERS ANALYZED
+              UPDATED: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} • 6 MONTHS TESTING • 12 PROVIDERS ANALYZED
             </span>
 
             {/* Sub-heading for clarity */}

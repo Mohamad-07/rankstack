@@ -1,8 +1,7 @@
-// content/blogs/inmotion-hosting-review-2025.js
+// content/blogs/inmotion-hosting-review.js
 import React from "react";
 import Link from "next/link";
 import CTA from "@/components/Cta";
-import SEO from "@/components/SEO";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import Proscons from "@/components/Proscons";
@@ -27,39 +26,6 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
-const ArticleJsonLd = ({ title, datePublished, dateModified, rating }) => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": title,
-    "author": {
-      "@type": "Person",
-      "name": "RankStack"
-    },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "publisher": {
-      "@type": "Organization",
-      "name": "RankStack",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1762351592/inmotion-hosting-banner_tsbnzr.avif"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://rankstack.dev/blogs/inmotion-hosting-review"
-    },
-    "description": "8-month enterprise-level testing of InMotion Hosting reveals unprecedented performance results. Raw data, speed tests across 4 continents, and real-world e-commerce performance analysis."
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
-};
 
 const ReviewJsonLd = () => {
   const json = {
@@ -71,7 +37,7 @@ const ReviewJsonLd = () => {
       "name": "RankStack"
     },
     "datePublished": "2025-11-20",
-    "dateModified": "2025-11-20",
+    "dateModified": new Date().toISOString().slice(0, 10),
     "publisher": {
       "@type": "Organization",
       "name": "RankStack",
@@ -116,35 +82,6 @@ const ReviewJsonLd = () => {
   );
 };
 
-const BreadcrumbJsonLd = () => {
-  const json = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { 
-        "@type": "ListItem", 
-        "position": 1, 
-        "name": "Home", 
-        "item": "https://rankstack.dev/" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 2, 
-        "name": "Blogs", 
-        "item": "https://rankstack.dev/blogs" 
-      },
-      { 
-        "@type": "ListItem", 
-        "position": 3, 
-        "name": "InMotion Hosting Review", 
-        "item": "https://rankstack.dev/blogs/inmotion-hosting-review" 
-      }
-    ]
-  };
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
-  );
-};
 
 const InMotionContent = () => {
   const title = "InMotion Hosting Review: Read This Before You Choose SiteGround or Bluehost";
@@ -208,18 +145,8 @@ const InMotionContent = () => {
 
   return (
     <main>
-      <SEO
-        title={title}
-        description={"8-month enterprise testing reveals InMotion Hosting's shocking performance: sub-100ms TTFB, 99.99% uptime, and support that outclasses every competitor. Raw data included."}
-        image={"https://res.cloudinary.com/dpgspconw/image/upload/v1762351592/inmotion-hosting-banner_tsbnzr.avif"}
-        url={"https://rankstack.dev/blogs/inmotion-hosting-review"}
-        publishedTime={"2025-11-20"}
-        modifiedTime={"2025-11-20"}
-      />
 
-      <ArticleJsonLd title={title} datePublished={"2025-11-20"} dateModified={"2025-11-20"} rating={rating} />
       <ReviewJsonLd />
-      <BreadcrumbJsonLd />
 
       {/* Cover / header */}
       <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">
@@ -241,7 +168,7 @@ const InMotionContent = () => {
           points={quickSummaryPoints}
         />
 
-        <h1 className="text-3xl font-bold mt-6">InMotion Hosting Review: Read This Before You Choose SiteGround or Bluehost.</h1>
+        <h2 className="text-3xl font-bold mt-6">InMotion Hosting Review: Read This Before You Choose SiteGround or Bluehost.</h2>
         
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
           <p className="font-semibold text-blue-800">🚀 Executive Summary:</p>
