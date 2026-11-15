@@ -64,6 +64,7 @@ const LINK_TEXT = {
   "hosting-dot-com-review": "our Hosting.com review",
   "best-windows-hosting-providers": "best Windows hosting providers",
   "bluehost-review": "our Bluehost review",
+  "best-ai-website-builders": "the best AI website builders compared",
   "best-linux-hosting-providers": "best Linux hosting providers",
   "best-email-hosting-providers": "best email hosting providers",
   "top-shared-hosting-providers": "best shared hosting providers",

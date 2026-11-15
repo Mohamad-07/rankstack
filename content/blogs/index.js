@@ -33,6 +33,7 @@ import stripePakistanEntityGuide from './stripe-pakistan-uk-ltd-vs-us-llc'
 import virtualDollarCardsPakistan from './virtual-dollar-cards-pakistan'
 import payoneerJazzCashVsBankPakistan from './payoneer-jazzcash-vs-bank-pakistan'
 import facebookReelsMonetizationPakistan from './facebook-reels-monetization-pakistan'
+import bestAiWebsiteBuilders from './best-ai-website-builders'
 // later: import more blogs here (like payment-gateway.js, themes.js, etc)
 
 export const blogData = [
@@ -71,6 +72,7 @@ export const blogData = [
   virtualDollarCardsPakistan,
   payoneerJazzCashVsBankPakistan,
   facebookReelsMonetizationPakistan,
+  bestAiWebsiteBuilders,
 
   // more blogs here
 ]
