@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import SchemaMarkup from "../components/SchemaMarkup";
+import AdLayer from "../components/AdLayer";
 import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
@@ -180,6 +181,9 @@ export default function RootLayout({ children }) {
             \`
           }}></script>
         */}
+
+        {/* ---------- AD LAYER (anchor + pop, client-only) ---------- */}
+        <AdLayer />
       </body>
     </html>
   );

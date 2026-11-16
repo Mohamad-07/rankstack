@@ -1,10 +1,12 @@
 import { blogData } from '@/content/blogs'
+import { Fragment } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import RelatedResources from '@/components/RelatedResources'
+import { InlineAd } from '@/components/Ads'
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -241,31 +243,46 @@ const BlogPage = ({ params }) => {
               <blog.content />
             ) : (
               blog.sections?.map((section, index) => {
-                if (section.type === 'heading') return <h2 key={index}>{section.content}</h2>
-                if (section.type === 'paragraph') return <p key={index}>{section.content}</p>
-                if (section.type === 'image') {
-                  return (
-                    <figure key={index}>
-                      <Image
-                        src={
-                          typeof section.content === 'string'
-                            ? section.content
-                            : section.content.src
-                        }
-                        alt={section.caption || 'Blog image'}
-                        width={800}
-                        height={500}
-                        className="h-auto w-full"
-                      />
-                      {section.caption && (
-                        <figcaption className="mt-2 text-center text-sm text-slate-500">
-                          {section.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  )
-                }
-                return null
+                const rendered = (() => {
+                  if (section.type === 'heading') return <h2 key={index}>{section.content}</h2>
+                  if (section.type === 'paragraph') return <p key={index}>{section.content}</p>
+                  if (section.type === 'image') {
+                    return (
+                      <figure key={index}>
+                        <Image
+                          src={
+                            typeof section.content === 'string'
+                              ? section.content
+                              : section.content.src
+                          }
+                          alt={section.caption || 'Blog image'}
+                          width={800}
+                          height={500}
+                          className="h-auto w-full"
+                        />
+                        {section.caption && (
+                          <figcaption className="mt-2 text-center text-sm text-slate-500">
+                            {section.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    )
+                  }
+                  return null
+                })()
+
+                const isThirdParagraph =
+                  section.type === 'paragraph' &&
+                  blog.sections
+                    .slice(0, index + 1)
+                    .filter((s) => s.type === 'paragraph').length === 3
+
+                return (
+                  <Fragment key={index}>
+                    {rendered}
+                    {isThirdParagraph && <InlineAd />}
+                  </Fragment>
+                )
               })
             )}
           </article>
