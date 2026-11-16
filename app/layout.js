@@ -140,6 +140,12 @@ export default function RootLayout({ children }) {
           content="ca-pub-9280103042501049"
         />
 
+        {/* ---------- HILLTOPADS VERIFICATION ---------- */}
+        <meta
+          name="663333591aa821153ed80420bd3b4de6022d8ec8"
+          content="663333591aa821153ed80420bd3b4de6022d8ec8"
+        />
+
         {/* ---------- SCHEMA MARKUP ---------- */}
         <SchemaMarkup />
 
