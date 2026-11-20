@@ -21,65 +21,39 @@ export default function PrivacyScore({ data, loading }) {
     }
 
     if (data) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setAnimation(true);
-        
-        // Calculate score based on actual data
+
         let calculatedScore = 100;
-        let factors = [];
-        
-        // Check for proxy, VPN, or Tor indicators in org/hostname
+        const factors = [];
+
+        if (data.isBehindProxy || data.proxyIp) {
+          calculatedScore -= 35;
+          factors.push('Proxy or VPN headers detected');
+        }
+
+        if (data.isSpider) {
+          calculatedScore -= 20;
+          factors.push('Crawler or bot user-agent detected');
+        }
+
+        if (data.lookupSource === 'gps') {
+          calculatedScore -= 10;
+          factors.push('Live GPS shared for this lookup');
+        }
+
         const org = data.org || '';
-        const hostname = data.hostname || '';
-        
-        // Common VPN/Tor/Proxy indicators
-        const vpnIndicators = ['vpn', 'proxy', 'tor', 'anonymous', 'hide', 'privacy'];
-        const hostingIndicators = ['google', 'aws', 'azure', 'cloud', 'digitalocean', 'linode', 'hetzner', 'ovh'];
-        const ispIndicators = ['comcast', 'verizon', 'att', 'spectrum', 'cox', 'xfinity'];
-        
         const orgLower = org.toLowerCase();
-        const hostnameLower = hostname.toLowerCase();
-        
-        // Check for VPN/Proxy/Tor
-        const isPrivacyService = vpnIndicators.some(indicator => 
-          orgLower.includes(indicator) || hostnameLower.includes(indicator)
-        );
-        
-        // Check for hosting/datacenter
-        const isHosting = hostingIndicators.some(indicator => 
-          orgLower.includes(indicator) || hostnameLower.includes(indicator)
-        );
-        
-        // Check for regular ISP (higher privacy)
-        const isRegularISP = ispIndicators.some(indicator => 
-          orgLower.includes(indicator)
-        );
-        
-        // Adjust score based on findings
-        if (isPrivacyService) {
-          calculatedScore -= 40;
-          factors.push("Privacy Service Detected");
+        if (orgLower.includes('vpn') || orgLower.includes('proxy') || orgLower.includes('tor')) {
+          calculatedScore -= 20;
+          factors.push('Privacy service network');
         }
-        
-        if (isHosting) {
-          calculatedScore -= 30;
-          factors.push("Datacenter/Hosting IP");
-        } else if (!isRegularISP && org) {
-          calculatedScore -= 15;
-          factors.push("Unusual Network");
-        }
-        
-        // Check for mobile network (often dynamic IP)
-        if (orgLower.includes('mobile') || orgLower.includes('cellular')) {
-          calculatedScore += 5; // Mobile networks often have dynamic IPs (better privacy)
-        }
-        
-        // Ensure score stays within bounds
-        calculatedScore = Math.max(20, Math.min(100, calculatedScore));
-        
-        setScore(calculatedScore);
+
+        setScore(Math.max(20, Math.min(100, calculatedScore)));
         setRiskFactors(factors);
       }, 500);
+
+      return () => clearTimeout(timer);
     }
   }, [data, loading]);
 

@@ -7,6 +7,8 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import logo from "@/public/rankstack-logo.png";
+import NetworkToolsNav from "./NetworkToolsNav";
+import { NETWORK_TOOL_PATHS } from "@/lib/network-tools";
 
 const MobileMenu = dynamic(() => import("./MobileMenu"), {
   ssr: false,
@@ -29,6 +31,9 @@ const secondaryLinks = [
 
 const isActivePath = (pathname, href) =>
   href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
+const isNetworkToolPage = (pathname) =>
+  NETWORK_TOOL_PATHS.some((href) => isActivePath(pathname, href));
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,6 +102,8 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      {isNetworkToolPage(pathname) ? <NetworkToolsNav /> : null}
 
       {isOpen && (
         <MobileMenu

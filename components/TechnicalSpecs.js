@@ -245,7 +245,7 @@ export default function TechnicalSpecs({ data, loading }) {
             <svg className="h-4 w-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>Technical data provided by IPinfo.io API</span>
+            <span>Technical data gathered by a client-side diagnostic engine</span>
           </div>
           <div className="text-xs text-gray-400">
             Detected IP: {technicalData?.ip || 'Not available'}

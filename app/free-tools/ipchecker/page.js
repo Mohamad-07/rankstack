@@ -5,13 +5,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import RelatedResources from "@/components/RelatedResources";
-import Ipcheckerfaq from '@/components/Ipcheckerfaq';
 import IpDetails from "@/components/IpDetails";
 import PrivacyScore from "@/components/PrivacyScore";
 import TechnicalSpecs from "@/components/TechnicalSpecs";
 import GeolocationPrivacyMap from "@/components/Geolocation";
 import IPv4IPv6Guide from "@/components/IPv4vsIPv6";
-import useIpDetails from "@/hooks/useIpDetails";
+import useNetworkData from "@/hooks/useNetworkData";
+import { ErrorNotice, MetricCard, ScanControls, ToolCrossLinks, formatDiagnosticErrors } from "@/components/NetworkToolUI";
+import { ToolHelpSection } from "@/components/ToolContent";
 import { 
   ShieldCheckIcon, 
   GlobeAltIcon, 
@@ -22,19 +23,99 @@ import {
   ClockIcon
 } from '@heroicons/react/24/outline';
 
+const RESULT_GUIDE = [
+  {
+    term: 'Public IP address',
+    detail: 'The address websites see when you connect. It identifies your network, not your device or identity.',
+  },
+  {
+    term: 'IPv4 / IPv6 format',
+    detail: 'IPv4 looks like 203.0.113.8. IPv6 is longer, uses colons, and lets modern networks assign many more addresses.',
+  },
+  {
+    term: 'Approximate location',
+    detail: 'City and region are inferred from the registered network area, so they can be off by tens of kilometres.',
+  },
+  {
+    term: 'Proxy and crawler flags',
+    detail: 'These indicate routing or automated-client signals. They are useful context, not definitive proof of intent.',
+  },
+  {
+    term: 'Lookup source',
+    detail: 'IP geolocation is instant. Live GPS appears only after you grant permission and produces a more precise comparison.',
+  },
+];
+
+const TROUBLESHOOTING = [
+  {
+    title: 'The city looks wrong',
+    detail: 'Check whether a VPN, proxy, or mobile carrier is routing your traffic. Those networks often register in a different region.',
+  },
+  {
+    title: 'The address changed unexpectedly',
+    detail: 'Reconnect to your router or mobile network, then re-scan. DHCP leases and carrier NAT can rotate public addresses.',
+  },
+  {
+    title: 'You need an address for allowlisting',
+    detail: 'Copy the public IP shown here, then confirm it on the network that will actually connect to the service you are configuring.',
+  },
+  {
+    title: 'You want less location exposure',
+    detail: 'Keep location permission set to Ask or Block. IP geolocation will still show a broad region, which is expected for every site.',
+  },
+];
+
+const FAQS = [
+  {
+    question: 'What is my IP address and why does it change?',
+    answer:
+      'Your IP address is the public address your network uses on the internet. It can change when you switch networks, restart a router, reconnect through a VPN, or when your provider rotates addresses.',
+  },
+  {
+    question: 'How does this IP address lookup work?',
+    answer:
+      'Your browser performs the lookup directly over HTTPS. The response is displayed to you and cached only in this browser tab for fifteen minutes. RankStack servers never receive or log the lookup.',
+  },
+  {
+    question: 'Why does the IP location differ from my real location?',
+    answer:
+      'IP geolocation maps an address to the registered network region of the provider, not your street address. VPNs, mobile carriers, and large ISP routing areas often make the estimated city differ from where you are.',
+  },
+  {
+    question: 'What is the difference between an IPv4 and IPv6 checker?',
+    answer:
+      'IPv4 uses 32-bit addresses such as 203.0.113.8, while IPv6 uses 128-bit addresses such as 2001:db8::8a2e. A modern connection may use either or both; this tool shows the public address your browser actually presents.',
+  },
+  {
+    question: 'Is it safe to check my public IP here?',
+    answer:
+      'Yes. The check needs no sign-in, runs client-side, and is not used to build a browsing profile. You can optionally refine with live GPS, but that happens only after you grant browser permission.',
+  },
+];
+
 export default function IPCheckerPage() {
-  const { loading, error, data } = useIpDetails();
+  const {
+    loading,
+    error,
+    data,
+    errors,
+    rescan,
+    refineWithGps,
+    gpsLoading,
+    gpsError,
+    hasGps,
+  } = useNetworkData();
   const [copyStatus, setCopyStatus] = useState('Copy IP');
 
   // JSON-LD: Tool schema (Upgraded to WebApplication)
   const toolSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "What Is My IP Address Tool",
+    name: "IP Address Lookup & IPv4/IPv6 Checker",
     operatingSystem: "Any",
     applicationCategory: "NetworkApplication",
     browserRequirements: "Requires JavaScript. Compatible with all major browsers.",
-    description: "Check your public IP address instantly and get detailed network information including ISP, city, region, and more with RankStack's free IP Checker tool.",
+    description: "Run a free IP address lookup to check my public IP, see IPv4 and IPv6 details, and review approximate location and network information.",
     url: "https://rankstack.dev/free-tools/ipchecker/",
     offers: {
       "@type": "Offer",
@@ -57,32 +138,14 @@ export default function IPCheckerPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What is my IP address?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Your IP address is a unique identifier assigned to your device when you connect to the internet. Use RankStack's IP Checker to see it instantly.",
-        },
+    mainEntity: FAQS.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
       },
-      {
-        "@type": "Question",
-        name: "Is RankStack's IP Checker free?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. The IP Checker is 100% free to use — no sign-up or installation required.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is my IP data stored or tracked?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No, RankStack does not store or track IPs. All lookups are performed anonymously and securely.",
-        },
-      },
-    ],
+    })),
   };
 
   // JSON-LD: Breadcrumb schema
@@ -121,6 +184,32 @@ export default function IPCheckerPage() {
     }
   };
 
+  const yesNo = (value) => (value ? 'Yes' : 'No');
+  const joinLanguages = (languages) =>
+    Array.isArray(languages) && languages.length ? languages.join(', ') : 'Not available';
+
+  const profileFields = [
+    ['Public IP', data?.ipString],
+    ['Numeric IP', data?.ipNumeric],
+    ['IP type', data?.ipType],
+    ['Proxy detected', yesNo(data?.isBehindProxy)],
+    ['Proxy IP', data?.proxyIp],
+    ['Country', data?.countryName],
+    ['Country code', data?.countryCode],
+    ['Region', data?.principalSubdivision],
+    ['City', data?.city],
+    ['Locality', data?.locality],
+    ['Postcode', data?.postcode],
+    ['Plus Code', data?.plusCode],
+    ['Lookup source', data?.lookupSource === 'gps' ? 'Live GPS' : 'IP geolocation'],
+    ['Device', data?.device],
+    ['Operating system', data?.os],
+    ['Browser', data?.userAgentDisplay],
+    ['Mobile device', yesNo(data?.isMobile)],
+    ['Crawler', yesNo(data?.isSpider)],
+    ['Languages', joinLanguages(data?.userLanguages)],
+  ];
+
   return (
     <>
       <script
@@ -143,7 +232,8 @@ export default function IPCheckerPage() {
         <PageHero
           eyebrow="Free tool"
           title="What is my IP address?"
-          description="Instantly see your public IP address, approximate location, and network details. No account needed, and lookups are not used to build a profile."
+          description="Get an instant IP address lookup: see your public IP, IPv4/IPv6 details, and approximate location without an account or setup."
+          actions={<a href="#diagnostic-tool" className="btn-primary">Run free IP lookup</a>}
           breadcrumb={[
             { label: "Home", href: "/" },
             { label: "Free Tools", href: "/free-tools" },
@@ -151,7 +241,7 @@ export default function IPCheckerPage() {
           ]}
         />
 
-        <section className="section bg-white">
+        <section id="diagnostic-tool" className="section bg-white">
           <div className="shell">
         {/* Combined IP Display and Privacy Score Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -328,6 +418,51 @@ export default function IPCheckerPage() {
           </div>
         </div>
 
+        {!loading && !error && data ? (
+          <div className="card mb-12 p-6 sm:p-8">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <h2 className="text-2xl font-bold text-gray-900">Complete network profile</h2>
+                  <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                    {data.lookupSource === 'gps' ? 'Live GPS reverse geocode' : 'IP geolocation'}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-gray-600">
+                  Lookups run directly from your browser through our client-side diagnostic engine and are cached only for this tab.
+                </p>
+              </div>
+              <ScanControls
+                onRescan={rescan}
+                loading={loading}
+                onGps={refineWithGps}
+                gpsLoading={gpsLoading}
+                hasGps={hasGps}
+                note="GPS is optional and only used after you grant permission."
+              />
+            </div>
+
+            <ErrorNotice error={gpsError} title="Live GPS could not be used" />
+            {Object.keys(errors || {}).length ? (
+              <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                Some sources were unavailable: {formatDiagnosticErrors(errors)}
+              </div>
+            ) : null}
+
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {profileFields.map(([label, value]) => (
+                <MetricCard key={label} label={label} value={value} mono={label === 'Public IP' || label === 'Plus Code' || label === 'Proxy IP'} />
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {!loading && !error ? (
+          <div className="mb-12">
+            <ToolCrossLinks heading="Go deeper with these diagnostics" exclude="/free-tools/ipchecker" />
+          </div>
+        ) : null}
+
         {/* Detailed Information Grid */}
         <div className="mb-12">
           <IpDetails data={data} loading={loading} />
@@ -426,12 +561,6 @@ export default function IPCheckerPage() {
           </div>
 
 
-        {/* FAQ Section */}
-        <div className="mb-16">
-          <Ipcheckerfaq />
-        </div>
-
-
 
 
           {/* Expert Section */}
@@ -476,6 +605,16 @@ export default function IPCheckerPage() {
           </div>
         </section>
       </main>
+
+      <ToolHelpSection
+        intro={{
+          title: 'Understand the IP address lookup before you act on it',
+          description: 'These short guides explain the public IP, location estimate, and privacy decisions behind the result you just saw.',
+        }}
+        results={RESULT_GUIDE}
+        troubleshooting={TROUBLESHOOTING}
+        faqs={FAQS}
+      />
 
       <section className="section bg-slate-50">
         <div className="shell max-w-6xl">

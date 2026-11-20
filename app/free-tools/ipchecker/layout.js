@@ -1,16 +1,17 @@
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata({
-  title: "What Is My IP Address? - Free IP Checker",
+  title: "What Is My IP? Free IP Address Lookup & IPv4/IPv6 Checker",
   description:
-    "Check your public IP address instantly with RankStack's free IP checker. See your IPv4 and IPv6 address, network, and connection details — no setup required.",
+    "Check my public IP instantly with RankStack's free IP checker. See your IPv4 and IPv6 address, network details, and IP location finder results in one client-side scan.",
   path: "/free-tools/ipchecker",
   keywords: [
     "what is my ip",
-    "my public IP address",
-    "IP address checker",
-    "IPv4 checker",
-    "IPv6 checker",
+    "my ip address",
+    "ip address lookup",
+    "ipv4 and ipv6 checker",
+    "ip location finder",
+    "check my public ip",
   ],
   image:
     "https://res.cloudinary.com/dpgspconw/image/upload/v1759154339/web-hosting-for-bloggers_cbnl6u.avif",

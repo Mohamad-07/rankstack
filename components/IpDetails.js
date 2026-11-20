@@ -1,6 +1,5 @@
 'use client';
 
-import useIpDetails from '../hooks/useIpDetails';
 import useBrowserDetails from '../hooks/useBrowserDetails';
 import Loader from './Loader';
 import { 
@@ -18,8 +17,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
-const IpDetails = () => {
-  const { loading, error, data: ipData } = useIpDetails();
+const IpDetails = ({ data: ipData, loading, error }) => {
   const { browser, screenSize, cookiesEnabled } = useBrowserDetails();
   const [copySuccess, setCopySuccess] = useState(false);
 

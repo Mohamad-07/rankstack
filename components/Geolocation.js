@@ -86,7 +86,7 @@ export default function GeolocationPrivacyMap({ data, loading }) {
               Geolocation Privacy Map
             </h3>
             <p className="text-gray-600 mt-2">
-              Visualize how accurately your location can be determined based on your IP: {data?.ip || 'Unknown IP'}
+                Visualize how accurately your location can be determined from {data?.lookupSource === 'gps' ? 'live GPS' : 'your IP'}: {data?.ip || 'Unknown IP'}
             </p>
           </div>
           <div className="mt-4 sm:mt-0">
@@ -106,7 +106,7 @@ export default function GeolocationPrivacyMap({ data, loading }) {
         <div className="mb-8 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-6 border border-blue-100">
           <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
             <MapPinIcon className="h-5 w-5 mr-2 text-blue-600" />
-            Your Actual Location from IP
+            {data?.lookupSource === 'gps' ? 'Your Location from Live GPS' : 'Your Approximate Location from IP'}
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
             <div>

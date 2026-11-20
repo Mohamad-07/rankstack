@@ -22,7 +22,7 @@ RankStack is an AI-powered developer utility platform for network diagnostics, a
 - Framer Motion
 - Lucide and Heroicons
 - TinyPNG API for image compression
-- IPinfo API for IP intelligence
+- Server-side IP intelligence API
 
 ## Getting Started
 
@@ -87,7 +87,7 @@ public/              Static assets, favicon set, and manifests
 ## API Routes
 
 - `POST /api/image-compressor` - compress an uploaded image through TinyPNG
-- `GET /api/ip` - resolve IP details through IPinfo using a server-side token
+- `GET /api/ip` - resolve IP details through a server-side IP intelligence token
 - `GET /api/dns-propagation` - resolve DNS records through Node DNS or DoH fallback
 
 ## SEO

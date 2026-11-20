@@ -12,6 +12,9 @@ import {
   Clock3,
   Rocket,
   Image,
+  ShieldAlert,
+  ScanEye,
+  MonitorSmartphone,
 } from "lucide-react";
 
 export const metadata = createMetadata({
@@ -89,6 +92,33 @@ const ToolsPage = () => {
         "Calculate a domain's age from its registry-reported creation date, with registration anniversary and RDAP source details.",
       url: "/free-tools/domain-age-checker",
       bg: "from-amber-600 to-orange-700",
+    },
+    {
+      icon: <ShieldAlert className="w-8 h-8 text-white" />,
+      title: "Proxy & Location Detector",
+      description:
+        "Check proxy headers, timezone and language alignment, WebRTC leaks, and IP-versus-GPS location consistency.",
+      url: "/free-tools/proxy-detector",
+      bg: "from-rose-500 to-red-600",
+      featured: true,
+    },
+    {
+      icon: <ScanEye className="w-8 h-8 text-white" />,
+      title: "Privacy Exposure Audit",
+      description:
+        "See what your browser reveals without permission and what stays protected until you grant location access.",
+      url: "/free-tools/privacy-audit",
+      bg: "from-teal-500 to-emerald-600",
+      featured: true,
+    },
+    {
+      icon: <MonitorSmartphone className="w-8 h-8 text-white" />,
+      title: "User-Agent Inspector",
+      description:
+        "Decode your user-agent string into browser, OS, device, and crawler details, then cross-check your browser APIs.",
+      url: "/free-tools/user-agent-inspector",
+      bg: "from-violet-600 to-fuchsia-600",
+      featured: true,
     },
   ];
 

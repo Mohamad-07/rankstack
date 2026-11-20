@@ -16,6 +16,9 @@ const toolLinks = [
   { label: "DNS Propagation", href: "/free-tools/dns-propagation" },
   { label: "WHOIS Lookup", href: "/free-tools/whois-lookup" },
   { label: "Image Compressor", href: "/free-tools/image-compressor" },
+  { label: "Proxy Detector", href: "/free-tools/proxy-detector" },
+  { label: "Privacy Audit", href: "/free-tools/privacy-audit" },
+  { label: "User-Agent Inspector", href: "/free-tools/user-agent-inspector" },
 ];
 
 const companyLinks = [

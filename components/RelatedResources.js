@@ -33,6 +33,18 @@ const TOOL_META = {
     title: "AI Hosting Recommender",
     description: "Get a hosting match for your budget and traffic in a 2-minute quiz.",
   },
+  "/free-tools/proxy-detector": {
+    title: "Proxy & Location Detector",
+    description: "Score proxy headers, timezone, WebRTC, and IP-versus-GPS consistency.",
+  },
+  "/free-tools/privacy-audit": {
+    title: "Privacy Exposure Audit",
+    description: "See which browser signals leak automatically and which need permission.",
+  },
+  "/free-tools/user-agent-inspector": {
+    title: "User-Agent Inspector",
+    description: "Decode your user-agent into browser, OS, device, and crawler details.",
+  },
 };
 
 // Short, natural anchor text for article links (unique per target page).

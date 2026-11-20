@@ -34,6 +34,9 @@ export default function sitemap() {
     { path: '/free-tools/dns-propagation', changeFrequency: 'weekly', priority: 0.9 },
     { path: '/free-tools/image-compressor', changeFrequency: 'weekly', priority: 0.9 },
     { path: '/free-tools/hosting-recommender', changeFrequency: 'weekly', priority: 0.85 },
+    { path: '/free-tools/proxy-detector', changeFrequency: 'weekly', priority: 0.9 },
+    { path: '/free-tools/privacy-audit', changeFrequency: 'weekly', priority: 0.9 },
+    { path: '/free-tools/user-agent-inspector', changeFrequency: 'weekly', priority: 0.9 },
   ].map((route) => ({
     ...route,
     lastModified: currentDate,
