@@ -36,6 +36,8 @@ import facebookReelsMonetizationPakistan from './facebook-reels-monetization-pak
 import bestAiWebsiteBuilders from './best-ai-website-builders'
 import paymentGatewayInPakistan from './payment-gateway-in-pakistan'
 import bestPaymentGatewayWooCommercePakistan from './best-payment-gateway-woocommerce-pakistan'
+import paymentGatewaysUs from './payment-gateways'
+import kenyaPaymentGatewaySmallBusiness from './kenya-payment-gateway-options-small-business'
 
 export const blogData = [
   misshostingthestressfreewebhostyouvebeenlookingfor,
@@ -76,6 +78,8 @@ export const blogData = [
   bestAiWebsiteBuilders,
   paymentGatewayInPakistan,
   bestPaymentGatewayWooCommercePakistan,
+  paymentGatewaysUs,
+  kenyaPaymentGatewaySmallBusiness,
 
   // more blogs here
 ]

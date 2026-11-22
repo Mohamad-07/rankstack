@@ -87,6 +87,8 @@ const LINK_TEXT = {
   "facebook-reels-monetization-pakistan": "Facebook Reels monetization eligibility in Pakistan",
   "payment-gateway-in-pakistan": "complete payment gateway in Pakistan guide",
   "best-payment-gateway-woocommerce-pakistan": "best payment gateway for WooCommerce in Pakistan",
+  "payment-gateways": "US-focused payment gateways guide",
+  "kenya-payment-gateway-options-small-business": "Kenya payment gateway options for small business websites",
 };
 
 const PILLAR_TEXT = {
