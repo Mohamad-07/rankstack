@@ -85,6 +85,8 @@ const LINK_TEXT = {
   "virtual-dollar-cards-pakistan": "virtual dollar card costs and payment checks in Pakistan",
   "payoneer-jazzcash-vs-bank-pakistan": "compare Payoneer JazzCash and bank payouts",
   "facebook-reels-monetization-pakistan": "Facebook Reels monetization eligibility in Pakistan",
+  "payment-gateway-in-pakistan": "complete payment gateway in Pakistan guide",
+  "best-payment-gateway-woocommerce-pakistan": "best payment gateway for WooCommerce in Pakistan",
 };
 
 const PILLAR_TEXT = {

@@ -34,7 +34,8 @@ import virtualDollarCardsPakistan from './virtual-dollar-cards-pakistan'
 import payoneerJazzCashVsBankPakistan from './payoneer-jazzcash-vs-bank-pakistan'
 import facebookReelsMonetizationPakistan from './facebook-reels-monetization-pakistan'
 import bestAiWebsiteBuilders from './best-ai-website-builders'
-// later: import more blogs here (like payment-gateway.js, themes.js, etc)
+import paymentGatewayInPakistan from './payment-gateway-in-pakistan'
+import bestPaymentGatewayWooCommercePakistan from './best-payment-gateway-woocommerce-pakistan'
 
 export const blogData = [
   misshostingthestressfreewebhostyouvebeenlookingfor,
@@ -73,6 +74,8 @@ export const blogData = [
   payoneerJazzCashVsBankPakistan,
   facebookReelsMonetizationPakistan,
   bestAiWebsiteBuilders,
+  paymentGatewayInPakistan,
+  bestPaymentGatewayWooCommercePakistan,
 
   // more blogs here
 ]
