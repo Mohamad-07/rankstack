@@ -1,4 +1,5 @@
 import React from "react"
+import { getAffiliateVariantUrl } from "@/lib/affiliates";
 import Link from "next/link"
 import CTA from "@/components/Cta";
 import ProsConsCard from "@/components/Proscons";
@@ -99,7 +100,7 @@ const JetHostReviewContent = () => {
         <div className="w-full flex justify-center my-8">
         <a
         rel="sponsored"
-        href="https://network-solutions.7eer.net/c/3600799/2331427/555"
+        href={getAffiliateVariantUrl("network-solutions", "deep-link-2331427")}
         target="_blank"
         id="2331427"
         className="block"
@@ -374,7 +375,7 @@ const JetHostReviewContent = () => {
           heading="Exclusively for our Readers!"
           offer="🔥 Get Exclusive Launch Discounts on JetHost"
           buttonText="Avail Now"
-          buttonLink="https://jethost.com/web-hosting/?a_aid=rankstack&a_bid=5eda723f"
+          buttonLink={getAffiliateVariantUrl("jethost", "deep-link-web-hosting")}
         />
 
       </section>

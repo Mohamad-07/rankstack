@@ -1,0 +1,240 @@
+# ==============================================================================
+# RankStack affiliate links — SINGLE SOURCE OF TRUTH
+# ------------------------------------------------------------------------------
+# Edit ONLY this file to add, replace, or retire affiliate destinations.
+# After editing, run: npm run affiliates:sync
+# The generated registry (lib/affiliates.generated.js) is rebuilt automatically.
+# Never edit lib/affiliates.generated.js by hand.
+#
+# Format rules:
+#   N) Brand Name            -> starts an ACTIVE brand
+#   Affiliate link: URL      -> primary destination (preserved exactly)
+#   <Label>: URL             -> optional deep link / variant
+#   Banner ad: ...           -> ignored by the importer (creative markup only)
+#   PENDING) Brand Name      -> commercial brand awaiting a real affiliate URL.
+#                               No production href is emitted until a real
+#                               "Affiliate link: URL" is added underneath it.
+#
+# Tracking domains, query strings and identifiers are NEVER rewritten.
+# A2 Hosting is an alias of Hosting.com (see lib/affiliates.js); do not add a
+# separate A2 affiliate record here.
+# ==============================================================================
+
+# ACTIVE AFFILIATE LINKS
+
+1) HostGator
+Affiliate link:
+https://hostgator.pvxt.net/7aAG5V
+
+Banner ad:
+        <a rel="sponsored"
+           href="https://hostgator.pvxt.net/c/3600799/557999/3094" target="_top" id="557999">
+<img src="//a.impactradius-go.com/display-ad/3094-557999" border="0" alt="Gator Website Builder" width="300" height="250"/></a><img height="0" width="0" src="https://hostgator.pvxt.net/i/3600799/557999/3094" style="position:absolute;visibility:hidden;" border="0" />
+
+2) InMotion Hosting
+Affiliate link:
+https://partners.inmotionhosting.com/Wy4yxM
+
+Banner ad:
+        <a rel="sponsored"
+           href="https://partners.inmotionhosting.com/c/3600799/2156551/4222" target="_top" id="2156551">
+<img src="//a.impactradius-go.com/display-ad/4222-2156551" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="https://partners.inmotionhosting.com/i/3600799/2156551/4222" style="position:absolute;visibility:hidden;" border="0" />
+
+
+Banner ad 2:
+
+
+        <a rel="sponsored"
+           href="https://partners.inmotionhosting.com/c/3600799/2156550/4222" target="_top" id="2156550">
+<img src="//a.impactradius-go.com/display-ad/4222-2156550" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="https://partners.inmotionhosting.com/i/3600799/2156550/4222" style="position:absolute;visibility:hidden;" border="0" /> 
+
+3) BlueHost
+affiliate link:
+https://bluehost.sjv.io/MXOn22
+Ai website builder affiliate link: https://bluehost.sjv.io/c/3600799/4131511/11352
+Deep link (2147539): https://bluehost.sjv.io/c/3600799/2147539/11352
+Deep link (2147545): https://bluehost.sjv.io/c/3600799/2147545/11352
+Deep link (1376228): https://bluehost.sjv.io/c/3675093/1376228/11352
+
+1) <!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https:; script-src 'self'; style-src 'self' 'unsafe-inline';">
+</head>
+<body>
+            <a rel="sponsored"
+           href="https://bluehost.sjv.io/c/3600799/3921461/11352" target="_top" id="3921461">
+<img src="//a.impactradius-go.com/display-ad/11352-3921461" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="https://imp.pxf.io/i/3600799/3921461/11352" style="position:absolute;visibility:hidden;" border="0" />
+</body>
+</html>
+2) <!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https:; script-src 'self'; style-src 'self' 'unsafe-inline';">
+</head>
+<body>
+            <a rel="sponsored"
+           href="https://bluehost.sjv.io/c/3600799/3921453/11352" target="_top" id="3921453">
+<img src="//a.impactradius-go.com/display-ad/11352-3921453" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="https://imp.pxf.io/i/3600799/3921453/11352" style="position:absolute;visibility:hidden;" border="0" />
+</body>
+</html>
+
+
+4) Flashcloud
+affiliate link: https://flashcloud.pxf.io/m4rgYq
+1) <!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https:; script-src 'self'; style-src 'self' 'unsafe-inline';">
+</head>
+<body>
+            <a rel="sponsored"
+           href="https://flashcloud.pxf.io/c/3600799/3920668/52759" target="_top" id="3920668">
+<img src="//a.impactradius-go.com/display-ad/52759-3920668" border="0" alt="Flashcloud web hosting — Free domain for life included on every plan" width="300" height="250"/></a><img height="0" width="0" src="https://imp.pxf.io/i/3600799/3920668/52759" style="position:absolute;visibility:hidden;" border="0" />
+</body>
+</html>
+
+2) <!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https:; script-src 'self'; style-src 'self' 'unsafe-inline';">
+</head>
+<body>
+            <a rel="sponsored"
+           href="https://flashcloud.pxf.io/c/3600799/3920662/52759" target="_top" id="3920662">
+<img src="//a.impactradius-go.com/display-ad/52759-3920662" border="0" alt="Flashcloud wordpress hosting — Free domain for life included on every plan" width="728" height="90"/></a><img height="0" width="0" src="https://imp.pxf.io/i/3600799/3920662/52759" style="position:absolute;visibility:hidden;" border="0" />
+</body>
+</html>
+
+
+5) Domain.com
+
+affiliate link:
+https://domain.mno8.net/9LjbOE
+
+6) Network solutions:
+affiliate link: https://network-solutions.7eer.net/POV1OX
+Deep link (2331427): https://network-solutions.7eer.net/c/3600799/2331427/555
+Deep link (2331419): https://network-solutions.7eer.net/c/3600799/2331419/555
+7) EuroDNS:
+link: https://eurodns.pxf.io/5kJRN1
+8) pyproxy: https://pyproxy.sjv.io/qWd1jN
+9) wegic: https://wegic-ai.pxf.io/DWx5Na
+10) Kamatera: https://kamatera.sjv.io/QY1BQx
+11) 10Web: https://10web.sjv.io/PzGoDN
+11) Vodien: https://vodien.sjv.io/aNdyXo
+12) Ultahost: https://ultahost.sjv.io/Ag6rNN
+13) Crazy Domains: https://crazydomains.sjv.io/0ZvbGP
+14) Inmotion Hosting: https://partners.inmotionhosting.com/c/3600799/260033/4222?p_prod=any
+15) Hostgator: https://hostgator.pvxt.net/7aAG5V 
+16) HostPapa: https://www.hostpapa.com/?a_aid=24547
+17) Hosting.com: https://hosting.com?aid=695f54098c685
+17.1) https://hosting.com/hosting/platforms/wordpress-hosting/?aid=695f54098c685&bid=9edb38b0
+Deep link (wordpress 078d15b4): https://hosting.com/hosting/platforms/wordpress-hosting/?aid=695f54098c685&bid=078d15b4
+18) Fastcomet:
+Affiliate link: https://affiliate.fastcomet.com/scripts/2wc9ym?a_aid=662fe54dcac57
+Banner ad:
+<script type="text/javascript">document.write("<iframe name='banner' src='https://affiliate.fastcomet.com/scripts/2wb9ym?a_aid=662fe54dcac57&amp;a_bid=2346c86a&amp;w=1&refx2s6d="+encodeURIComponent(encodeURIComponent(document.URL))+"' framespacing='0' frameborder='no' scrolling='no' width='970' height='90' allowtransparency='true'><a href='https://affiliate.fastcomet.com/scripts/2wc9ym?a_aid=662fe54dcac57&amp;a_bid=2346c86a' target='_top'>970x90 High-Performance SSD Cloud (animated)</a></iframe>");
+</script>
+<noscript>
+<h2><a href="https://www.fastcomet.com/?aid=662fe54dcac57">970x90 High-Performance SSD Cloud (animated)</a></h2>
+</noscript>
+
+18) Hostinger: https://hostinger.sjv.io/rnV05j
+Banner ad:
+        <a rel="sponsored"
+           href="https://hostinger.sjv.io/c/3675093/1393542/12282" target="_top" id="1393542">
+<img src="//a.impactradius-go.com/display-ad/12282-1393542" border="0" alt="" width="300" height="250"/></a><img height="0" width="0" src="https://imp.pxf.io/i/3675093/1393542/12282" style="position:absolute;visibility:hidden;" border="0" />
+
+Banner ad 2:
+        <a rel="sponsored"
+           href="https://hostinger.sjv.io/c/3675093/1393551/12282" target="_top" id="1393551">
+<img src="//a.impactradius-go.com/display-ad/12282-1393551" border="0" alt="" width="400" height="400"/></a><img height="0" width="0" src="https://imp.pxf.io/i/3675093/1393551/12282" style="position:absolute;visibility:hidden;" border="0" />
+
+19) Hostarmada:
+1) Affiliate link: https://affiliates.hostarmada.com/scripts/q1yoac4x8oq?a_aid=brandoralab
+
+Banner 1:
+https://affiliates.hostarmada.com/scripts/q1yoac4x8oq?a_aid=brandoralab&a_bid=49e602d8
+
+20) 1) https://www.accuwebhosting.com/ref/5297-8-3-14.html 
+
+Banner ad: <a href="https://www.accuwebhosting.com/ref/5297-2-1-383.html" target="_blank" rel="nofollow"><img style="border:0px" src="https://www.accuwebhosting.com/ref/media/banners/wordpress-hosting-728x90-min.jpg" width="768" height="90" alt="Fully Managed WordPress Hosting"></a>
+
+Banner code: 
+<a href="https://www.accuwebhosting.com/ref/5297-2-1-385.html" target="_blank" rel="nofollow"><img style="border:0px" src="https://www.accuwebhosting.com/ref/media/banners/wordpress-hosting-336x280-min.jpg" width="336" height="280" alt="Fully Managed WordPress Hosting"></a>
+
+# --- Verified tracked programs centralized from the commercial-link audit ---
+# Every URL below already existed in production source. It is copied verbatim
+# so the existing tracking code is preserved and becomes centrally editable.
+
+21) Miss Hosting
+Affiliate link: https://tracking.missaffiliate.com/aff_c?offer_id=42&aff_id=6559
+Deep link (offer 30): https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559
+Deep link (SHga): https://tracking.missaffiliate.com/SHga
+
+22) JetHost
+Affiliate link: https://jethost.com/?a_aid=RankStack
+Deep link (lowercase aid): https://jethost.com/?a_aid=rankstack
+Deep link (web hosting): https://jethost.com/web-hosting/?a_aid=rankstack&a_bid=5eda723f
+
+23) GreenGeeks
+Affiliate link: https://www.greengeeks.com/track/munazza
+
+24) InterServer
+Affiliate link: https://www.interserver.net/r/899620
+Deep link (anrdoezrs): https://www.anrdoezrs.net/click-101156682-15733719
+Deep link (999999): https://www.interserver.net/r/999999
+
+25) Liquid Web
+Affiliate link: https://liquidweb.i3f2.net/WqDnA3
+
+26) ScalaHosting
+Affiliate link: https://www.scalahosting.com/#661e37f21eb85
+
+27) ChemiCloud
+Affiliate link: https://chemicloud.com/#660526c05255d
+
+28) ATS Space Web Hosting
+Affiliate link: http://www.atspace.com?aid=MTkyNDE4MjYyNTI2MjE=
+
+29) Shopify
+Affiliate link: https://shopify.pxf.io/ZQdaoK
+
+30) Namecheap
+Affiliate link: https://namecheap.pxf.io/EKoANe
+
+31) Name.com
+Affiliate link: https://name.sjv.io/LX5Q3Y
+
+# PENDING AFFILIATE LINKS
+# Genuine commercial recommendations that do not yet have a verified affiliate
+# URL. PENDING is a valid state: no affiliate href is emitted for these brands.
+# To activate one, add a real "Affiliate link: URL" line beneath its header,
+# then run npm run affiliates:sync. Never enter /affiliate-link placeholders.
+
+PENDING) Cloud86
+PENDING) DreamHost
+PENDING) Hostiso
+PENDING) VeeroTech
+PENDING) SiteGround
+PENDING) SmarterASP
+PENDING) IONOS
+PENDING) Hostmetro
+PENDING) Webcentral
+PENDING) GoDaddy
+PENDING) Google Workspace
+PENDING) Microsoft 365
+PENDING) Zoho Mail
+PENDING) Proton Mail
+PENDING) Fastmail
+PENDING) Cloudways
+PENDING) Krystal
+PENDING) Rackspace
+PENDING) IceWarp
+PENDING) HostPresto
+PENDING) EUKhost
+
+
+
+

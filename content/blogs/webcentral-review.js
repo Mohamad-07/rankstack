@@ -524,7 +524,7 @@ const WebCentralContent = () => {
         <HostInfoBox 
           bestFor="Australian businesses, government agencies, healthcare providers, financial services, and any organization requiring Australian data sovereignty and local performance."
           rating="⭐ 8.8 / 10"
-          link="https://www.webcentral.com.au"
+          link="https://www.webcentral.com.au" brand="webcentral"
         />
 
         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
@@ -688,7 +688,7 @@ const WebCentralContent = () => {
             heading="Ready to Experience Hosting Performance?"
             offer="Get WebCentral $3.95 AUD/month"
             buttonText="Get WebCentral Now"
-            buttonLink="https://www.webcentral.com.au"
+            buttonLink="https://www.webcentral.com.au" brand="webcentral"
           />
         </div>
 

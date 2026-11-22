@@ -323,7 +323,7 @@ const HostisoContent = () => {
         <HostInfoBox 
           bestFor="European businesses, bloggers targeting EU audiences, and budget-conscious users serving primarily European traffic."
           rating="⭐ 7.2 / 10"
-          link="https://www.hostiso.com/affiliate-link"
+          link="https://www.hostiso.com" brand="hostiso"
         />
 
         <p><strong>My Geographic Recommendation:</strong></p>
@@ -570,7 +570,7 @@ const HostisoContent = () => {
             heading="Targeting European audiences?"
             offer="Get Hostiso's optimized European hosting starting at $2.95/month"
             buttonText="Get Started with Hostiso"
-            buttonLink="https://www.hostiso.com/affiliate-link"
+            buttonLink="https://www.hostiso.com" brand="hostiso"
           />
         </div>
 

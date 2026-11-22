@@ -1,5 +1,6 @@
 // content/blogs/misshosting-review-the-stress-free-web-host-youve-been-looking-for.js
 import React from "react";
+import { getAffiliateVariantUrl } from "@/lib/affiliates";
 import Link from "next/link"
 import CTA from "@/components/Cta";
 import HostInfoBox from "@/components/HostInfoBox";
@@ -327,7 +328,7 @@ const MissHostingContent = () => {
         <HostInfoBox 
           bestFor="First-time website owners, bloggers, freelancers, and small businesses prioritizing ease of use over cutting-edge performance."
           rating="⭐ 7.8 / 10"
-          link="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559"
+          link={getAffiliateVariantUrl("miss-hosting", "deep-link-offer-30")}
         />
 
         <p><strong>My Audience Recommendation:</strong></p>
@@ -570,7 +571,7 @@ const MissHostingContent = () => {
             heading="Building your first website?"
             offer="Get MissHosting's with free domain"
             buttonText="Start with MissHosting"
-            buttonLink="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559"
+            buttonLink={getAffiliateVariantUrl("miss-hosting", "deep-link-offer-30")}
           />
         </div>
 

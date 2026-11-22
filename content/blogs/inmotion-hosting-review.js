@@ -362,7 +362,7 @@ const InMotionContent = () => {
         <HostInfoBox 
           bestFor="Business websites, e-commerce stores, agencies, and anyone who values performance and reliability over absolute lowest price."
           rating="⭐ 9.2 / 10"
-          link="https://www.inmotionhosting.com"
+          brand="inmotion-hosting"
         />
 
         <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-6">
@@ -507,7 +507,7 @@ const InMotionContent = () => {
             heading="Ready to Experience Enterprise Performance?"
             offer="Get InMotion Hosting"
             buttonText="Visit InMotion Hosting"
-            buttonLink="https://www.inmotionhosting.com"
+            brand="inmotion-hosting"
           />
         </div>
 

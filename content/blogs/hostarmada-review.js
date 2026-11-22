@@ -429,7 +429,7 @@ const HostArmadaContent = () => {
         <HostInfoBox 
           bestFor="International businesses, WordPress sites, agencies, developers, and anyone needing consistent global performance without enterprise pricing."
           rating="⭐ 8.7 / 10"
-          link="https://www.hostarmada.com"
+          brand="hostarmada"
         />
 
         <div className="bg-purple-50 border-l-4 border-purple-500 p-6 my-6">
@@ -590,7 +590,7 @@ const HostArmadaContent = () => {
             heading="Ready to Experience True Cloud Hosting Performance?"
             offer="Get HostArmada with 45-day money-back guarantee and free domain for life"
             buttonText="Get HostArmada Now"
-            buttonLink="https://www.hostarmada.com"
+            brand="hostarmada"
           />
         </div>
 

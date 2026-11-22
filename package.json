@@ -4,11 +4,16 @@
   "private": true,
   "description": "AI-powered developer utilities, network diagnostics, and technical SEO tools.",
   "scripts": {
+    "affiliates:sync": "node scripts/import-affiliates.js",
+    "predev": "npm run affiliates:sync",
     "dev": "next dev",
+    "prebuild": "npm run affiliates:sync",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prepreview": "npm run affiliates:sync",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "predeploy": "npm run affiliates:sync",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload"
   },

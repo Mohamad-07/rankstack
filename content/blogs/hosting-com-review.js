@@ -1,8 +1,10 @@
 // content/blogs/hosting-dot-com-review.js
 import React from "react"
+import { getAffiliateVariantUrl } from "@/lib/affiliates";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import RatingBreakdown from "@/components/RatingBreakdown";
 import Cta from "@/components/Cta";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const HostingDotComReviewContent = () => {
   return (
@@ -175,7 +177,7 @@ const HostingDotComReviewContent = () => {
         {/* Banner Ad 1 - Clean Version */}
         <div className="my-10 text-center">
           <a 
-            href="https://hosting.com/hosting/platforms/wordpress-hosting/?aid=695f54098c685&bid=078d15b4" 
+            href={getAffiliateVariantUrl("hosting-com", "deep-link-wordpress-078d15b4")} 
             target="_blank" 
             rel="noopener noreferrer"
             className="block"
@@ -374,9 +376,9 @@ const HostingDotComReviewContent = () => {
                   <span>Unlimited Bandwidth</span>
                 </li>
               </ul>
-              <a href="https://hosting.com?aid=695f54098c685" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              <AffiliateLink brand="hosting-com" target="_blank" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
                 Buy Now
-              </a>
+              </AffiliateLink>
             </div>
             
             {/* Plus Plan - Most Popular */}
@@ -415,9 +417,9 @@ const HostingDotComReviewContent = () => {
                   <span>Unlimited Bandwidth</span>
                 </li>
               </ul>
-              <a href="https://hosting.com?aid=695f54098c685" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              <AffiliateLink brand="hosting-com" target="_blank" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
                 Buy Now
-              </a>
+              </AffiliateLink>
             </div>
             
             {/* Pro Plan */}
@@ -453,9 +455,9 @@ const HostingDotComReviewContent = () => {
                   <span>Unlimited Bandwidth</span>
                 </li>
               </ul>
-              <a href="https://hosting.com?aid=695f54098c685" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              <AffiliateLink brand="hosting-com" target="_blank" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
                 Get Started
-              </a>
+              </AffiliateLink>
             </div>
             
             {/* Max Plan */}
@@ -491,9 +493,9 @@ const HostingDotComReviewContent = () => {
                   <span>Unlimited Bandwidth</span>
                 </li>
               </ul>
-              <a href="https://hosting.com?aid=695f54098c685" target="_blank" rel="noopener noreferrer" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              <AffiliateLink brand="hosting-com" target="_blank" className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
                 Get Started
-              </a>
+              </AffiliateLink>
             </div>
           </div>
           
@@ -512,7 +514,7 @@ const HostingDotComReviewContent = () => {
         {/* Banner Ad 2 - Clean Version */}
         <div className="my-10 text-center">
           <a 
-            href="https://hosting.com/hosting/platforms/wordpress-hosting/?aid=695f54098c685&bid=078d15b4" 
+            href={getAffiliateVariantUrl("hosting-com", "deep-link-wordpress-078d15b4")} 
             target="_blank" 
             rel="noopener noreferrer"
             className="block"
@@ -815,7 +817,7 @@ const HostingDotComReviewContent = () => {
         {/* Banner Ad 3 - Clean Version */}
         <div className="my-10 text-center">
           <a 
-            href="https://hosting.com/hosting/platforms/wordpress-hosting/?aid=695f54098c685&bid=078d15b4" 
+            href={getAffiliateVariantUrl("hosting-com", "deep-link-wordpress-078d15b4")} 
             target="_blank" 
             rel="noopener noreferrer"
             className="block"
@@ -1081,7 +1083,7 @@ const HostingDotComReviewContent = () => {
             heading="⏳"
             offer="⏳ Limited time offer • 30-day money-back guarantee"
             buttonText="Visit Hosting.com Now"
-            buttonLink="https://hosting.com?aid=695f54098c685"
+            brand="hosting-com"
           />
         </div>
 

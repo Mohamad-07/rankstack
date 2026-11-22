@@ -318,7 +318,7 @@ const VeeroTechContent = () => {
         <HostInfoBox 
           bestFor="Business owners, agencies, and anyone who values reliable hosting with exceptional support over absolute lowest price."
           rating="⭐ 8.5 / 10"
-          link="https://www.veerotech.net/affiliate-link"
+          link="https://www.veerotech.net/" brand="veerotech"
         />
 
         <p><strong>My Recommendation:</strong></p>
@@ -551,7 +551,7 @@ const VeeroTechContent = () => {
             heading="Ready for stress-free hosting?"
             offer="Get VeeroTech's premium managed hosting starting at $6.95/month"
             buttonText="Get Started with VeeroTech"
-            buttonLink="https://www.veerotech.net/affiliate-link"
+            buttonLink="https://www.veerotech.net/" brand="veerotech"
           />
         </div>
 

@@ -2,10 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Gauge, LifeBuoy, Star, Wallet } from "lucide-react";
+import { getAffiliateUrl } from "@/lib/affiliates";
 
 const badges = ["Top choice", "Great value", "Recommended"];
 
 export default function ResultsCard({ host, rank }) {
+  // Registry URL wins when available; explicit affiliateLink is the fallback.
+  const href = (host.brand && getAffiliateUrl(host.brand)) || host.affiliateLink;
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}
@@ -44,7 +47,7 @@ export default function ResultsCard({ host, rank }) {
       </ul>
 
       <a
-        href={host.affiliateLink}
+        href={href}
         target="_blank"
         rel="noopener noreferrer sponsored"
         className="btn-primary mt-5 w-full"

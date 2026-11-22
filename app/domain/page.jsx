@@ -9,6 +9,7 @@ import img01 from "@/public/Untitled-design-1024x1024.webp";
 import img02 from "@/public/Untitled-design-2-1024x1024.webp";
 import img03 from "@/public/Untitled-design-1-1024x1024.webp";
 import img04 from "@/public/hostinger.webp";
+import { getAffiliateUrl } from "@/lib/affiliates";
 
 export const metadata = createMetadata({
   title: "Domain Registration Offers & Promo Codes",
@@ -32,28 +33,28 @@ const cardsData = [
     image: img01,
     text: "Save big with the promo code below",
     buttonText: "Save15",
-    link: "https://domain.mno8.net/Nker32",
+    link: getAffiliateUrl("domain-com"),
     alt: "Domain.com promo code",
   },
   {
     image: img02,
     text: "Save big with the promo code below",
     buttonText: "Nameboy",
-    link: "https://namecheap.pxf.io/EKoANe",
+    link: getAffiliateUrl("namecheap"),
     alt: "Namecheap promo code",
   },
   {
     image: img03,
     text: "Save big with the promo code below",
     buttonText: "NEWCOM598",
-    link: "https://name.sjv.io/LX5Q3Y",
+    link: getAffiliateUrl("name-com"),
     alt: "Name.com promo code",
   },
   {
     image: img04,
     text: "Save big with the promo code below",
     buttonText: "hostinger",
-    link: "https://hostinger.sjv.io/rnV05j",
+    link: getAffiliateUrl("hostinger"),
     alt: "Hostinger domain offer",
   },
 ];

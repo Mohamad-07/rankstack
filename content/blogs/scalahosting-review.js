@@ -566,7 +566,7 @@ const ScalaHostingContent = () => {
         <HostInfoBox 
           bestFor="Developers, agencies, growing businesses, e-commerce sites, and anyone needing enterprise-grade performance without enterprise pricing or complexity."
           rating="⭐ 9.5 / 10"
-          link="https://www.scalahosting.com/affiliate-link"
+          brand="scalahosting"
         />
 
         <p><strong>My Performance-Based Recommendation:</strong></p>
@@ -871,7 +871,7 @@ const ScalaHostingContent = () => {
             heading="Ready for Enterprise-Grade Performance with Zero Risk?"
             offer="Get ScalaHosting's managed VPS with 2-second load guarantee, free SEO audit, and anytime money-back guarantee starting at $14.95/month"
             buttonText="Get ScalaHosting Now"
-            buttonLink="https://www.scalahosting.com/affiliate-link"
+            brand="scalahosting"
           />
         </div>
 

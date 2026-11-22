@@ -1,5 +1,6 @@
 // content/blogs/best-web-hosting-for-new-bloggers-in-2025.js
 import React from "react";
+import { getAffiliateUrl, getAffiliateVariantUrl } from "@/lib/affiliates";
 import Link from "next/link";
 import CTA from "@/components/Cta";
 import HostInfoBox from "@/components/HostInfoBox";
@@ -186,7 +187,7 @@ const BestHostingContent = () => {
        <HostInfoBox 
       bestFor="Compare support, migration options, and the total plan cost."
       rating="Not independently rated in this guide"
-      link="https://www.inmotionhosting.com/"
+      brand="inmotion-hosting"
        />
 
 
@@ -218,7 +219,7 @@ const BestHostingContent = () => {
         <HostInfoBox 
       bestFor="Compare environmental claims, included tools, and plan limits."
       rating="Not independently rated in this guide"
-       link="https://www.greengeeks.com/track/munazza"
+       link={getAffiliateUrl("greengeeks")}
        />
 
         <p>
@@ -251,7 +252,7 @@ const BestHostingContent = () => {
         <HostInfoBox 
       bestFor="Compare the entry-plan cost against storage and support limits."
       rating="Not independently rated in this guide"
-       link="https://tracking.missaffiliate.com/SHga"
+       link={getAffiliateVariantUrl("miss-hosting", "deep-link-shga")}
        />
 
 
@@ -296,7 +297,7 @@ const BestHostingContent = () => {
         <HostInfoBox 
       bestFor="Compare support availability, backup policy, and renewal terms."
       rating="Not independently rated in this guide"
-      link="https://www.veerotech.net/"
+      link="https://www.veerotech.net/" brand="veerotech"
        />
         <p>
           VeeroTech is a smaller, customer centric provider that has built a stellar reputation 
@@ -326,7 +327,7 @@ const BestHostingContent = () => {
         <HostInfoBox 
       bestFor="Compare the security features and resource limits included in each plan."
       rating="Not independently rated in this guide"
-       link="https://jethost.com/?a_aid=rankstack"
+       link={getAffiliateVariantUrl("jethost", "deep-link-lowercase-aid")}
        />
 
         <p>
@@ -449,7 +450,7 @@ const BestHostingContent = () => {
           heading="Ready to start your blog?"
           offer="Choose one of our top hosting picks and launch today."
           buttonText="Get Started"
-          buttonLink="https://jethost.com/?a_aid=rankstack"
+          buttonLink={getAffiliateVariantUrl("jethost", "deep-link-lowercase-aid")}
         />
       </section>
     </main>

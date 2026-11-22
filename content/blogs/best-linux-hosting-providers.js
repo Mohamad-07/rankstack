@@ -1,11 +1,13 @@
 // content/blogs/best-linux-hosting-providers.js
 import React from "react";
+import { getAffiliateUrl } from "@/lib/affiliates";
 import Link from "next/link";
 import QuickSummary from "@/components/QuickSummary";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import ProsConsCard from "@/components/Proscons";
 import RatingBreakdown from "@/components/RatingBreakdown";
 import { Server, Zap, DollarSign, Shield } from "lucide-react";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const LinuxHostingContent = () => {
   const quickSummaryPoints = [
@@ -522,8 +524,8 @@ const LinuxHostingContent = () => {
               </div>
               <div>
                 <div className="text-sm font-semibold text-gray-700 mb-2">Visit</div>
-                <a href="https://www.a2hosting.com" target="_blank" rel="noopener noreferrer" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
-                  A2Hosting.com →
+                <a href={getAffiliateUrl("hosting-com")} target="_blank" rel="noopener noreferrer" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
+                  Hosting.com →
                 </a>
               </div>
             </div>
@@ -690,9 +692,9 @@ const LinuxHostingContent = () => {
               </div>
               <div>
                 <div className="text-sm font-semibold text-gray-700 mb-2">Visit</div>
-                <a href="https://www.hostinger.com" target="_blank" rel="noopener noreferrer" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
+                <AffiliateLink brand="hostinger" target="_blank" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
                   Hostinger.com →
-                </a>
+                </AffiliateLink>
               </div>
             </div>
           </div>
@@ -774,9 +776,9 @@ const LinuxHostingContent = () => {
               </div>
               <div>
                 <div className="text-sm font-semibold text-gray-700 mb-2">Visit</div>
-                <a href="https://www.bluehost.com" target="_blank" rel="noopener noreferrer" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
+                <AffiliateLink brand="bluehost" target="_blank" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
                   Bluehost.com →
-                </a>
+                </AffiliateLink>
               </div>
             </div>
           </div>
@@ -871,9 +873,9 @@ const LinuxHostingContent = () => {
                   <td className="px-6 py-4">Unlimited resources</td>
                   <td className="px-6 py-4 font-bold text-yellow-600">4.3/5</td>
                   <td className="px-6 py-4">
-                    <a href="https://www.hostgator.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
+                    <AffiliateLink brand="hostgator" target="_blank" className="text-blue-600 hover:text-blue-800 font-medium">
                       Visit →
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
                 
@@ -886,7 +888,7 @@ const LinuxHostingContent = () => {
                   <td className="px-6 py-4">Eco-friendly hosting</td>
                   <td className="px-6 py-4 font-bold text-yellow-600">4.4/5</td>
                   <td className="px-6 py-4">
-                    <a href="https://www.greengeeks.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
+                    <a href={getAffiliateUrl("greengeeks")} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
                       Visit →
                     </a>
                   </td>
@@ -901,9 +903,9 @@ const LinuxHostingContent = () => {
                   <td className="px-6 py-4">Business hosting</td>
                   <td className="px-6 py-4 font-bold text-yellow-600">4.4/5</td>
                   <td className="px-6 py-4">
-                    <a href="https://www.inmotionhosting.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
+                    <AffiliateLink brand="inmotion-hosting" target="_blank" className="text-blue-600 hover:text-blue-800 font-medium">
                       Visit →
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
                 
@@ -1143,9 +1145,9 @@ const LinuxHostingContent = () => {
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From $14/mo</div>
               </a>
               
-              <a href="https://www.a2hosting.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
+              <a href={getAffiliateUrl("hosting-com")} target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
                 <div className="text-3xl mb-2">⚡</div>
-                <div className="font-bold text-lg mb-2 text-gray-900">A2 Hosting</div>
+                <div className="font-bold text-lg mb-2 text-gray-900">Hosting.com</div>
                 <div className="text-sm text-gray-600 mb-3">Fastest</div>
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From $2.99/mo</div>
               </a>
@@ -1157,19 +1159,19 @@ const LinuxHostingContent = () => {
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From $3.99/mo</div>
               </a>
               
-              <a href="https://www.hostinger.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
+              <AffiliateLink brand="hostinger" target="_blank" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
                 <div className="text-3xl mb-2">💰</div>
                 <div className="font-bold text-lg mb-2 text-gray-900">Hostinger</div>
                 <div className="text-sm text-gray-600 mb-3">Best Budget</div>
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From $2.99/mo</div>
-              </a>
+              </AffiliateLink>
               
-              <a href="https://www.bluehost.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
+              <AffiliateLink brand="bluehost" target="_blank" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
                 <div className="text-3xl mb-2">🎯</div>
                 <div className="font-bold text-lg mb-2 text-gray-900">Bluehost</div>
                 <div className="text-sm text-gray-600 mb-3">Best Beginners</div>
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From $2.95/mo</div>
-              </a>
+              </AffiliateLink>
             </div>
             
             <div className="mt-8 text-sm text-blue-200 max-w-xl mx-auto">

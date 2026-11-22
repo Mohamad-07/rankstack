@@ -1,8 +1,8 @@
 # Internal Link Validation Report
 
-Generated: 2026-11-20T12:37:10.143Z
+Generated: 2026-11-22T09:38:42.395Z
 Routes known: 60
-Files scanned: 189
+Files scanned: 192
 
 ## Broken internal links (0)
 

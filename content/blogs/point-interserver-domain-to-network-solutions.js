@@ -1,5 +1,6 @@
 // content/blogs/point-interserver-domain-to-network-solutions.js
 import React from "react"
+import { getAffiliateUrl, getAffiliateVariantUrl } from "@/lib/affiliates";
 import Link from "next/link"
 import CTA from "@/components/Cta";
 import KeyTakeaways from "@/components/KeyTakeaways";
@@ -89,7 +90,7 @@ const InterserverToNetworkSolutionsContent = () => {
         {/* Step 2 */}
         <h2 className="text-2xl font-bold mt-10">Step 2: Log in to Your InterServer Domain Account</h2>
         <p>
-          Go to <a href="https://interserver.net" target="_blank" className="text-blue-600 underline">InterServer.net</a> → 
+          Go to <a href={getAffiliateUrl("interserver")} target="_blank" className="text-blue-600 underline">InterServer.net</a> → 
           click <strong>Login</strong> (top right corner). Enter your credentials, and from the dashboard, click <strong>Domains</strong>.
         </p>
         <img
@@ -129,7 +130,7 @@ const InterserverToNetworkSolutionsContent = () => {
         <div className="w-full flex justify-center my-8">
         <a
         rel="sponsored"
-        href="https://network-solutions.7eer.net/c/3600799/2331419/555"
+        href={getAffiliateVariantUrl("network-solutions", "deep-link-2331419")}
         target="_blank"
         id="2331419"
         className="block"
@@ -227,7 +228,7 @@ const InterserverToNetworkSolutionsContent = () => {
           heading="Looking to Make Your Website Faster?"
           offer="🚀 Try InterServer hosting!"
           buttonText="Check Hosting Deals"
-          buttonLink="https://www.interserver.net/r/your-affiliate-link"
+          brand="interserver"
         />
       </section>
     </main>

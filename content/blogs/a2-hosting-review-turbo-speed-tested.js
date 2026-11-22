@@ -357,7 +357,7 @@ const A2HostingContent = () => {
         <HostInfoBox 
           bestFor="E-commerce sites, membership platforms, agencies, developers, and any business where website speed directly impacts revenue or user experience."
           rating="⭐ 8.7 / 10"
-          link="https://www.a2hosting.com/affiliate-link"
+          brand="hosting-com"
         />
 
         <p><strong>My Performance-Based Recommendation:</strong></p>
@@ -697,9 +697,9 @@ const A2HostingContent = () => {
         <div className="mt-6">
           <CTA
             heading="Ready for Turbocharged Performance?"
-            offer="Get A2 Hosting's Turbo servers with sub-100ms TTFB and anytime money-back guarantee"
-            buttonText="Get A2 Hosting Turbo"
-            buttonLink="https://www.a2hosting.com/affiliate-link"
+            offer="Get Hosting.com Turbo servers with sub-100ms TTFB and anytime money-back guarantee"
+            buttonText="Get Hosting.com Turbo"
+            brand="hosting-com"
           />
         </div>
 

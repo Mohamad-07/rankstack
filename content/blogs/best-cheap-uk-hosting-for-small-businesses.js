@@ -4,6 +4,7 @@ import QuickSummary from "@/components/QuickSummary";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import ProsConsCard from "@/components/Proscons";
 import RatingBreakdown from "@/components/RatingBreakdown";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const BestUKHostingContent = () => {
   return (
@@ -631,9 +632,9 @@ const BestUKHostingContent = () => {
               </div>
               <div>
                 <div className="text-sm font-semibold text-gray-700 mb-2">Visit</div>
-                <a href="https://hosting.com?aid=695f54098c685" target="_blank" rel="noopener noreferrer" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
+                <AffiliateLink brand="hosting-com" target="_blank" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
                   Hosting.com →
-                </a>
+                </AffiliateLink>
               </div>
             </div>
           </div>
@@ -661,10 +662,9 @@ const BestUKHostingContent = () => {
           
           {/* Hosting.com Affiliate Banner */}
           <div className="my-8 text-center">
-            <a 
-              href="https://hosting.com?aid=695f54098c685" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <AffiliateLink brand="hosting-com" 
+              
+              target="_blank"
               className="block"
             >
               <img 
@@ -675,7 +675,7 @@ const BestUKHostingContent = () => {
                 height="280"
                 className="mx-auto rounded hover:opacity-90 transition-opacity"
               />
-            </a>
+            </AffiliateLink>
             <img 
               style={{border:0}} 
               src="https://affiliates.hosting.com/scripts/9u7waif7le4?aid=695f54098c685&bid=078d15b4" 
@@ -759,9 +759,9 @@ const BestUKHostingContent = () => {
               </div>
               <div>
                 <div className="text-sm font-semibold text-gray-700 mb-2">Visit</div>
-                <a href="https://hostpapa.com" target="_blank" rel="noopener noreferrer" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
+                <AffiliateLink brand="hostpapa" target="_blank" className="inline-block text-lg font-bold text-blue-700 hover:text-blue-900 transition-colors">
                   HostPapa.com →
-                </a>
+                </AffiliateLink>
               </div>
             </div>
           </div>
@@ -1147,12 +1147,12 @@ const BestUKHostingContent = () => {
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From £3.59/mo</div>
               </a>
               
-              <a href="https://hosting.com?aid=695f54098c685" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
+              <AffiliateLink brand="hosting-com" target="_blank" className="bg-white p-6 rounded-xl border border-blue-200 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 text-gray-800">
                 <div className="text-3xl mb-2">🚀</div>
                 <div className="font-bold text-lg mb-2 text-gray-900">Hosting.com</div>
                 <div className="text-sm text-gray-600 mb-3">Best Speed</div>
                 <div className="mt-4 text-sm bg-blue-100 text-blue-800 font-semibold p-2 rounded">From £2.39/mo</div>
-              </a>
+              </AffiliateLink>
             </div>
             
             <div className="mt-8 text-sm text-blue-200 max-w-xl mx-auto">

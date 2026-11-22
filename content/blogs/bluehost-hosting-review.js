@@ -1,5 +1,6 @@
 // content/blogs/bluehost-review.js
 import React from "react";
+import { getAffiliateUrl, getAffiliateVariantUrl } from "@/lib/affiliates";
 import Link from "next/link";
 import CTA from "@/components/Cta";
 import ProsConsCard from "@/components/Proscons";
@@ -8,6 +9,7 @@ import QuickSummary from "@/components/QuickSummary";
 import AuthorBox from "@/components/AuthorBox";
 import PerformanceFeedback from "@/components/PerformanceFeedback";
 import { DollarSign, Zap, Server, ThumbsUp } from "lucide-react";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const BlueHostReviewContent = () => {
   const quickSummaryPoints = [
@@ -372,7 +374,7 @@ const BlueHostReviewContent = () => {
                   </td>
                   <td className="px-6 py-4">
                     <a 
-                      href="https://bluehost.sjv.io/c/3600799/2147539/11352" 
+                      href={getAffiliateVariantUrl("bluehost", "deep-link-2147539")} 
                       target="_blank"
                       className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors inline-block"
                     >
@@ -404,13 +406,13 @@ const BlueHostReviewContent = () => {
                     <div className="text-xs text-gray-600">US, UK, Asia, EU</div>
                   </td>
                   <td className="px-6 py-4">
-                    <a 
-                      href="https://hostinger.sjv.io/rankstack" 
+                    <AffiliateLink brand="hostinger" 
+                      
                       target="_blank"
                       className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors inline-block"
                     >
                       Visit
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
                 <tr className="bg-gray-50 hover:bg-gray-100 transition-colors">
@@ -471,7 +473,7 @@ const BlueHostReviewContent = () => {
                   </td>
                   <td className="px-6 py-4">
                     <a 
-                      href="https://www.jethost.com" 
+                      href={getAffiliateUrl("jethost")} 
                       target="_blank"
                       className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors inline-block"
                     >
@@ -487,7 +489,7 @@ const BlueHostReviewContent = () => {
           <div className="my-10 bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
             <a 
               rel="sponsored" 
-              href="https://bluehost.sjv.io/c/3600799/2147545/11352" 
+              href={getAffiliateVariantUrl("bluehost", "deep-link-2147545")} 
               target="_blank" 
               id="2147545"
               className="inline-block"
@@ -742,7 +744,7 @@ const BlueHostReviewContent = () => {
         <div className=" text-center">
           <a 
             rel="sponsored" 
-            href="https://bluehost.sjv.io/c/3600799/2147539/11352" 
+            href={getAffiliateVariantUrl("bluehost", "deep-link-2147539")} 
             target="_blank" 
             id="2147539"
             className="inline-block"
@@ -1034,13 +1036,13 @@ const BlueHostReviewContent = () => {
           {/* Affiliate Banner - After Pricing Section */}
           <div className="my-10 bg-orange-50 border border-green-200 rounded-lg p-6 text-center color-white" >
             <p className="mb-4">Want Better Value Than BlueHost?</p>
-            <a 
-              href="https://hostinger.sjv.io/rankstack" 
+            <AffiliateLink brand="hostinger" 
+              
               target="_blank"
               className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-opacity"
             >
-              View JetHost Plans (From $1.99/mo)
-            </a>
+              View Hostinger Plans (From $1.99/mo)
+            </AffiliateLink>
             <p className="text-sm text-gray-600 mt-3">Special link: Save up to 80% on Hostinger hosting</p>
           </div>
         </div>
@@ -1424,13 +1426,13 @@ const BlueHostReviewContent = () => {
               </div>
             </div>
             <div className="mt-6 text-center">
-              <a 
-                href="https://hostinger.sjv.io/rankstack" 
+              <AffiliateLink brand="hostinger" 
+                
                 target="_blank"
                 className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all"
               >
                 View Hostinger Plans (From $1.99/mo)
-              </a>
+              </AffiliateLink>
               <p className="text-sm text-gray-600 mt-2">Special link: Save up to 80% + free domain</p>
             </div>
           </div>
@@ -1474,13 +1476,13 @@ const BlueHostReviewContent = () => {
                     <div className="text-sm">LiteSpeed • 8 Data Centers • Free Backups • Staging</div>
                   </td>
                   <td className="px6 py-4">
-                    <a 
-                      href="https://hostinger.sjv.io/rankstack" 
+                    <AffiliateLink brand="hostinger" 
+                      
                       target="_blank"
                       className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors inline-block"
                     >
                       Visit
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
                 <tr className="bg-gray-50 hover:bg-gray-100 transition-colors">
@@ -1506,7 +1508,7 @@ const BlueHostReviewContent = () => {
                   </td>
                   <td className="px6 py-4">
                     <a 
-                      href="https://bluehost.sjv.io/c/3600799/2147539/11352" 
+                      href={getAffiliateVariantUrl("bluehost", "deep-link-2147539")} 
                       target="_blank"
                       className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors inline-block"
                     >
@@ -1569,7 +1571,7 @@ const BlueHostReviewContent = () => {
                   </td>
                   <td className="px6 py-4">
                     <a 
-                      href="https://www.jethost.com" 
+                      href={getAffiliateUrl("jethost")} 
                       target="_blank"
                       className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors inline-block"
                     >
@@ -1655,13 +1657,13 @@ const BlueHostReviewContent = () => {
                 </div>
               </div>
               <div className="text-center mt-4">
-                <a 
-                  href="https://hostinger.sjv.io/rankstack" 
+                <AffiliateLink brand="hostinger" 
+                  
                   target="_blank"
                   className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all"
                 >
                   View Hostinger Plans (From $1.99/mo)
-                </a>
+                </AffiliateLink>
               </div>
             </div>
           </div>
@@ -1797,13 +1799,13 @@ const BlueHostReviewContent = () => {
         <div className="text-center">
           <div className="text-2xl font-bold text-green-600">Hostinger</div>
           <div className="text-sm text-gray-600">Best overall value</div>
-          <a 
-            href="https://hostinger.sjv.io/rankstack" 
+          <AffiliateLink brand="hostinger" 
+            
             target="_blank"
             className="mt-2 inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors"
           >
             View Plans
-          </a>
+          </AffiliateLink>
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-yellow-600">SiteGround</div>
@@ -1820,7 +1822,7 @@ const BlueHostReviewContent = () => {
           <div className="text-2xl font-bold text-blue-600">BlueHost</div>
           <div className="text-sm text-gray-600">Absolute beginners only</div>
           <a 
-            href="https://bluehost.sjv.io/c/3600799/2147539/11352" 
+            href={getAffiliateVariantUrl("bluehost", "deep-link-2147539")} 
             target="_blank"
             className="mt-2 inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded transition-colors"
           >
@@ -1885,13 +1887,13 @@ const BlueHostReviewContent = () => {
           </li>
         </ul>
         <div className="mt-4">
-          <a 
-            href="https://hostinger.sjv.io/rankstack" 
+          <AffiliateLink brand="hostinger" 
+            
             target="_blank"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg text-sm transition-colors"
           >
             View Hostinger Plans (From $1.99/mo)
-          </a>
+          </AffiliateLink>
         </div>
       </div>
     </div>
@@ -2149,10 +2151,10 @@ const BlueHostReviewContent = () => {
           heading="On Bluehost Plans Today"
           offer="🔥 Save 60%"
           buttonText="Visit BlueHost"
-          buttonLink="https://hostinger.sjv.io/rankstack"
+          brand="bluehost"
           secondaryButton={true}
-          secondaryText="Or Try BlueHost Risk-Free (30-day refund)"
-          secondaryLink="https://bluehost.sjv.io/MXOn22"
+          secondaryText="Or Try Hostinger for Better Value"
+          secondaryBrand="hostinger"
         />
 
       </section>
@@ -2166,28 +2168,26 @@ const BlueHostReviewContent = () => {
       <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
         <h4 className="font-bold text-xl mb-3 text-white">🟢 Hostinger</h4>
         <p className="mb-4 text-white">Best overall value in 2026</p>
-        <a 
-          href="https://hostinger.sjv.io/rankstack" 
+        <AffiliateLink brand="hostinger" 
+          
           target="_blank"
-          rel="noopener noreferrer"
           className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-200"
         >
           View Hostinger Plans
-        </a>
+        </AffiliateLink>
         <p className="text-xs text-blue-200 mt-2">From $1.99/month • Free domain • 30-day refund</p>
       </div>
       
       <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
         <h4 className="font-bold text-xl mb-3 text-white">🔵 BlueHost</h4>
         <p className="mb-4 text-white">For absolute WordPress beginners</p>
-        <a 
-          rel="sponsored"
-          href="https://bluehost.sjv.io/MXOn22" 
+        <AffiliateLink brand="bluehost"
+          
           target="_blank"
           className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg w-full transition-colors duration-200"
         >
           View BlueHost Plans
-        </a>
+        </AffiliateLink>
         <p className="text-xs text-blue-200 mt-2">From $2.95/month • Free domain • 30-day refund</p>
       </div>
       

@@ -7,6 +7,8 @@ import KeyTakeaways from "@/components/KeyTakeaways";
 import AuthorBox from "@/components/AuthorBox";
 import PerformanceFeedback from "@/components/PerformanceFeedback";
 import HostCard from "@/components/HostCard";
+import AffiliateLink from "@/components/AffiliateLink";
+import { getAffiliateUrl } from "@/lib/affiliates";
 
 const FastCometContent = () => {
   return (
@@ -314,14 +316,13 @@ const FastCometContent = () => {
                     <div className="text-sm text-gray-600">Excellent coverage</div>
                   </td>
                   <td className="px-8 py-6 whitespace-nowrap">
-                    <a 
-                      href="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559" 
+                    <AffiliateLink brand="fastcomet" 
+                      
                       target="_blank"
-                      rel="sponsored"
                       className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                     >
                       Visit Site
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
 
@@ -357,13 +358,13 @@ const FastCometContent = () => {
                     <div className="text-sm text-gray-600">Good coverage</div>
                   </td>
                   <td className="px-8 py-6 whitespace-nowrap">
-                    <a 
-                      href="https://hostinger.sjv.io/rankstack" 
+                    <AffiliateLink brand="hostinger" 
+                      
                       target="_blank"
                       className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                     >
                       Visit Site
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
 
@@ -400,7 +401,7 @@ const FastCometContent = () => {
                   </td>
                   <td className="px-8 py-6 whitespace-nowrap">
                     <a 
-                      href="https://www.jethost.com" 
+                      href={getAffiliateUrl("jethost")} 
                       target="_blank"
                       className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                     >
@@ -441,13 +442,13 @@ const FastCometContent = () => {
                     <div className="text-sm text-gray-600">Limited coverage</div>
                   </td>
                   <td className="px-8 py-6 whitespace-nowrap">
-                    <a 
-                      href="https://www.hosting.com" 
+                    <AffiliateLink brand="hosting-com" 
+                      
                       target="_blank"
                       className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                     >
                       Visit Site
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
               </tbody>
@@ -1305,31 +1306,30 @@ const FastCometContent = () => {
                 <div className="text-center">
                   <div className="text-2xl font-bold text-green-600">Hostinger</div>
                   <div className="text-gray-600">Best overall value</div>
-                  <a 
-                    href="https://hostinger.sjv.io/rankstack" 
+                  <AffiliateLink brand="hostinger" 
+                    
                     target="_blank"
                     className="mt-3 inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                   >
                     View Hostinger Plans
-                  </a>
+                  </AffiliateLink>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-orange-600">FastComet</div>
                   <div className="text-gray-600">Premium performance</div>
-                  <a 
-                    href="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559" 
+                  <AffiliateLink brand="fastcomet" 
+                    
                     target="_blank"
-                    rel="sponsored"
                     className="mt-3 inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                   >
                     View FastComet Plans
-                  </a>
+                  </AffiliateLink>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-red-600">JetHost</div>
                   <div className="text-gray-600">Budget alternative</div>
                   <a 
-                    href="https://www.jethost.com" 
+                    href={getAffiliateUrl("jethost")} 
                     target="_blank"
                     className="mt-3 inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md hover:shadow-lg"
                   >
@@ -1394,13 +1394,13 @@ const FastCometContent = () => {
                   </li>
                 </ul>
                 <div className="mt-6">
-                  <a 
-                    href="https://hostinger.sjv.io/rankstack" 
+                  <AffiliateLink brand="hostinger" 
+                    
                     target="_blank"
                     className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-base transition-colors shadow-md hover:shadow-lg"
                   >
                     View Hostinger Plans (From $1.99/mo)
-                  </a>
+                  </AffiliateLink>
                 </div>
               </div>
             </div>
@@ -1484,10 +1484,10 @@ const FastCometContent = () => {
           heading="On FastComet Plans Today"
           offer="🔥 Save 90%"
           buttonText="Visit FastComet"
-          buttonLink="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559"
+          brand="fastcomet"
           secondaryButton={true}
           secondaryText="Or Try Hostinger for Better Value"
-          secondaryLink="https://hostinger.sjv.io/rankstack"
+          secondaryBrand="hostinger"
         />
 
       </section>
@@ -1519,14 +1519,13 @@ const FastCometContent = () => {
           <p className="mb-6 text-gray-700 text-lg">
             Premium performance & support
           </p>
-          <a
-            href="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559"
+          <AffiliateLink brand="fastcomet"
+           
             target="_blank"
-            rel="sponsored"
             className="inline-block w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-200 text-lg shadow-md hover:shadow-lg"
           >
             View FastComet Plans
-          </a>
+          </AffiliateLink>
           <p className="text-sm text-gray-500 mt-4">
             From $1.99/month • Free migration • 45-day refund
           </p>
@@ -1538,14 +1537,13 @@ const FastCometContent = () => {
           <p className="mb-6 text-gray-700 text-lg">
             Best overall value in 2026
           </p>
-          <a
-            href="https://hostinger.sjv.io/rankstack"
+          <AffiliateLink brand="hostinger"
+           
             target="_blank"
-            rel="noopener noreferrer"
             className="inline-block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-200 text-lg shadow-md hover:shadow-lg"
           >
             View Hostinger Plans
-          </a>
+          </AffiliateLink>
           <p className="text-sm text-gray-500 mt-4">
             From $1.99/month • Free domain • 30-day refund
           </p>
@@ -1558,7 +1556,7 @@ const FastCometContent = () => {
             Budget-friendly alternative
           </p>
           <a
-            href="https://www.jethost.com"
+            href={getAffiliateUrl("jethost")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-200 text-lg shadow-md hover:shadow-lg"

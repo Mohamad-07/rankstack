@@ -1,4 +1,5 @@
 import React from "react";
+import { getAffiliateUrl } from "@/lib/affiliates";
 import Link from "next/link";
 import CTA from "@/components/Cta";
 import HostInfoBox from "@/components/HostInfoBox";
@@ -694,7 +695,7 @@ const GreenGeeksContent = () => {
         <HostInfoBox 
           bestFor="Environmentally conscious businesses, WordPress sites, eco-brands, agencies, and anyone wanting enterprise performance with positive environmental impact."
           rating="⭐ 9.0 / 10"
-          link="https://www.greengeeks.com/track/munazza"
+          link={getAffiliateUrl("greengeeks")}
         />
 
         <div className="bg-emerald-50 border-l-4 border-emerald-500 p-6 my-6">
@@ -866,7 +867,7 @@ const GreenGeeksContent = () => {
             heading="Ready to Host buy GreenGeek?"
             offer="Get Hosting from $1.95/mo"
             buttonText="Get GreenGeeks Now"
-            buttonLink="https://www.greengeeks.com/track/munazza"
+            buttonLink={getAffiliateUrl("greengeeks")}
           />
         </div>
 

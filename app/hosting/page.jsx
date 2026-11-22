@@ -30,6 +30,7 @@ import contentImage07 from '@/public/Migrating-Web-Hosting-To-Shopify-ColorWhist
 import contentImage08 from '@/public/interserver.webp';
 import contentImage09 from '@/public/fastcomet.webp';
 import contentImage10 from '@/public/chemicloud-review-2022.webp';
+import { getAffiliateUrl, getAffiliateVariantUrl } from "@/lib/affiliates";
 
 
 export const metadata = createMetadata({
@@ -52,22 +53,22 @@ export const metadata = createMetadata({
 const Hosting = () => {
   // Your data arrays (unchanged)
   const dataOne = [
-    { img: img06, link: 'https://www.scalahosting.com/#661e37f21eb85', description: 'High-performance and reliable services for your website. Experience unmatched uptime and security with our hosting solutions.' },
-    { img: img10, link: 'https://bluehost.sjv.io/c/3675093/1376228/11352', description: 'Trusted by millions worldwide, Bluehost offers 24/7 support and a seamless hosting experience.' },
-    { img: img04, link: 'https://chemicloud.com/#660526c05255d', description: 'Secure hosting with great uptime and excellent customer service. Perfect for businesses of all sizes.' },
+    { img: img06, link: getAffiliateUrl("scalahosting"), description: 'High-performance and reliable services for your website. Experience unmatched uptime and security with our hosting solutions.' },
+    { img: img10, link: getAffiliateVariantUrl("bluehost", "deep-link-1376228"), description: 'Trusted by millions worldwide, Bluehost offers 24/7 support and a seamless hosting experience.' },
+    { img: img04, link: getAffiliateUrl("chemicloud"), description: 'Secure hosting with great uptime and excellent customer service. Perfect for businesses of all sizes.' },
   ];
 
   const dataTwo = [
-    { img: img03, link: 'http://www.atspace.com?aid=MTkyNDE4MjYyNTI2MjE=', description: 'Fast servers and top-notch support for your business. Ensure your website runs smoothly with ATS Space web hosting.' },
-    { img: img02, link: 'https://partners.inmotionhosting.com/nL1GPx', description: 'Affordable plans and excellent service. InMotion Hosting provides reliable hosting solutions for everyone.' },
-    { img: img01, link: 'https://tracking.missaffiliate.com/SHga', description: 'Scalable solutions with free SSL and great performance. Misshosting is your go-to hosting provider.' },
+    { img: img03, link: getAffiliateUrl("ats-space-web-hosting"), description: 'Fast servers and top-notch support for your business. Ensure your website runs smoothly with ATS Space web hosting.' },
+    { img: img02, link: getAffiliateUrl("inmotion-hosting"), description: 'Affordable plans and excellent service. InMotion Hosting provides reliable hosting solutions for everyone.' },
+    { img: img01, link: getAffiliateVariantUrl("miss-hosting", "deep-link-shga"), description: 'Scalable solutions with free SSL and great performance. Misshosting is your go-to hosting provider.' },
   ];
 
   const dataThree = [
-    { img: img05, link: 'https://shopify.pxf.io/ZQdaoK', description: 'E-commerce hosting made easy. Get your online store up and running with Shopify.' },
-    { img: img07, link: 'https://affiliate.fastcomet.com/scripts/2wc9ym?a_aid=659e4ffcaedda', description: 'Global reach with secure infrastructure. FastComet ensures your website is always online.' },
-    { img: img08, link: 'https://www.interserver.net/r/899620', description: 'Flexible plans with unlimited storage. InterServer provides everything you need for your website.' },
-    { img: img09, link: 'https://hostinger.sjv.io/rnV05j', description: 'High-speed and user-friendly hosting solutions. Hostinger makes website management a breeze.' },
+    { img: img05, link: getAffiliateUrl("shopify"), description: 'E-commerce hosting made easy. Get your online store up and running with Shopify.' },
+    { img: img07, link: getAffiliateUrl("fastcomet"), description: 'Global reach with secure infrastructure. FastComet ensures your website is always online.' },
+    { img: img08, link: getAffiliateUrl("interserver"), description: 'Flexible plans with unlimited storage. InterServer provides everything you need for your website.' },
+    { img: img09, link: getAffiliateUrl("hostinger"), description: 'High-speed and user-friendly hosting solutions. Hostinger makes website management a breeze.' },
   ];
 
   const contentData = [
@@ -76,70 +77,70 @@ const Hosting = () => {
       imageUrl: contentImage01,
       content: "Scala Hosting offers a range of hosting solutions with excellent customer support and performance. Their unique SPanel simplifies server management, providing an alternative to cPanel. VPS plans are known for high speed and reliability, backed by strong security for business sites.",
       btnText: "Visit Scala Hosting",
-      btnLink: "https://www.scalahosting.com/#661e37f21eb85"
+      btnLink: getAffiliateUrl("scalahosting")
     },
     {
       title: "Bluehost: Is it Worth It?",
       imageUrl: contentImage02,
       content: "Bluehost, recommended by WordPress, offers great performance, free domain, SSL, and reliable support. Ideal for beginners and small businesses looking for easy setup and strong uptime.",
       btnText: "Visit Bluehost",
-      btnLink: "https://bluehost.sjv.io/c/3675093/1376228/11352"
+      btnLink: getAffiliateVariantUrl("bluehost", "deep-link-1376228")
     },
     {
       title: "Miss Hosting: A New Player in Hosting",
       imageUrl: contentImage03,
       content: "Miss Hosting is known for fast servers and excellent customer support. With daily backups, free migration, and free domain, it’s ideal for businesses seeking reliable hosting with great value.",
       btnText: "Visit Miss Hosting",
-      btnLink: "https://tracking.missaffiliate.com/SHga"
+      btnLink: getAffiliateVariantUrl("miss-hosting", "deep-link-shga")
     },
     {
       title: "Hostinger: Affordable and Reliable",
       imageUrl: contentImage04,
       content: "Hostinger delivers affordable, reliable, and fast hosting. Their interface is intuitive, support is excellent, and their uptime is impressive — perfect for beginners and pros alike.",
       btnText: "Visit Hostinger",
-      btnLink: "https://hostinger.sjv.io/rnV05j"
+      btnLink: getAffiliateUrl("hostinger")
     },
     {
       title: "Top Web Hosting Providers",
       imageUrl: contentImage05,
       content: "RankStack compares the best web hosting providers — Bluehost, Hostinger, Scala Hosting, and more. Find balanced performance, security, and pricing for your website needs.",
       btnText: "Visit Inmotion",
-      btnLink: "https://partners.inmotionhosting.com/nL1GPx"
+      btnLink: getAffiliateUrl("inmotion-hosting")
     },
     {
       title: "What is ATS Space Hosting?",
       imageUrl: contentImage06,
       content: "ATS Space offers managed hosting with enterprise-grade reliability. Ideal for critical business websites requiring speed, scalability, and expert 24/7 support.",
       btnText: "Visit ATS Space Web Hosting",
-      btnLink: "http://www.atspace.com?aid=MTkyNDE4MjYyNTI2MjE="
+      btnLink: getAffiliateUrl("ats-space-web-hosting")
     },
     {
       title: "Migrating to Shopify",
       imageUrl: contentImage07,
       content: "Shopify powers millions of online stores with fast, secure hosting and powerful commerce tools. Easily migrate your business to Shopify’s ecosystem.",
       btnText: "Visit Shopify",
-      btnLink: "https://shopify.pxf.io/ZQdaoK"
+      btnLink: getAffiliateUrl("shopify")
     },
     {
       title: "InterServer: Consistent and Affordable",
       imageUrl: contentImage08,
       content: "InterServer delivers dependable hosting at locked-in pricing. Great for long-term users looking for stability, free migration, and excellent support.",
       btnText: "Visit InterServer",
-      btnLink: "https://www.interserver.net/r/899620"
+      btnLink: getAffiliateUrl("interserver")
     },
     {
       title: "FastComet: Speed and Reliability",
       imageUrl: contentImage09,
       content: "FastComet offers high-speed global hosting with SSD storage, free daily backups, and unmatched support — perfect for global businesses.",
       btnText: "Visit FastComet",
-      btnLink: "https://affiliate.fastcomet.com/scripts/2wc9ym?a_aid=659e4ffcaedda"
+      btnLink: getAffiliateUrl("fastcomet")
     },
     {
       title: "ChemiCloud: Reliable and Fast Hosting",
       imageUrl: contentImage10,
       content: "ChemiCloud stands out with its ultra-fast, SSD-powered hosting and exceptional customer support, perfect for WordPress and business websites.",
       btnText: "Visit ChemiCloud",
-      btnLink: "https://chemicloud.com/#660526c05255d"
+      btnLink: getAffiliateUrl("chemicloud")
     }
   ];
 

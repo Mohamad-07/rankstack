@@ -7,7 +7,7 @@ const hosts = [
     performance: "Excellent",
     support: "24/7 Live Chat",
     value: "High",
-    affiliateLink: "https://tracking.missaffiliate.com/aff_c?offer_id=42&aff_id=6559",
+    brand: "miss-hosting",
   },
   {
     name: "JetHost",
@@ -17,7 +17,7 @@ const hosts = [
     performance: "Excellent",
     support: "Priority Support",
     value: "High",
-    affiliateLink: "https://jethost.com/?a_aid=RankStack",
+    brand: "jethost",
   },
   {
     name: "SiteGround",
@@ -27,7 +27,8 @@ const hosts = [
     performance: "Excellent",
     support: "Priority Support",
     value: "Medium",
-    affiliateLink: "https://siteground.com",
+    brand: "siteground",
+    affiliateLink: "https://siteground.com", // temporary direct destination while PENDING
   },
 ];
 

@@ -441,7 +441,7 @@ const CrazyDomainsContent = () => {
         <HostInfoBox 
           bestFor="Australian businesses requiring compliance, healthcare providers, financial services, government agencies, and any organization needing Australian data sovereignty with enterprise performance."
           rating="⭐ 8.6 / 10"
-          link="https://crazydomains.sjv.io/0ZvbGP"
+          brand="crazy-domains"
         />
 
         <div className="bg-purple-50 border-l-4 border-purple-500 p-6 my-6">
@@ -605,7 +605,7 @@ const CrazyDomainsContent = () => {
             heading="Ready to Host with Australian Compliance & Performance?"
             offer="Get 30% Off Todays"
             buttonText="Visit Now"
-            buttonLink="https://crazydomains.sjv.io/0ZvbGP"
+            brand="crazy-domains"
           />
         </div>
 

@@ -1,5 +1,6 @@
 // content/blogs/jet-web-hosting-vs-misshosting.js
 import React from "react"
+import { getAffiliateVariantUrl } from "@/lib/affiliates";
 import Link from "next/link"
 import QuickSummary from "@/components/QuickSummary"
 import KeyTakeaways from "@/components/KeyTakeaways"
@@ -296,7 +297,7 @@ const JetHostVsMissHostingContent = () => {
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://jethost.com/web-hosting/?a_aid=rankstack&a_bid=5eda723f"
+                  href={getAffiliateVariantUrl("jethost", "deep-link-web-hosting")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-indigo-700 text-white font-semibold py-3 px-5 rounded-xl shadow hover:translate-y-[-2px] transition"
@@ -304,7 +305,7 @@ const JetHostVsMissHostingContent = () => {
                   Jet Hosting — View Plans
                 </a>
                 <a
-                  href="https://tracking.missaffiliate.com/aff_c?offer_id=30&aff_id=6559"
+                  href={getAffiliateVariantUrl("miss-hosting", "deep-link-offer-30")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-white border border-gray-200 text-gray-800 font-semibold py-3 px-5 rounded-xl shadow hover:bg-gray-50 transition"

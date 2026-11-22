@@ -566,7 +566,7 @@ const AccuWebHostingContent = () => {
         <HostInfoBox 
           bestFor="Developers, technical teams, agencies, businesses with global audiences, and anyone valuing performance flexibility and pricing transparency over brand recognition."
           rating="⭐ 9.3 / 10"
-          link="https://www.accuwebhosting.com/affiliate-link"
+          brand="accuwebhosting"
         />
 
         <p><strong>My Technical-Focused Recommendation:</strong></p>
@@ -874,7 +874,7 @@ const AccuWebHostingContent = () => {
             heading="Ready for Global Performance with Developer Freedom?"
             offer="Get AccuWeb Hosting with 20+ data centers, transparent pricing, and multi-language support from $1.99/month"
             buttonText="Get AccuWeb Hosting Now"
-            buttonLink="https://www.accuwebhosting.com/affiliate-link"
+            brand="accuwebhosting"
           />
         </div>
 

@@ -1,5 +1,6 @@
 // content/blogs/interserver-web-hosting-review.js
 import React from "react";
+import { getAffiliateVariantUrl } from "@/lib/affiliates";
 import CTA from "@/components/Cta";
 import HostInfoBox from "@/components/HostInfoBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
@@ -320,7 +321,7 @@ const InterServerContent = () => {
         <HostInfoBox 
           bestFor="Bloggers, small business sites, and portfolios on a tight budget."
           rating="⭐ 6.9 / 10"
-          link="https://www.interserver.net/r/999999"
+          link={getAffiliateVariantUrl("interserver", "deep-link-999999")}
         />
 
         <p><strong>🎯 My Recommendation:</strong></p>
@@ -543,7 +544,7 @@ const InterServerContent = () => {
             heading="Ready to try InterServer?"
             offer="Get your first month for just one cent"
             buttonText="Get Started with InterServer"
-            buttonLink="https://www.interserver.net/r/999999"
+            buttonLink={getAffiliateVariantUrl("interserver", "deep-link-999999")}
           />
         </div>
 

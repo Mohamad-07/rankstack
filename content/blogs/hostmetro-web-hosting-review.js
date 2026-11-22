@@ -332,7 +332,7 @@ const HostmetroContent = () => {
         <HostInfoBox 
           bestFor="Absolute beginners, personal blogs, and temporary projects where budget is the primary constraint."
           rating="⭐ 5.8 / 10"
-          link="https://www.hostmetro.com"
+          link="https://www.hostmetro.com" brand="hostmetro"
         />
 
         <p><strong>My Honest Recommendation:</strong></p>
@@ -482,7 +482,7 @@ const HostmetroContent = () => {
             heading="Considering Hostmetro for your project?"
             offer="Starts at $2.95/month with free domain on annual plans"
             buttonText="Visit Hostmetro"
-            buttonLink="https://www.hostmetro.com"
+            buttonLink="https://www.hostmetro.com" brand="hostmetro"
           />
         </div>
 

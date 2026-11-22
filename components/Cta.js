@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { getAffiliateUrl, getAffiliateVariantUrl } from "@/lib/affiliates";
 
 const DealBanner = ({
   heading = "START YOUR BUSINESS WITH MISSHOSTING!",
@@ -8,18 +9,39 @@ const DealBanner = ({
   buttonText = "Get Started Now",
   buttonLink = "#",
   badge = "⚡ Limited Time Offer",
+  brand,
+  buttonVariant,
+  secondaryButton = false,
+  secondaryText = "",
+  secondaryLink,
+  secondaryBrand,
+  secondaryVariant,
 }) => {
+  // `brand` / `secondaryBrand` resolve through the central affiliate registry
+  // (affiliatelinks.txt); optional variants select supplied deep links.
+  // `buttonLink` / `secondaryLink` remain fallbacks for unmapped/pending brands.
+  const registryUrl = brand
+    ? buttonVariant
+      ? getAffiliateVariantUrl(brand, buttonVariant)
+      : getAffiliateUrl(brand)
+    : undefined;
+  const href = registryUrl || buttonLink;
+  const secondaryRegistryUrl = secondaryBrand
+    ? secondaryVariant
+      ? getAffiliateVariantUrl(secondaryBrand, secondaryVariant)
+      : getAffiliateUrl(secondaryBrand)
+    : undefined;
+  const secondaryHref = secondaryButton
+    ? secondaryRegistryUrl || secondaryLink
+    : undefined;
+
   return (
     <div className="flex justify-center items-center py-16 px-6">
       {/* Outer Gradient Border */}
-      <Link
-        href={buttonLink}
-        target="_blank"
-        className="no-underline decoration-none bg-gradient-to-r from-blue-500 to-pink-500 p-[2px] rounded-2xl shadow-lg max-w-2xl w-full block transition hover:scale-105 hover:shadow-2xl"
-      >
+      <div className="no-underline decoration-none bg-gradient-to-r from-blue-500 to-pink-500 p-[2px] rounded-2xl shadow-lg max-w-2xl w-full block transition hover:scale-105 hover:shadow-2xl">
         {/* Inner Card with Light Gradient + Glow */}
         <div className="no-underline decoration-none bg-gradient-to-br from-white via-blue-50 to-pink-50 rounded-2xl text-center px-10 py-14 shadow-[0_0_25px_rgba(59,130,246,0.12)] hover:shadow-[0_0_40px_rgba(236,72,153,0.18)] transition">
-          
+
           {/* Badge */}
           <div className="no-underline decoration-none inline-block bg-gradient-to-r from-yellow-300 to-pink-300 text-sm md:text-base font-bold text-black px-6 py-2 rounded-full mb-6 shadow-md animate-pulse">
             {badge}
@@ -37,12 +59,31 @@ const DealBanner = ({
 
           {/* CTA Button */}
           <div>
-            <span className="no-underline decoration-none inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-lg md:text-xl px-10 py-4 rounded-full shadow-md hover:scale-110 hover:shadow-2xl transition">
+            <Link
+              href={href}
+              target="_blank"
+              rel="sponsored noopener"
+              className="no-underline decoration-none inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-lg md:text-xl px-10 py-4 rounded-full shadow-md hover:scale-110 hover:shadow-2xl transition"
+            >
               {buttonText}
-            </span>
+            </Link>
           </div>
+
+          {/* Secondary CTA — previously passed props were never rendered. */}
+          {secondaryButton && secondaryHref && (
+            <div className="mt-5">
+              <a
+                href={secondaryHref}
+                target="_blank"
+                rel="sponsored noopener"
+                className="no-underline decoration-none inline-block text-sm md:text-base font-medium text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-900 transition"
+              >
+                {secondaryText || "See alternative offer"}
+              </a>
+            </div>
+          )}
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

@@ -319,7 +319,7 @@ const Cloud86Content = () => {
         <HostInfoBox 
           bestFor="Growing businesses, performance-focused websites, and users needing reliable cloud infrastructure without enterprise pricing."
           rating="⭐ 8.2 / 10"
-          link="https://www.cloud86.com/affiliate-link"
+          link="https://www.cloud86.com" brand="cloud86"
         />
 
         <p><strong>My Recommendation:</strong></p>
@@ -544,7 +544,7 @@ const Cloud86Content = () => {
             heading="Ready to experience Cloud86 performance?"
             offer="Get Started with Cloud86"
             buttonText="Visit Cloud86"
-            buttonLink="https://www.cloud86.com/affiliate-link"
+            buttonLink="https://www.cloud86.com" brand="cloud86"
           />
         </div>
 

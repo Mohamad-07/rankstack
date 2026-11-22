@@ -1,8 +1,10 @@
 // content/blogs/best-windows-hosting-providers.js
 import React from "react";
+import { getAffiliateUrl, getAffiliateVariantUrl } from "@/lib/affiliates";
 import QuickSummary from "@/components/QuickSummary";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import ProsConsCard from "@/components/Proscons";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const WindowsHostingContent = () => {
   return (
@@ -619,10 +621,9 @@ const WindowsHostingContent = () => {
             >
             OFFICIAL DEAL
             </div>
-    <a
-      href="https://www.accuwebhosting.com/"
+    <AffiliateLink brand="accuwebhosting"
+     
       target="_blank"
-      rel="noopener noreferrer"
       style={{
         color: "#ffffff",
         fontSize: "18px",
@@ -632,7 +633,7 @@ const WindowsHostingContent = () => {
                 }}
                 >
                 View Deal →
-               </a>
+               </AffiliateLink>
                <div
                 style={{
                  fontSize: "12px",
@@ -1208,9 +1209,9 @@ const WindowsHostingContent = () => {
                   <span className="font-bold text-blue-600">Beginners</span>
                 </div>
               </div>
-              <a href="https://hostgator.pvxt.net/7aAG5V" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
+              <AffiliateLink brand="hostgator" target="_blank" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
                 View HostGator Deal
-              </a>
+              </AffiliateLink>
             </div>
 
             {/* InterServer Card - UPDATED */}
@@ -1239,7 +1240,7 @@ const WindowsHostingContent = () => {
                   <span className="font-bold text-blue-600">Best Value</span>
                 </div>
               </div>
-              <a href="https://www.anrdoezrs.net/click-101156682-15733719" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
+              <a href={getAffiliateVariantUrl("interserver", "deep-link-anrdoezrs")} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
                 View InterServer Deal
               </a>
             </div>
@@ -1270,7 +1271,7 @@ const WindowsHostingContent = () => {
                   <span className="font-bold text-blue-600">Enterprise VPS</span>
                 </div>
               </div>
-              <a href="https://liquidweb.i3f2.net/WqDnA3" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
+              <a href={getAffiliateUrl("liquid-web")} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
                 View Liquid Web Deal
               </a>
             </div>
@@ -1363,7 +1364,7 @@ const WindowsHostingContent = () => {
                   <span className="font-bold text-blue-600">Managed VPS</span>
                 </div>
               </div>
-              <a href="https://scalahosting.com" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
+              <a href={getAffiliateUrl("scalahosting")} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-lg hover:shadow-lg transition-all">
                 View ScalaHosting Deal
               </a>
             </div>
@@ -1611,11 +1612,11 @@ const WindowsHostingContent = () => {
           Ultra-fast .NET Core optimization with superior uptime and enterprise-grade hardware.
         </p>
         <div className="text-3xl font-bold text-gray-900 mb-6">$3.49<span className="text-sm font-normal text-gray-500">/mo</span></div>
-        <a href="https://www.accuwebhosting.com/" target="_blank" rel="noopener noreferrer" 
+        <AffiliateLink brand="accuwebhosting" target="_blank" 
            className="w-full text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md"
            style={{ backgroundColor: '#dc2626' }}>
           View Performance
-        </a>
+        </AffiliateLink>
       </div>
 
       {/* Best Budget - Hostinger (GREEN FIXED) */}
@@ -1627,11 +1628,11 @@ const WindowsHostingContent = () => {
           The most cost-effective entry point without sacrificing essential Windows features.
         </p>
         <div className="text-3xl font-bold text-gray-900 mb-6">$1.99<span className="text-sm font-normal text-gray-500">/mo</span></div>
-        <a href="https://hostinger.sjv.io/rnV05j" target="_blank" rel="noopener noreferrer" 
+        <AffiliateLink brand="hostinger" target="_blank" 
            className="w-full text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md"
            style={{ backgroundColor: '#111827' }}>
           Save Money Now
-        </a>
+        </AffiliateLink>
       </div>
 
     </div>
@@ -1748,7 +1749,7 @@ const WindowsHostingContent = () => {
       </a>
       
       {/* Hostinger */}
-      <a href="https://hostinger.sjv.io/rnV05j" target="_blank" rel="noopener noreferrer" 
+      <AffiliateLink brand="hostinger" target="_blank" 
          className="bg-white p-6 rounded-xl border border-transparent hover:border-blue-300 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-gray-800 shadow-lg block">
         <div className="text-3xl mb-2">💰</div>
         <div className="font-bold text-lg mb-1 text-gray-900">Hostinger</div>
@@ -1756,10 +1757,10 @@ const WindowsHostingContent = () => {
         <div className="inline-block w-full py-2 px-3 text-sm bg-yellow-100 text-yellow-800 font-bold rounded-lg">
           From $1.99/mo
         </div>
-      </a>
+      </AffiliateLink>
       
       {/* AccuWeb Hosting */}
-      <a href="https://www.accuwebhosting.com/" target="_blank" rel="noopener noreferrer" 
+      <AffiliateLink brand="accuwebhosting" target="_blank" 
          className="bg-white p-6 rounded-xl border border-transparent hover:border-blue-300 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-gray-800 shadow-lg block">
         <div className="text-3xl mb-2">⚡</div>
         <div className="font-bold text-lg mb-1 text-gray-900">AccuWeb Hosting</div>
@@ -1767,7 +1768,7 @@ const WindowsHostingContent = () => {
         <div className="inline-block w-full py-2 px-3 text-sm bg-blue-100 text-blue-800 font-bold rounded-lg">
           From $3.49/mo
         </div>
-      </a>
+      </AffiliateLink>
     </div>
     
     <div className="mt-8 text-sm text-blue-100 max-w-2xl mx-auto bg-blue-800 bg-opacity-40 p-5 rounded-xl border border-blue-400 border-opacity-30">

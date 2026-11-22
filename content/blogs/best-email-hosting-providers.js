@@ -4,6 +4,7 @@ import QuickSummary from "@/components/QuickSummary";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import ProsConsCard from "@/components/Proscons";
 import RatingBreakdown from "@/components/RatingBreakdown";
+import AffiliateLink from "@/components/AffiliateLink";
 
 const EmailHostingContent = () => {
   return (
@@ -838,9 +839,9 @@ const EmailHostingContent = () => {
                   <td className="px-6 py-4">Web hosting add-on</td>
                   <td className="px-6 py-4 font-bold text-yellow-600">4.2/5</td>
                   <td className="px-6 py-4">
-                    <a href="https://www.bluehost.com/email" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
+                    <AffiliateLink brand="bluehost" target="_blank" className="text-blue-600 hover:text-blue-800 font-medium">
                       Visit →
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
                 
@@ -868,9 +869,9 @@ const EmailHostingContent = () => {
                   <td className="px-6 py-4">Budget unlimited</td>
                   <td className="px-6 py-4 font-bold text-yellow-600">4.1/5</td>
                   <td className="px-6 py-4">
-                    <a href="https://www.hostgator.com/email" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
+                    <AffiliateLink brand="hostgator" target="_blank" className="text-blue-600 hover:text-blue-800 font-medium">
                       Visit →
-                    </a>
+                    </AffiliateLink>
                   </td>
                 </tr>
               </tbody>

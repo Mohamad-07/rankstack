@@ -411,7 +411,7 @@ const DreamHostContent = () => {
         <HostInfoBox 
           bestFor="WordPress users, developers, privacy-conscious website owners, bloggers, and anyone valuing transparency and long-term value over cutting-edge performance."
           rating="⭐ 8.2 / 10"
-          link="https://www.dreamhost.com/affiliate-link"
+          link="https://www.dreamhost.com" brand="dreamhost"
         />
 
         <p><strong>My Value-Based Recommendation:</strong></p>
@@ -761,7 +761,7 @@ const DreamHostContent = () => {
             heading="Ready for Transparent, Value-Focused Hosting?"
             offer="Get DreamHost with 97-day money-back guarantee, free domain privacy, and straightforward pricing starting at $2.95/month"
             buttonText="Get DreamHost Now"
-            buttonLink="https://www.dreamhost.com/affiliate-link"
+            buttonLink="https://www.dreamhost.com" brand="dreamhost"
           />
         </div>
 
