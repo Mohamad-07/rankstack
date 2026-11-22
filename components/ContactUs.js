@@ -12,8 +12,8 @@ const contactDetails = [
   {
     icon: Mail,
     label: "Email",
-    value: "support@rankstack.dev",
-    href: "mailto:support@rankstack.dev",
+    value: "hello@rankstack.dev",
+    href: "mailto:hello@rankstack.dev",
   },
   {
     icon: Phone,
@@ -35,7 +35,7 @@ const ContactUs = () => {
 
     const subject = encodeURIComponent(`Website enquiry from ${name}`);
     const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
-    window.location.href = `mailto:support@rankstack.dev?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@rankstack.dev?subject=${subject}&body=${body}`;
     setStatus("Opening your email app…");
   };
 

@@ -26,8 +26,8 @@ const contactCards = [
   {
     icon: Mail,
     title: "Email us",
-    value: "support@rankstack.dev",
-    href: "mailto:support@rankstack.dev",
+    value: "hello@rankstack.dev",
+    href: "mailto:hello@rankstack.dev",
   },
   {
     icon: Phone,

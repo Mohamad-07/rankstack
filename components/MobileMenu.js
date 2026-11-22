@@ -115,7 +115,7 @@ const MobileMenu = ({ navLinks = [], secondaryLinks = [], onClose }) => {
             Let&apos;s Connect
           </Link>
           <p className="mt-3 text-center text-xs text-slate-500">
-            support@rankstack.dev
+            hello@rankstack.dev
           </p>
         </div>
       </motion.aside>

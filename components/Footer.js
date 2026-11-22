@@ -83,10 +83,10 @@ const Footer = () => {
               and technical SEO resources built for people who ship.
             </p>
             <a
-              href="mailto:support@rankstack.dev"
+              href="mailto:hello@rankstack.dev"
               className="mt-5 inline-flex text-sm font-medium text-indigo-300 transition hover:text-white"
             >
-              support@rankstack.dev
+              hello@rankstack.dev
             </a>
           </div>
 

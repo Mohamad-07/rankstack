@@ -25,12 +25,40 @@ const RAW_CSV = `date,host,test_location,tool,run,ttfb_ms,fully_loaded_s,notes
 
 const encodeCSV = (s) => encodeURIComponent(s);
 
+const BlogImage = ({
+  src,
+  alt,
+  title,
+  caption,
+  width,
+  height,
+  priority = false,
+  figureClassName = "my-7 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm",
+  imageClassName = "block h-auto w-full object-contain",
+  captionClassName = "border-t border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-600",
+}) => (
+  <figure className={figureClassName}>
+    <img
+      src={src}
+      alt={alt}
+      title={title}
+      width={width}
+      height={height}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      className={imageClassName}
+    />
+    {caption ? <figcaption className={captionClassName}>{caption}</figcaption> : null}
+  </figure>
+);
+
 
 const ReviewJsonLd = () => {
   const json = {
     "@context": "https://schema.org",
     "@type": "Review",
-    "headline": "HostArmada Review: Cloud Hosting Features and Trade-offs",
+    "headline": "HostArmada Review: Speed, Pricing & Cloud Hosting Tested",
+    "image": "https://rankstack.dev/hostarmada-review.jpg",
     "author": {
       "@type": "Person",
       "name": "RankStack"
@@ -42,13 +70,14 @@ const ReviewJsonLd = () => {
       "name": "RankStack",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/hostarmada-review-cover.avif"
+        "url": "https://rankstack.dev/rankstack-logo.png"
       }
     },
     "itemReviewed": {
       "@type": "Service",
       "name": "HostArmada Cloud SSD Hosting",
       "description": "Cloud-based SSD web hosting with global data centers",
+      "image": "https://rankstack.dev/hostarmada-review.jpg",
       "provider": {
         "@type": "Organization",
         "name": "HostArmada",
@@ -60,7 +89,7 @@ const ReviewJsonLd = () => {
         "priceCurrency": "USD"
       }
     },
-    "reviewBody": "7-month testing reveals HostArmada's cloud SSD hosting delivers enterprise performance with 9 global data centers, 99.99% uptime, and speeds that destroy traditional shared hosting competitors.",
+    "reviewBody": "After 7 months of testing, HostArmada's cloud SSD hosting showed competitive TTFB and load times across five test regions. This review covers its nine data centers, plan pricing, included security features, Docker support, and trade-offs for different site owners.",
     "reviewRating": {
       "@type": "Rating",
       "ratingValue": "8.7",
@@ -83,7 +112,7 @@ const ReviewJsonLd = () => {
 
 
 const HostArmadaContent = () => {
-  const title = "HostArmada Review: Cloud Hosting Features and Trade-offs";
+  const title = "HostArmada Review: Speed, Pricing & Cloud Hosting Tested";
   const published = "December 5, 2025";
   const rating = "8.7";
 
@@ -160,11 +189,18 @@ const HostArmadaContent = () => {
       <ReviewJsonLd />
 
       {/* Cover / header */}
-      <section className="relative w-full h-72 md:h-96 flex items-center justify-center text-white">
-        <img
-          src="https://res.cloudinary.com/dpgspconw/image/upload/v1759425714/hostarmada-review-cover.avif"
-          alt="HostArmada cloud SSD hosting review - global performance testing results"
-          className="w-full h-auto object-contain opacity-100"
+      <section className="w-full bg-slate-950">
+        <BlogImage
+          src="/hostarmada-review.jpg"
+          alt="HostArmada review cover showing cloud SSD hosting performance, pricing plans, and global data-center coverage"
+          title="HostArmada Review: Speed, Pricing & Cloud Hosting Tested"
+          caption="HostArmada review snapshot: cloud SSD architecture, pricing tiers, security features, and benchmark results tested by RankStack."
+          width={1376}
+          height={768}
+          priority
+          figureClassName="mx-auto max-w-6xl"
+          imageClassName="block h-auto w-full object-contain"
+          captionClassName="bg-slate-900 px-4 py-3 text-center text-sm leading-relaxed text-slate-300"
         />
       </section>
 
@@ -175,18 +211,16 @@ const HostArmadaContent = () => {
 
         {/* Quick Summary */}
         <QuickSummary 
-          intro="After 7 months of rigorous global testing, HostArmada emerges as the dark horse in web hosting - delivering true cloud SSD performance with 9 global data centers at prices that destroy traditional shared hosting competitors."
+          intro="After 7 months of multi-region testing, HostArmada stands out for its cloud SSD infrastructure, nine data-center choices, and feature-rich entry plans. Here is what the performance data, pricing, and trade-offs look like in practice."
           points={quickSummaryPoints}
         />
 
-        <h2 className="text-3xl font-bold mt-6">HostArmada Review: Cloud Hosting Features and Trade-offs</h2>
+        <h2 className="text-3xl font-bold mt-6">HostArmada Review: Speed, Pricing & Cloud Hosting Tested</h2>
         
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg my-6">
-          <p className="font-semibold text-xl">🚀 SHOCKING FINDING:</p>
-          <p className="mt-2">
-            The comparison data shown here reflects specific configurations and test runs; it does not establish a general performance advantage over all shared hosts.
-            while costing <strong>25% less</strong>. This isn't just better hosting - it's a completely 
-            different technology category.
+        <div className="bg-slate-100 p-6 rounded-lg my-6">
+          <p className="font-semibold text-xl text-slate-900">Test scope and comparison note</p>
+          <p className="mt-2 text-slate-700">
+            Results below come from specific plans, configurations, and test runs. They show what we observed in our setup; they are not a universal ranking of every shared or cloud host.
           </p>
         </div>
 
@@ -202,20 +236,21 @@ const HostArmadaContent = () => {
           think about budget web hosting forever.
         </p>
 
-        <h2 className="text-2xl font-bold mt-6">☁️ The Cloud Infrastructure Advantage: Why HostArmada Is Different</h2>
+        <h2 className="text-2xl font-bold mt-6">How HostArmada Cloud SSD Infrastructure Works</h2>
 
         <p>
           Traditional shared hosting crams hundreds of websites onto single servers, creating 
           the "noisy neighbor" problem that slows everyone down. HostArmada's approach is fundamentally different.
         </p>
 
-        <section className="relative w-full aspect-[16/9] md:aspect-[21/9]">
-          <img
-            src="https://res.cloudinary.com/dpgspconw/image/upload/v1759494859/hostarmada-cloud-infrastructure.avif"
-            alt="HostArmada cloud SSD infrastructure vs traditional shared hosting comparison"
-            className="w-full h-full object-cover opacity-70"
-          />
-        </section>
+        <BlogImage
+          src="/hostarmada-cloud-structure.jpg"
+          alt="Diagram of HostArmada cloud SSD hosting structure with isolated containers and nine global data centers"
+          title="HostArmada cloud SSD infrastructure and server isolation explained"
+          caption="How HostArmada’s cloud SSD structure isolates accounts and distributes sites across nine data centers."
+          width={1344}
+          height={756}
+        />
 
         <div className="grid md:grid-cols-2 gap-6 my-6">
           <div className="bg-red-50 p-6 rounded-lg border border-red-200">
@@ -247,7 +282,7 @@ const HostArmadaContent = () => {
           another customer's traffic spike - a common problem with traditional shared hosting.
         </p>
 
-        <h2 className="text-2xl font-bold mt-6">🌍 Global Performance Analysis: 9 Data Centers Tested</h2>
+        <h2 className="text-2xl font-bold mt-6">HostArmada Speed Test Results: 9 Data Centers, 5 Regions Tested</h2>
 
         <p>
           Most budget hosts have 1-2 data centers, typically in the US. HostArmada offers 
@@ -305,20 +340,21 @@ const HostArmadaContent = () => {
           with premium hosts.
         </p>
 
-        <h2 className="text-2xl font-bold mt-6">⚡ Performance Showdown: HostArmada vs HostAdvice vs Bluehost</h2>
+        <h2 className="text-2xl font-bold mt-6">HostArmada vs HostAdvice vs Bluehost: Speed Test Results</h2>
 
         <p>
           We conducted identical tests across HostArmada, HostAdvice, and Bluehost to provide 
           direct performance comparisons. The results were staggering.
         </p>
 
-        <section className="relative w-full aspect-[16/9] md:aspect-[21/9]">
-          <img
-            src="https://res.cloudinary.com/dpgspconw/image/upload/v1759495550/hostarmada-vs-competitors.avif"
-            alt="HostArmada performance comparison vs HostAdvice and Bluehost - speed test results"
-            className="w-full h-full object-cover opacity-70"
-          />
-        </section>
+        <BlogImage
+          src="/hostarmada-performance.jpg"
+          alt="HostArmada performance test results compared with HostAdvice and Bluehost across five test locations"
+          title="HostArmada speed test results and TTFB comparisons"
+          caption="Observed TTFB and load-time results from RankStack’s HostArmada performance tests, including comparisons with HostAdvice and Bluehost."
+          width={1408}
+          height={768}
+        />
 
         <div className="bg-orange-50 p-6 rounded-lg border border-orange-200 my-6">
           <h4 className="font-semibold text-orange-800 text-lg mb-3">🏆 Performance Champion</h4>
@@ -418,12 +454,12 @@ const HostArmadaContent = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold mt-6">🎯 The Verdict: Who Should Choose HostArmada?</h2>
+        <h2 className="text-2xl font-bold mt-6">Our HostArmada Verdict: Who Should Choose It?</h2>
 
         <Proscons
           pros={pros}
           cons={cons}
-          title="HostArmada Cloud SSD Hosting: Complete Analysis"
+          title="HostArmada Pros and Cons: Cloud SSD Hosting Review"
         />
 
         <HostInfoBox 
@@ -465,19 +501,20 @@ const HostArmadaContent = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold mt-6">💰 Pricing Analysis: Unbeatable Value Proposition</h2>
+        <h2 className="text-2xl font-bold mt-6">HostArmada Pricing: Plans, Costs and What You Get</h2>
 
         <p>
           HostArmada's pricing structure is remarkably transparent with three clear tiers:
         </p>
 
-        <section className="relative w-full aspect-[16/9] md:aspect-[21/9]">
-          <img
-            src="https://res.cloudinary.com/dpgspconw/image/upload/v1759494858/hostarmada-pricing-plans.avif"
-            alt="HostArmada pricing plans comparison - Start Dock, Web Warp, Speed Reaper"
-            className="w-full h-full object-cover opacity-70"
-          />
-        </section>
+        <BlogImage
+          src="/hostarmada-pricing.jpg"
+          alt="HostArmada pricing plans: Start Dock, Web Warp, and Speed Reaper with SSD storage and data center access"
+          title="HostArmada pricing plans compared: Start Dock, Web Warp, Speed Reaper"
+          caption="HostArmada plan comparison showing starting prices, storage allowances, free domain and SSL, and included data center access."
+          width={1408}
+          height={768}
+        />
 
         <div className="grid md:grid-cols-3 gap-4 my-6">
           <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm text-center">
@@ -526,7 +563,7 @@ const HostArmadaContent = () => {
           </ul>
         </div>
 
-        <h2 className="text-2xl font-bold mt-6">Final Conclusion: The Future of Budget Hosting Is Here</h2>
+        <h2 className="text-2xl font-bold mt-6">HostArmada Review Conclusion: Is It Worth It?</h2>
 
         <p>
           After 7 months of testing and approximately $21 in hosting fees, I can confidently 
@@ -557,7 +594,7 @@ const HostArmadaContent = () => {
         {/* Methodology & Raw Data Section */}
         <MethodologyDataSection 
           rawCsv={RAW_CSV}
-          title="Global Performance Testing Methodology & Raw Data"
+          title="HostArmada Testing Methodology & Raw Performance Data"
           description="Our 7-month testing regimen included performance analysis across 5 continents, direct competitor comparisons, and stress testing beyond typical review methodologies."
           methodologyPoints={[
             "Testing duration: 7 months with multi-continent performance tracking",
@@ -581,7 +618,7 @@ const HostArmadaContent = () => {
         {/* Key Takeaways Component */}
         <KeyTakeaways 
           points={keyTakeaways}
-          title="Strategic Insights: Why HostArmada Changes Everything"
+          title="HostArmada Key Takeaways From 7 Months of Testing"
         />
 
         {/* CTA */}
@@ -594,7 +631,7 @@ const HostArmadaContent = () => {
           />
         </div>
 
-        <h2 className="text-2xl font-bold mt-6">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold mt-6">HostArmada FAQs: Performance, Pricing and Support</h2>
 
         <div className="space-y-4">
           <details className="p-4 border rounded-lg">
@@ -696,26 +733,28 @@ const HostArmadaContent = () => {
 /* Blog metadata + exported object */
 const hostarmadaReview = {
   slug: "hostarmada-review-2025",
-  title: "HostArmada Review: Cloud Hosting Features and Trade-offs",
+  title: "HostArmada Review: Speed, Pricing & Cloud Hosting Tested",
   author: "RankStack",
   date: "December 5, 2025",
-  description: "Review HostArmada's hosting features, performance considerations, and plan trade-offs. Verify current plan resources, server locations, and billing terms with the provider.",
-  imageUrl: "https://res.cloudinary.com/dpgspconw/image/upload/v1765128862/hostarmada_review_blog_soc6g4.jpg",
+  description: "See what 7 months of HostArmada testing found: cloud SSD performance, data-center coverage, plan pricing, uptime, security features, and key trade-offs.",
+  imageUrl: "https://rankstack.dev/hostarmada-review.jpg",
   keywords: [
     "HostArmada review",
+    "HostArmada review 2026",
     "HostArmada hosting",
-    "HostArmada vs HostAdvice",
-    "cloud SSD hosting",
-    "HostArmada performance",
+    "HostArmada cloud SSD hosting",
     "HostArmada speed test",
-    "best cloud hosting 2025",
+    "HostArmada performance results",
     "HostArmada pricing",
-    "Docker hosting",
-    "global data centers hosting",
+    "HostArmada pricing plans",
+    "HostArmada data centers",
     "HostArmada uptime",
+    "HostArmada security features",
+    "HostArmada Docker support",
+    "HostArmada vs HostAdvice",
     "HostArmada vs Bluehost",
+    "cloud SSD hosting review",
     "budget cloud hosting",
-    "HostArmada features",
     "WordPress cloud hosting"
   ],
   content: HostArmadaContent,
