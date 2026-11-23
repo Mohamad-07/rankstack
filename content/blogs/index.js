@@ -38,6 +38,12 @@ import paymentGatewayInPakistan from './payment-gateway-in-pakistan'
 import bestPaymentGatewayWooCommercePakistan from './best-payment-gateway-woocommerce-pakistan'
 import paymentGatewaysUs from './payment-gateways'
 import kenyaPaymentGatewaySmallBusiness from './kenya-payment-gateway-options-small-business'
+import bestPaymentGatewaysAustralia from './best-payment-gateways-australia'
+import ewayVsWestpacVsNabAustralia from './eway-vs-westpac-vs-nab-payment-gateway-australia'
+import platformPaymentGatewaysAustralia from './payment-gateways-shopify-woocommerce-australia'
+import stripePaymentGatewayAustralia from './stripe-payment-gateway-australia'
+import squarePaymentGatewayAustralia from './square-payment-gateway-australia'
+import nmiPaymentGatewayAustralia from './nmi-payment-gateway-australia'
 
 export const blogData = [
   misshostingthestressfreewebhostyouvebeenlookingfor,
@@ -80,6 +86,12 @@ export const blogData = [
   bestPaymentGatewayWooCommercePakistan,
   paymentGatewaysUs,
   kenyaPaymentGatewaySmallBusiness,
+  bestPaymentGatewaysAustralia,
+  ewayVsWestpacVsNabAustralia,
+  platformPaymentGatewaysAustralia,
+  stripePaymentGatewayAustralia,
+  squarePaymentGatewayAustralia,
+  nmiPaymentGatewayAustralia,
 
   // more blogs here
 ]

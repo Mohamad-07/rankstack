@@ -89,6 +89,12 @@ const LINK_TEXT = {
   "best-payment-gateway-woocommerce-pakistan": "best payment gateway for WooCommerce in Pakistan",
   "payment-gateways": "US-focused payment gateways guide",
   "kenya-payment-gateway-options-small-business": "Kenya payment gateway options for small business websites",
+  "best-payment-gateways-australia": "Australian payment gateway comparison guide",
+  "eway-vs-westpac-vs-nab-payment-gateway-australia": "eWAY vs Westpac vs NAB payment gateway comparison",
+  "payment-gateways-shopify-woocommerce-australia": "Shopify and WooCommerce payment gateways in Australia",
+  "stripe-payment-gateway-australia": "Stripe payment gateway Australia deep dive",
+  "square-payment-gateway-australia": "Square payment gateway Australia deep dive",
+  "nmi-payment-gateway-australia": "NMI payment gateway Australia explainer",
 };
 
 const PILLAR_TEXT = {
