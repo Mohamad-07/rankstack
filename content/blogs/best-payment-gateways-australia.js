@@ -4,6 +4,8 @@ import KeyTakeaways from "@/components/KeyTakeaways";
 import QuickSummary from "@/components/QuickSummary";
 import Toc from "@/components/Toc";
 
+const SITE_URL = "https://rankstack.dev";
+
 const ExternalLink = ({ href, children }) => (
   <a
     href={href}
@@ -15,66 +17,159 @@ const ExternalLink = ({ href, children }) => (
   </a>
 );
 
-const FAQ_ITEMS = [
+const SeoImage = ({
+  src,
+  srcSet,
+  sizes,
+  width,
+  height,
+  alt,
+  caption,
+  priority = false,
+}) => (
+  <figure className="my-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img
+      src={src}
+      srcSet={srcSet}
+      sizes={sizes}
+      width={width}
+      height={height}
+      alt={alt}
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
+      decoding="async"
+      className="block h-auto w-full"
+    />
+    {caption && (
+      <figcaption className="border-t border-slate-100 px-4 py-3 text-sm leading-relaxed text-slate-600">
+        {caption}
+      </figcaption>
+    )}
+  </figure>
+);
+
+const IMAGES = [
   {
-    question: "What is the best payment gateway in Australia in 2026?",
-    answer:
-      "There is no single best gateway for every business. eWAY suits merchants wanting published online pricing and a provider-linked WooCommerce route; Westpac OnlinePay suits eligible Westpac banking customers; NAB Gateway suits businesses wanting bank-backed published pricing; Stripe suits API-led stores; Square suits combined in-person and online selling; NMI suits partner-led or embedded payments. Choose by eligibility, total cost and support.",
+    src: "/australian-payment-gateway-comparison-2026-1160.webp",
+    width: 1160,
+    height: 504,
+    alt: "Australian payment gateway comparison guide showing 2026 fees, features and provider fit",
+    caption:
+      "Australian payment gateway fees, features and eligibility checked against official provider and regulator pages in 2026.",
   },
   {
+    src: "/cheapest-australian-payment-gateway-costs-573.webp",
+    width: 573,
+    height: 300,
+    alt: "Cost components that decide the cheapest payment gateway in Australia",
+    caption:
+      "Monthly fees, card rates, platform charges, disputes and settlement timing all affect the real cost.",
+  },
+  {
+    src: "/australian-payment-gateway-step-by-step-selection-563.webp",
+    width: 563,
+    height: 299,
+    alt: "Seven-step process for choosing an Australian payment gateway",
+    caption:
+      "A practical selection process: eligibility, methods, total cost, platform fit, terms and a live test.",
+  },
+  {
+    src: "/eway-payment-gateway-australia-960.webp",
+    width: 960,
+    height: 419,
+    alt: "eWAY payment gateway for Australian online stores",
+    caption: "eWAY is an online specialist with published pricing and a documented WooCommerce route.",
+  },
+  {
+    src: "/nab-payment-gateway-australia-960.webp",
+    width: 960,
+    height: 347,
+    alt: "NAB Gateway online payment service for Australian businesses",
+    caption: "NAB Gateway publishes setup, monthly and transaction fees for eligible Australian businesses.",
+  },
+  {
+    src: "/nmi-payment-gateway-australia-960.webp",
+    width: 960,
+    height: 352,
+    alt: "NMI partner-led payment gateway technology used in Australia",
+    caption: "NMI is usually encountered through a bank, ISO, PayFac or SaaS partner rather than a public merchant price list.",
+  },
+  {
+    src: "/shopify-woocommerce-payment-gateway-australia-599.webp",
+    width: 599,
+    height: 326,
+    alt: "Shopify and WooCommerce payment gateway options for Australian stores",
+    caption: "Platform-native checkout changes the gateway decision because platform fees and plugin rules apply.",
+  },
+];
+
+const FAQ_ITEMS = [
+  {
+    topic: "Choosing",
+    question: "What is the best payment gateway in Australia in 2026?",
+    answer:
+      "There is no single best gateway for every business. eWAY suits merchants wanting published online pricing and a provider-linked WooCommerce route; Westpac OnlinePay suits eligible Westpac banking customers; NAB Gateway suits businesses wanting bank-backed published pricing; Square suits combined in-person and online selling; NMI suits partner-led or embedded payments. Choose by eligibility, total cost and support.",
+  },
+  {
+    topic: "Costs",
     question: "What is the cheapest payment gateway in Australia?",
     answer:
       "The lowest headline rate is not always the lowest total cost. Compare monthly fees, transaction rates, Amex and international-card charges, platform fees, chargebacks, hardware, settlement timing and eligibility. eWAY lists 1.5% + 25c with no monthly fee, Westpac OnlinePay lists 1.25% for eligible merchants and NAB Gateway lists $30 per month plus 1.30% and 25c, all checked 23 November 2026.",
   },
   {
-    question: "What changed for Australian card surcharging in 2026?",
-    answer:
-      "From 1 October 2026, ACCC guidance says businesses cannot surcharge Visa, Mastercard, American Express or eftpos cards. RBA material also records no-surcharge decisions for Amex, PayPal and UnionPay. Network rules and exceptions should be checked with your payment service provider; this is not legal advice.",
-  },
-  {
-    question: "Can I rename a card surcharge as an admin or service fee?",
-    answer:
-      "No. ACCC guidance says a fee linked to card use can still be a card surcharge even if renamed. A weekend or public-holiday fee that applies regardless of payment method is different. Cash discounts may still be possible if prices are displayed clearly and not misleadingly.",
-  },
-  {
+    topic: "Costs",
     question: "Do lower RBA interchange caps mean my merchant fees automatically fall?",
     answer:
       "Not necessarily. The RBA caps affect the interchange component of card costs, but merchant service fees are set by acquirers and payment service providers. Transparency reporting due from late 2026 and 2027 should make comparisons easier, but you still need a written quote.",
   },
   {
+    topic: "Regulation",
+    question: "What changed for Australian card surcharging in 2026?",
+    answer:
+      "From 1 October 2026, ACCC guidance says businesses cannot surcharge Visa, Mastercard, American Express or eftpos cards. RBA material also records no-surcharge decisions for Amex, PayPal and UnionPay. Network rules and exceptions should be checked with your payment service provider; this is not legal advice.",
+  },
+  {
+    topic: "Regulation",
+    question: "Can I rename a card surcharge as an admin or service fee?",
+    answer:
+      "No. ACCC guidance says a fee linked to card use can still be a card surcharge even if renamed. A weekend or public-holiday fee that applies regardless of payment method is different. Cash discounts may still be possible if prices are displayed clearly and not misleadingly.",
+  },
+  {
+    topic: "Security",
     question: "Is a hosted checkout enough to avoid PCI DSS work?",
     answer:
       "It can reduce the card data your systems handle, but it does not automatically remove every obligation. PCI SSC says validation requirements and SAQ versus ROC are determined by payment brands, acquirers or programme managers. PCI DSS v4.0.1 was the current non-archived version as at 23 November 2026.",
   },
   {
+    topic: "Platforms",
     question: "Which gateways support Shopify and WooCommerce in Australia?",
     answer:
       "Shopify Payments is available in Australia and third-party providers are also supported, with third-party transaction fees by plan. WooCommerce supports WooPayments and a wide plugin ecosystem, but eligibility and Checkout Blocks compatibility must be checked. See the platform guide linked in this article for the detailed rules.",
   },
   {
+    topic: "Providers",
     question: "Is NMI a direct payment gateway for Australian merchants?",
     answer:
       "NMI says it works exclusively through partners such as banks, ISOs, PayFacs and SaaS providers. You may encounter NMI technology through a reseller, but no public Australian merchant pricing was found on official NMI pages as at 23 November 2026.",
   },
   {
+    topic: "Providers",
     question: "Are Square's rates the same in Australia and the United States?",
     answer:
       "No. Australian Square pages displayed 1.6% in person, 2.2% online and 2.2% for MOTO/remote payments at the check date. Always use the /au/en/ pages for Australian decisions.",
   },
   {
+    topic: "Providers",
+    question: "How quickly do Australian online payments settle?",
+    answer:
+      "It varies. Westpac OnlinePay advertises same-day settlement before 8pm Sydney time into an eligible account; NAB Gateway says before 10pm AEST/AEDT to a NAB Business Everyday Account; eWAY states 1–3 day settlement; Square describes daily 1 p.m. AEST payouts. Eligibility and bank processing apply.",
+  },
+  {
+    topic: "Due diligence",
     question: "What should I ask a provider before signing?",
     answer:
       "Ask for written pricing, card and method list, international-card definition, chargeback fee, settlement cut-off, reserve policy, contract and exit terms, plugin or integration ownership, support hours and PCI validation responsibility. Also confirm whether the entity on the quote is the one that will contract with you.",
-  },
-  {
-    question: "How quickly do Australian online payments settle?",
-    answer:
-      "It varies. Westpac OnlinePay advertises same-day settlement before 8pm Sydney time into an eligible account; NAB Gateway says before 10pm AEST/AEDT to a NAB Business Everyday Account; eWAY states 1–3 day settlement; Stripe docs say first payouts are typically 7–14 days; Square describes daily 1 p.m. AEST payouts. Eligibility and bank processing apply.",
-  },
-  {
-    question: "Should I use the same gateway for Australia, Pakistan and Kenya?",
-    answer:
-      "Not automatically. Business registration, bank rails, local methods and KYC rules differ by country. This cluster separates Australia from the Pakistan, WooCommerce Pakistan and Kenya guides so country-specific rules stay distinct.",
   },
 ];
 
@@ -95,12 +190,262 @@ const FAQJsonLd = () => (
   />
 );
 
+const ImagesJsonLd = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: IMAGES.map((image, index) => ({
+          "@type": "ImageObject",
+          position: index + 1,
+          name: image.alt,
+          contentUrl: `${SITE_URL}${image.src}`,
+          caption: image.caption,
+          width: image.width,
+          height: image.height,
+        })),
+      }),
+    }}
+  />
+);
+
+const PROVIDERS = [
+  {
+    id: "provider-eway",
+    name: "eWAY payment gateway",
+    label: "Online payments specialist",
+    image: SeoImage({
+      src: "/eway-payment-gateway-australia-960.webp",
+      srcSet:
+        "/eway-payment-gateway-australia-480.webp 480w, /eway-payment-gateway-australia-960.webp 960w",
+      sizes: "(max-width: 768px) 100vw, 420px",
+      width: 960,
+      height: 419,
+      alt: "eWAY payment gateway for Australian online stores",
+      caption: "eWAY publishes an online card rate and supports recurring and WooCommerce payments.",
+    }),
+    description:
+      "eWAY is an Australian online payments provider aimed at businesses that sell primarily through a website. It publishes a clear online rate, supports common card types and offers both API and plugin routes. Treat it as an online gateway option rather than assuming it replaces every merchant facility or in-person terminal arrangement.",
+    features: [
+      "1.5% + 25c published online rate",
+      "No setup, monthly or lock-in fee listed",
+      "Visa, Mastercard, Amex and wallets",
+      "Recurring, tokenisation, MOTO and API options",
+    ],
+    bestFit:
+      "Online-only Australian businesses that want published pricing, common card support and a documented WooCommerce route.",
+    cta: { label: "Visit eWAY", href: "https://www.eway.com.au/" },
+  },
+  {
+    id: "provider-westpac",
+    name: "Westpac OnlinePay",
+    label: "Bank-owned online gateway",
+    image: SeoImage({
+      src: "/australian-payment-gateway-comparison-2026-1160.webp",
+      srcSet:
+        "/australian-payment-gateway-comparison-2026-640.webp 640w, /australian-payment-gateway-comparison-2026-1160.webp 1160w",
+      sizes: "(max-width: 768px) 100vw, 420px",
+      width: 1160,
+      height: 504,
+      alt: "Australian online checkout representing Westpac OnlinePay card payments",
+      caption: "Westpac OnlinePay is a bank-owned online gateway for eligible Westpac customers.",
+    }),
+    description:
+      "Westpac OnlinePay is Westpac's online payment gateway for eligible business banking customers. Its headline rate is 1.25% for eftpos, Visa and Mastercard, but that rate depends on meeting Westpac's eligibility conditions, including a foreign-card share condition. OnlinePay is a distinct product from other Westpac merchant services, so confirm exactly what you are being offered.",
+    features: [
+      "1.25% rate for eligible merchants",
+      "eftpos, Visa and Mastercard support",
+      "Apple Pay and Google Pay in checkout",
+      "3DS in the OnlinePay checkout",
+    ],
+    bestFit:
+      "Existing Westpac business banking customers that want a simple online checkout and settlement into an eligible account.",
+    cta: {
+      label: "Visit Westpac OnlinePay",
+      href: "https://www.westpac.com.au/business-banking/merchants-and-payments/online-payments/onlinepay",
+    },
+  },
+  {
+    id: "provider-nab",
+    name: "NAB Gateway",
+    label: "Bank-backed card gateway",
+    image: SeoImage({
+      src: "/nab-payment-gateway-australia-960.webp",
+      srcSet:
+        "/nab-payment-gateway-australia-480.webp 480w, /nab-payment-gateway-australia-960.webp 960w",
+      sizes: "(max-width: 768px) 100vw, 420px",
+      width: 960,
+      height: 347,
+      alt: "NAB Gateway online payment service for Australian businesses",
+      caption: "NAB Gateway lists setup, monthly and transaction fees for online payments.",
+    }),
+    description:
+      "NAB Gateway is an online and virtual payment service with published bank pricing: $0 setup, $30 per month, a 1.30% merchant service fee and 25c per transaction. It is useful for businesses that want a bank-backed gateway with a straightforward fee card. Confirm whether the quote covers Gateway, Transact or another NAB merchant product before you sign.",
+    features: [
+      "$0 setup and $30 monthly fee listed",
+      "1.30% merchant service fee plus 25c",
+      "Virtual terminal, recurring and batch options",
+      "Wallet and platform integration references",
+    ],
+    bestFit:
+      "NAB banking customers that want bank-backed online payments with published fees and virtual payment tools.",
+    cta: {
+      label: "Visit NAB Gateway",
+      href: "https://www.nab.com.au/business/payments-and-merchants/ecommerce-and-online-payments/nab-gateway",
+    },
+  },
+  {
+    id: "provider-square",
+    name: "Square payment gateway",
+    label: "In-person and online selling",
+    image: SeoImage({
+      src: "/australian-payment-gateway-comparison-2026-1160.webp",
+      srcSet:
+        "/australian-payment-gateway-comparison-2026-640.webp 640w, /australian-payment-gateway-comparison-2026-1160.webp 1160w",
+      sizes: "(max-width: 768px) 100vw, 420px",
+      width: 1160,
+      height: 504,
+      alt: "Australian retail and online business using Square card payments",
+      caption: "Square combines card readers, online checkout, invoices and payment links in Australia.",
+    }),
+    description:
+      "Square suits businesses that sell both face to face and online. Australian pages listed 1.6% for in-person payments and 2.2% for online and MOTO/remote payments at the check date. Hardware, Square Plus, Afterpay and Instant Transfer are separate cost items, so model them before comparing Square with a pure online gateway.",
+    features: [
+      "1.6% in-person and 2.2% online rates",
+      "Square Online, invoices and payment links",
+      "Tap to Pay and physical readers",
+      "Afterpay listed at 6% + 30c excl. GST",
+    ],
+    bestFit:
+      "Retailers, cafés and service businesses that need one provider for counter, mobile and online sales.",
+    cta: { label: "Visit Square Australia", href: "https://squareup.com/au/en" },
+  },
+  {
+    id: "provider-platforms",
+    name: "Shopify Payments and WooPayments",
+    label: "Platform-native checkout",
+    image: SeoImage({
+      src: "/shopify-woocommerce-payment-gateway-australia-599.webp",
+      srcSet:
+        "/shopify-woocommerce-payment-gateway-australia-480.webp 480w, /shopify-woocommerce-payment-gateway-australia-599.webp 599w",
+      sizes: "(max-width: 768px) 100vw, 420px",
+      width: 599,
+      height: 326,
+      alt: "Shopify and WooCommerce payment gateway options for Australian stores",
+      caption: "Platform-native checkout can be convenient, but platform-specific fees and plugin rules still apply.",
+    }),
+    description:
+      "Shopify Payments and WooPayments are built into their respective platforms. Shopify's AU card rates started at 1.7% + 30c on Basic, while WooPayments listed 1.75% + $0.30 for cards. The real decision is not only the card rate: Shopify charges third-party transaction fees on some plans, and WooCommerce Checkout Blocks compatibility can determine whether a plugin appears at checkout.",
+    features: [
+      "Shopify AU Basic cards from 1.7% + 30c",
+      "WooPayments cards at 1.75% + $0.30",
+      "Native checkout and wallet support",
+      "Platform-specific third-party and plugin rules",
+    ],
+    bestFit:
+      "Merchants already committed to Shopify or WooCommerce who value a native checkout over maximum processor choice.",
+    cta: {
+      label: "Visit Shopify AU pricing",
+      href: "https://www.shopify.com/au/pricing?country=au&lang=en",
+    },
+    secondaryCta: {
+      label: "Visit WooPayments",
+      href: "https://woocommerce.com/products/woopayments/",
+    },
+  },
+  {
+    id: "provider-nmi",
+    name: "NMI payment gateway",
+    label: "Partner-led infrastructure",
+    image: SeoImage({
+      src: "/nmi-payment-gateway-australia-960.webp",
+      srcSet:
+        "/nmi-payment-gateway-australia-480.webp 480w, /nmi-payment-gateway-australia-960.webp 960w",
+      sizes: "(max-width: 768px) 100vw, 420px",
+      width: 960,
+      height: 352,
+      alt: "NMI partner-led payment gateway technology used in Australia",
+      caption: "NMI access in Australia is usually provided through a bank, ISO, PayFac or SaaS partner.",
+    }),
+    description:
+      "NMI is not a public-price merchant brand in Australia. It provides gateway technology to partners such as banks, ISOs, PayFacs and SaaS platforms. If a platform tells you payments are powered by NMI, the partner sets the price, onboarding, settlement and support. No public Australian merchant price was found on official NMI pages at the check date.",
+    features: [
+      "White-label gateway and hosted pages",
+      "Virtual terminal and tokenisation",
+      "Webhooks and Merchant Central reporting",
+      "Pricing set by the partner, not NMI",
+    ],
+    bestFit:
+      "Businesses receiving payments through a bank, ISO, PayFac or SaaS platform that uses NMI technology behind the scenes.",
+    cta: {
+      label: "Visit NMI Payments Australia",
+      href: "https://www.nmi.com/products/nmi-payments-au",
+    },
+  },
+];
+
+const ProviderCard = ({ provider }) => (
+  <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    {provider.image}
+    <div className="flex flex-1 flex-col p-5">
+      <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">
+        {provider.label}
+      </p>
+      <h3 id={provider.id} className="mt-2 text-xl font-semibold text-slate-900">
+        {provider.name}
+      </h3>
+      <p className="mt-3 text-base leading-relaxed text-slate-700">
+        {provider.description}
+      </p>
+      <div className="mt-5">
+        <p className="text-sm font-semibold text-slate-900">Key features</p>
+        <ul className="mt-2 grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
+          {provider.features.map((feature) => (
+            <li key={feature} className="flex gap-2">
+              <span aria-hidden="true" className="mt-0.5 text-sky-700">
+                ✓
+              </span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-5 rounded-xl bg-sky-50 p-4">
+        <p className="text-xs font-semibold uppercase tracking-wide text-sky-800">
+          Best fit for
+        </p>
+        <p className="mt-1 text-sm leading-relaxed text-slate-700">
+          {provider.bestFit}
+        </p>
+      </div>
+      <div className="mt-5 flex flex-wrap gap-3 pt-1">
+        <ExternalLink href={provider.cta.href}>
+          <span className="inline-flex items-center gap-2 rounded-lg bg-sky-800 px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-sky-950">
+            {provider.cta.label}
+            <span aria-hidden="true">↗</span>
+          </span>
+        </ExternalLink>
+        {provider.secondaryCta && (
+          <ExternalLink href={provider.secondaryCta.href}>
+            <span className="inline-flex items-center gap-2 rounded-lg border border-sky-300 px-4 py-2 text-sm font-semibold text-sky-900 no-underline hover:bg-sky-50">
+              {provider.secondaryCta.label}
+              <span aria-hidden="true">↗</span>
+            </span>
+          </ExternalLink>
+        )}
+      </div>
+    </div>
+  </article>
+);
+
 const JUMP_LINKS = [
   ["short-answer", "Short answer"],
   ["gateway-vs-acquirer", "Gateway vs acquirer"],
   ["comparison-table", "Comparison table"],
+  ["provider-profiles", "Provider profiles"],
   ["cheapest-gateway", "Cheapest gateway"],
-  ["provider-picks", "Best by scenario"],
   ["regulatory-changes", "2026 regulatory changes"],
   ["security-and-kyc", "Security and KYC"],
   ["platforms", "Shopify and WooCommerce"],
@@ -136,6 +481,7 @@ const JumpLinks = () => (
 const BestPaymentGatewaysAustraliaContent = () => (
   <main>
     <FAQJsonLd />
+    <ImagesJsonLd />
 
     <section className="relative flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-sky-950 via-slate-900 to-indigo-950 text-white">
       <div className="relative max-w-4xl px-6 py-16 text-center md:py-20">
@@ -155,24 +501,35 @@ const BestPaymentGatewaysAustraliaContent = () => (
       <Toc />
       <JumpLinks />
 
+      <SeoImage
+        src="/australian-payment-gateway-comparison-2026-1160.webp"
+        srcSet="/australian-payment-gateway-comparison-2026-640.webp 640w, /australian-payment-gateway-comparison-2026-1160.webp 1160w"
+        sizes="(max-width: 768px) 100vw, 1160px"
+        width={1160}
+        height={504}
+        alt="Australian payment gateway comparison guide showing 2026 fees, features and provider fit"
+        caption="Australian payment gateway fees, features and eligibility checked against official provider and regulator pages in 2026."
+        priority
+      />
+
       <QuickSummary
         intro="Australian merchants can choose between specialist providers, bank-owned gateways, platform-native payments and partner-led infrastructure. The best option depends on eligibility, card mix, platform and total cost — not just the headline percentage."
         points={[
           { text: "eWAY lists 1.5% + 25c with no monthly fee; Westpac OnlinePay lists 1.25% for eligible merchants." },
           { text: "NAB Gateway lists $0 setup, $30 monthly, 1.30% and 25c per transaction." },
-          { text: "Stripe's AU pages disagree on the domestic card rate: 1.65% vs 1.7%; confirm before budgeting." },
           { text: "Square lists 1.6% in person and 2.2% online; NMI has no public AU merchant price." },
+          { text: "Shopify and WooPayments are convenient, but platform fees and plugin rules change the comparison." },
         ]}
       />
 
       <KeyTakeaways
         title="Key takeaways"
         points={[
-          "A gateway is not the same as an acquirer, merchant facility or payment service provider.",
-          "The cheapest payment gateway depends on your actual card mix, platform fees and settlement needs.",
+          "Check the exact product name before comparing fees or features.",
+          "The cheapest payment gateway depends on card mix, platform fees and settlement needs.",
           "Australian surcharging rules changed on 1 October 2026; old checkout copy may be wrong.",
           "Hosted checkout can reduce PCI scope but does not remove every validation obligation.",
-          "Use the cluster guides for local banks, platforms and brand-specific deep dives.",
+          "Use the Australian guides for local banks, platforms and brand-specific deep dives.",
         ]}
       />
 
@@ -192,24 +549,8 @@ const BestPaymentGatewaysAustraliaContent = () => (
           {" "}
           global payment gateways guide
         </Link>
-        . For country-specific decisions outside Australia, the cluster includes
-        a{" "}
-        <Link href="/blogs/payment-gateway-in-pakistan" className="text-sky-800 underline">
-          {" "}
-          Pakistan payment gateway guide
-        </Link>
-        , a{" "}
-        <Link href="/blogs/best-payment-gateway-woocommerce-pakistan" className="text-sky-800 underline">
-          {" "}
-          WooCommerce Pakistan guide
-        </Link>
-        and a{" "}
-        <Link href="/blogs/kenya-payment-gatway" className="text-sky-800 underline">
-          {" "}
-          Kenya payment gateway guide
-        </Link>
-        . Keep those markets separate; local banking and KYC rules do not
-        transfer automatically.
+        . That guide explains the underlying concepts without mixing them into
+        Australian pricing decisions.
       </p>
 
       <h2 id="short-answer" className="text-2xl font-bold">
@@ -218,8 +559,8 @@ const BestPaymentGatewaysAustraliaContent = () => (
       <p>
         Start with the payment experience you need. If you sell online only and
         want straightforward published pricing, shortlist eWAY, Westpac
-        OnlinePay, NAB Gateway and Stripe. If you also sell in person, include
-        Square. If you run Shopify or WooCommerce, read the platform rules before
+        OnlinePay and NAB Gateway. If you also sell in person, include Square.
+        If you run Shopify or WooCommerce, read the platform rules before
         comparing processors. If a bank or SaaS vendor offers you a service
         powered by NMI, treat it as a partner-led product and ask for a full
         written quote.
@@ -236,31 +577,14 @@ const BestPaymentGatewaysAustraliaContent = () => (
         Gateway, acquirer, PSP and merchant facility are not the same
       </h2>
       <p>
-        A payment gateway routes transaction data between your checkout and the
-        payment processor. An acquirer or merchant facility is the arrangement
-        that settles card payments into a bank account. A payment service
-        provider, or PSP, may bundle gateway, acquiring, fraud, reporting and
-        payouts into one service. A bank may sell a gateway module that sits
-        alongside your existing merchant facility, while a payment facilitator
-        may onboard merchants under its own master agreement.
-      </p>
-      <p>
-        This distinction explains several common naming problems in this
-        cluster. eWAY describes both an all-in-one online payments solution and
-        a gateway option for merchants using their own facility. Westpac calls
-        OnlinePay its payment gateway, while PayWay is a suite of hosted, API,
-        phone, virtual terminal, batch and recurring modules. NAB publishes NAB
-        Gateway pricing while maintaining a separate NAB Transact portal. NMI
-        sells through partners rather than directly to most merchants.
-      </p>
-      <p>
-        Do not label a provider an acquirer unless its own documentation says so
-        for the product you are buying. Ask which entity appears on the merchant
-        agreement and which entity deposits funds.
+        In short: a gateway carries card data, an acquirer or merchant facility
+        settles funds, and a PSP may bundle both. Ask which entity contracts
+        with you and which entity pays you; a product name alone does not tell
+        you its role.
       </p>
 
       <h2 id="comparison-table" className="text-2xl font-bold">
-        Australian payment gateway comparison, checked 23 November 2026
+        Australian payment gateway comparison (2026)
       </h2>
       <div className="my-8 w-full overflow-x-auto">
         <table className="w-full min-w-[1200px] border-collapse text-left text-sm">
@@ -289,25 +613,11 @@ const BestPaymentGatewaysAustraliaContent = () => (
               <td>Foreign-card share condition and April/October rate reviews.</td>
             </tr>
             <tr>
-              <td>Westpac PayWay</td>
-              <td>Hosted, API, virtual terminal and recurring modules</td>
-              <td>Mostly quote-based; Westpac cost-of-acceptance page refers to 0.79% for eligible merchants from 1 Oct 2026.</td>
-              <td>Cards, PayPal, wallets, PayTo Biller, batch and recurring options depending on module.</td>
-              <td>Do not assume the OnlinePay rate applies; confirm 3DS by module.</td>
-            </tr>
-            <tr>
               <td>NAB Gateway</td>
               <td>Bank-backed online and virtual payments</td>
               <td>$0 setup, $30 monthly, 1.30% merchant service fee, 25c per transaction.</td>
               <td>Flex Microform, virtual terminal, recurring, batch, wallets, Shopify and WooCommerce references.</td>
               <td>Disputed-charge fees not quantified; clarify Gateway versus Transact scope.</td>
-            </tr>
-            <tr>
-              <td>Stripe</td>
-              <td>API-led platforms and broad method coverage</td>
-              <td>/au/pricing: 1.65% + A$0.30 domestic; /au/payments: 1.7% + A$0.30; international 3.5% + A$0.30.</td>
-              <td>Checkout, Elements, Payment Links, BECS, PayTo, Afterpay, Klarna, Zip, Radar.</td>
-              <td>Official domestic-rate conflict; method eligibility and dispute fees need confirmation.</td>
             </tr>
             <tr>
               <td>Square</td>
@@ -342,11 +652,6 @@ const BestPaymentGatewaysAustraliaContent = () => (
           eWAY vs Westpac vs NAB comparison
         </Link>
         , the{" "}
-        <Link href="/blogs/stripe-payment-gateway-australia" className="text-sky-800 underline">
-          {" "}
-          Stripe Australia deep dive
-        </Link>
-        , the{" "}
         <Link href="/blogs/square-payment-gateway-australia" className="text-sky-800 underline">
           {" "}
           Square Australia deep dive
@@ -364,9 +669,32 @@ const BestPaymentGatewaysAustraliaContent = () => (
         .
       </p>
 
+      <h2 id="provider-profiles" className="text-2xl font-bold">
+        Provider profiles: what each gateway is actually good at
+      </h2>
+      <p>
+        Use these profiles as a shortlist, not as a substitute for a written
+        quote. Each provider below is explained in plain English: what it is,
+        what you get, who it suits and where to check the current terms.
+      </p>
+      <div className="grid gap-6 md:grid-cols-2">
+        {PROVIDERS.map((provider) => (
+          <ProviderCard key={provider.id} provider={provider} />
+        ))}
+      </div>
+
       <h2 id="cheapest-gateway" className="text-2xl font-bold">
         The cheapest payment gateway: compare total cost, not a headline rate
       </h2>
+      <SeoImage
+        src="/cheapest-australian-payment-gateway-costs-573.webp"
+        srcSet="/cheapest-australian-payment-gateway-costs-480.webp 480w, /cheapest-australian-payment-gateway-costs-573.webp 573w"
+        sizes="(max-width: 768px) 100vw, 573px"
+        width={573}
+        height={300}
+        alt="Cost components that decide the cheapest payment gateway in Australia"
+        caption="The cheapest gateway is the one with the lowest total cost for your actual card mix, platform and settlement needs."
+      />
       <p>
         “Cheapest” is only meaningful after you define the comparison. A 1.25%
         rate with a foreign-card threshold may cost more than a 1.5% rate with
@@ -375,16 +703,14 @@ const BestPaymentGatewaysAustraliaContent = () => (
         transaction fee. A bank rate may look competitive but require a specific
         settlement account.
       </p>
-      <p>
-        Build your comparison from these components:
-      </p>
+      <p>Build your comparison from these components:</p>
       <ul className="list-disc space-y-3 pl-6">
         <li><strong>Setup and monthly fees.</strong> eWAY and OnlinePay publish none; NAB Gateway lists $30 per month.</li>
         <li><strong>Base transaction rate.</strong> Use the rate that matches your card mix and volume.</li>
         <li><strong>Amex and international cards.</strong> Ask how they are defined and priced.</li>
         <li><strong>Platform fees.</strong> Shopify third-party fees were 2%, 1%, 0.6% and 0.2% by plan in the AU table checked 23 November 2026.</li>
         <li><strong>Chargebacks.</strong> OnlinePay says fees apply; NAB references disputed-charge fees without a public amount.</li>
-        <li><strong>Method fees.</strong> Stripe lists separate rates for Afterpay, Klarna, Zip, PayTo and BECS; Square lists Afterpay at 6% + 30c excl. GST.</li>
+        <li><strong>Method fees.</strong> Square lists Afterpay at 6% + 30c excl. GST; other methods may have separate rates.</li>
         <li><strong>Hardware and transfers.</strong> Square hardware and Instant Transfers are separate; Instant Transfer is 1.95%.</li>
         <li><strong>Settlement and reserves.</strong> Faster access to funds can be worth more than a small rate difference.</li>
       </ul>
@@ -393,59 +719,6 @@ const BestPaymentGatewaysAustraliaContent = () => (
         international-card fees + platform fees + estimated chargebacks +
         hardware or transfer costs. Run it at your current volume, a quiet month
         and a peak month. The ranking often changes.
-      </p>
-
-      <h2 id="provider-picks" className="text-2xl font-bold">
-        Best by scenario, not a universal winner
-      </h2>
-      <h3 id="best-for-banking" className="text-xl font-semibold">
-        Best for bank-native businesses
-      </h3>
-      <p>
-        Westpac OnlinePay and NAB Gateway are worth shortlisting if you already
-        bank with those institutions and want settlement into their accounts.
-        Westpac's published eligible-merchant rate is 1.25%, while NAB Gateway
-        publishes $0 setup, $30 monthly, 1.30% and 25c. Confirm eligibility and
-        product names carefully; OnlinePay, PayWay, Gateway and Transact are not
-        interchangeable.
-      </p>
-      <h3 id="best-for-developers" className="text-xl font-semibold">
-        Best for API-led platforms
-      </h3>
-      <p>
-        Stripe offers Checkout, Elements, Payment Links, Terminal, BECS, PayTo
-        and multiple BNPL methods. Its WooCommerce plugin is described in the
-        WordPress.org listing as officially created by Stripe and WooCommerce.
-        The decision hinge is written pricing: two AU pages displayed different
-        domestic card rates at the check date.
-      </p>
-      <h3 id="best-for-pos" className="text-xl font-semibold">
-        Best for in-person plus online
-      </h3>
-      <p>
-        Square bundles readers, Tap to Pay, Square Online, invoices, payment
-        links and Afterpay. Its 1.6% in-person and 2.2% online rates are easy to
-        understand, but hardware, Plus fees, Instant Transfers and BNPL costs
-        belong in the total.
-      </p>
-      <h3 id="best-for-platforms" className="text-xl font-semibold">
-        Best for Shopify and WooCommerce
-      </h3>
-      <p>
-        Shopify Payments and WooPayments are the natural starting points because
-        they are built into the platforms. But Shopify's third-party fee and
-        one-card-provider rule, and WooCommerce's Checkout Blocks compatibility
-        rule, can change the decision. Use the platform guide for the detailed
-        matrix.
-      </p>
-      <h3 id="best-for-partners" className="text-xl font-semibold">
-        Best for embedded or partner-led payments
-      </h3>
-      <p>
-        NMI is designed for banks, ISOs, PayFacs and SaaS providers. It is not a
-        public-price merchant brand. If a platform offers you NMI-powered
-        payments, ask for the contracting entity, full fee schedule and support
-        owner before comparing it with direct providers.
       </p>
 
       <h2 id="regulatory-changes" className="text-2xl font-bold">
@@ -526,8 +799,8 @@ const BestPaymentGatewaysAustraliaContent = () => (
         EMVCo describes EMV 3DS as an authentication protocol to help prevent
         card-not-present fraud. EMV 3DS v2.4 documents were drafts as at 23
         November 2026, so do not describe that version as final. Availability of
-        3DS varies by provider and module: Westpac, for example, states that
-        PayWay 3DS is on the hosted payment page for Visa and Mastercard.
+        3DS varies by provider and module, so confirm it for the exact checkout
+        you plan to use.
       </p>
       <p>
         AUSTRAC guidance says merchant card payments under the Travel Rule do
@@ -570,6 +843,15 @@ const BestPaymentGatewaysAustraliaContent = () => (
       <h2 id="how-to-choose" className="text-2xl font-bold">
         A seven-step selection process
       </h2>
+      <SeoImage
+        src="/australian-payment-gateway-step-by-step-selection-563.webp"
+        srcSet="/australian-payment-gateway-step-by-step-selection-480.webp 480w, /australian-payment-gateway-step-by-step-selection-563.webp 563w"
+        sizes="(max-width: 768px) 100vw, 563px"
+        width={563}
+        height={299}
+        alt="Seven-step process for choosing an Australian payment gateway"
+        caption="Move from eligibility and payment methods to total cost, platform fit, written terms and a live test."
+      />
       <ol className="list-decimal space-y-3 pl-6">
         <li>Define whether you need online, in-person, recurring, invoice or embedded payments.</li>
         <li>Confirm business eligibility, ABN and bank-account requirements.</li>
@@ -584,9 +866,9 @@ const BestPaymentGatewaysAustraliaContent = () => (
         Common mistakes when comparing Australian gateways
       </h2>
       <ul className="list-disc space-y-3 pl-6">
-        <li>Using US pricing from Stripe or Square pages instead of /au pages.</li>
+        <li>Using US pricing from generic pages instead of Australian /au pages.</li>
         <li>Calling every provider an acquirer when the product may be a gateway or payment facilitator.</li>
-        <li>Confusing Westpac OnlinePay with PayWay, or NAB Gateway with NAB Transact.</li>
+        <li>Assuming all bank merchant products share one rate or settlement rule.</li>
         <li>Ignoring Shopify's third-party transaction fee when comparing gateway rates.</li>
         <li>Assuming a WordPress plugin listing proves Australian eligibility.</li>
         <li>Assuming hosted checkout removes all PCI DSS obligations.</li>
@@ -597,17 +879,49 @@ const BestPaymentGatewaysAustraliaContent = () => (
       <h2 id="faq-australia" className="text-2xl font-bold">
         Frequently asked questions
       </h2>
+      <p className="text-base text-slate-600">
+        Short, source-checked answers to the questions Australian merchants ask
+        before switching or adding a gateway.
+      </p>
       <div className="space-y-4">
-        {FAQ_ITEMS.map(({ question, answer }) => (
-          <details key={question} className="rounded-lg border border-slate-200 p-4">
-            <summary className="cursor-pointer font-semibold">
-              <h3 id={`faq-${question.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`} className="text-lg font-semibold">
-                {question}
-              </h3>
-            </summary>
-            <p className="mt-3 text-base text-slate-700">{answer}</p>
-          </details>
-        ))}
+        {FAQ_ITEMS.map(({ topic, question, answer }, index) => {
+          const id = `faq-${question
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "")}`;
+          return (
+            <details
+              key={question}
+              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm open:shadow-md"
+            >
+              <summary className="flex cursor-pointer list-none items-start gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sm font-bold text-sky-800">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="flex-1">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-sky-700">
+                    {topic}
+                  </span>
+                  <h3 id={id} className="mt-1 text-lg font-semibold text-slate-900">
+                    {question}
+                  </h3>
+                </span>
+                <svg
+                  aria-hidden="true"
+                  className="mt-2 h-5 w-5 shrink-0 text-slate-400 transition-transform duration-200 group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="border-t border-slate-100 px-5 py-4 text-base leading-relaxed text-slate-700">
+                <p>{answer}</p>
+              </div>
+            </details>
+          );
+        })}
       </div>
 
       <h2 id="official-sources" className="text-2xl font-bold">
@@ -625,7 +939,6 @@ const BestPaymentGatewaysAustraliaContent = () => (
           <li><ExternalLink href="https://www.eway.com.au/pricing">eWAY pricing</ExternalLink></li>
           <li><ExternalLink href="https://www.westpac.com.au/business-banking/merchants-and-payments/online-payments/onlinepay">Westpac OnlinePay</ExternalLink></li>
           <li><ExternalLink href="https://www.nab.com.au/business/payments-and-merchants/ecommerce-and-online-payments/nab-gateway">NAB Gateway</ExternalLink></li>
-          <li><ExternalLink href="https://stripe.com/au/pricing">Stripe AU pricing</ExternalLink></li>
           <li><ExternalLink href="https://squareup.com/au/en/pricing">Square AU pricing</ExternalLink></li>
           <li><ExternalLink href="https://www.nmi.com/products/nmi-payments-au">NMI Payments Australia</ExternalLink></li>
         </ul>
@@ -648,10 +961,10 @@ const article = {
   updatedDate: "2026-11-23",
   type: "Comparison",
   categories: ["Payments", "Australia"],
-  readingTime: "16 min read",
+  readingTime: "18 min read",
   description:
-    "Compare the best payment gateways in Australia with official 2026 fees, RBA and ACCC changes, Shopify and WooCommerce rules, PCI/3DS notes and provider deep dives. Checked 23 Nov 2026.",
-  imageUrl: "/blog-banner-1200x675.webp",
+    "Compare the best payment gateways in Australia with official 2026 fees, provider profiles, RBA and ACCC changes, Shopify and WooCommerce rules, PCI/3DS notes and expert FAQs. Checked 23 Nov 2026.",
+  imageUrl: "/australian-payment-gateway-comparison-2026-1160.webp",
   keywords: [
     "payment gateway australia",
     "australian payment gateways",
@@ -660,7 +973,7 @@ const article = {
     "payment gateway comparison Australia",
     "online payment gateway Australia",
     "merchant gateway Australia",
-    "eWAY Westpac NAB Stripe Square NMI Australia",
+    "eWAY Westpac NAB Square NMI Australia",
   ],
   content: BestPaymentGatewaysAustraliaContent,
 };

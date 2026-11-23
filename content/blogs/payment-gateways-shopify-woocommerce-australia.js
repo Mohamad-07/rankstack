@@ -490,26 +490,6 @@ const PlatformPaymentGatewaysAustraliaContent = () => (
         powered service. The local comparison above covers eWAY, Westpac and
         NAB.
       </p>
-      <p>
-        For merchants operating outside Australia, the cluster also includes a{" "}
-        <Link href="/blogs/payment-gateway-in-pakistan" className="text-sky-800 underline">
-          {" "}
-          Pakistan payment gateway guide
-        </Link>
-        , a{" "}
-        <Link href="/blogs/best-payment-gateway-woocommerce-pakistan" className="text-sky-800 underline">
-          {" "}
-          WooCommerce Pakistan guide
-        </Link>
-        and a{" "}
-        <Link href="/blogs/kenya-payment-gatway" className="text-sky-800 underline">
-          {" "}
-          Kenya payment gateway guide
-        </Link>
-        . Keep the country rules separate; a plugin that works in one market
-        does not transfer automatically.
-      </p>
-
       <h2 id="how-to-choose" className="text-2xl font-bold">
         A practical selection checklist
       </h2>
