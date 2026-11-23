@@ -204,7 +204,7 @@ const BestPaymentGatewaysAustraliaContent = () => (
           WooCommerce Pakistan guide
         </Link>
         and a{" "}
-        <Link href="/blogs/kenya-payment-gateway-options-small-business" className="text-sky-800 underline">
+        <Link href="/blogs/kenya-payment-gatway" className="text-sky-800 underline">
           {" "}
           Kenya payment gateway guide
         </Link>

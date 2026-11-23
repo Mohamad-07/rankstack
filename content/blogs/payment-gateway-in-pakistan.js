@@ -760,7 +760,7 @@ const PaymentGatewayPakistanContent = () => (
         </Link>
         . If you also sell in East Africa, compare M-Pesa routes and local provider evidence in
         our
-        <Link href="/blogs/kenya-payment-gateway-options-small-business" className="text-emerald-800 underline">
+        <Link href="/blogs/kenya-payment-gatway" className="text-emerald-800 underline">
           {" "}
           Kenya small-business gateway guide
         </Link>

@@ -685,7 +685,7 @@ const KenyaPaymentGatewayContent = () => (
 );
 
 const article = {
-  slug: "kenya-payment-gateway-options-small-business",
+  slug: "kenya-payment-gatway",
   title: "Kenya Payment Gateway Options for Small Business Website: African Market Guide (2026)",
   author: "RankStack",
   date: "2026-11-22",

@@ -197,7 +197,7 @@ const PaymentGatewaysUsContent = () => (
           payment gateway in Pakistan guide
         </Link>
         . For East African markets, see the
-        <Link href="/blogs/kenya-payment-gateway-options-small-business" className="text-indigo-700 underline">
+        <Link href="/blogs/kenya-payment-gatway" className="text-indigo-700 underline">
           {" "}
           Kenya and Africa small-business gateway guide
         </Link>
@@ -551,7 +551,7 @@ const PaymentGatewaysUsContent = () => (
           — plugin evidence, checkout compatibility, and local integration checks.
         </li>
         <li>
-          <Link href="/blogs/kenya-payment-gateway-options-small-business" className="text-indigo-700 underline">
+          <Link href="/blogs/kenya-payment-gatway" className="text-indigo-700 underline">
             Kenya payment gateway options for small business websites
           </Link>{" "}
           — M-Pesa, Pesapal, Flutterwave, Paystack, and wider African market context.

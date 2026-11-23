@@ -88,7 +88,7 @@ const LINK_TEXT = {
   "payment-gateway-in-pakistan": "complete payment gateway in Pakistan guide",
   "best-payment-gateway-woocommerce-pakistan": "best payment gateway for WooCommerce in Pakistan",
   "payment-gateways": "US-focused payment gateways guide",
-  "kenya-payment-gateway-options-small-business": "Kenya payment gateway options for small business websites",
+  "kenya-payment-gatway": "Kenya payment gateway options for small business websites",
   "best-payment-gateways-australia": "Australian payment gateway comparison guide",
   "eway-vs-westpac-vs-nab-payment-gateway-australia": "eWAY vs Westpac vs NAB payment gateway comparison",
   "payment-gateways-shopify-woocommerce-australia": "Shopify and WooCommerce payment gateways in Australia",

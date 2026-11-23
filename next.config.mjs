@@ -37,6 +37,12 @@ const nextConfig = {
         destination: '/blogs/jethost-review-can-it-really-beat-bluehost-hostinger',
         permanent: true,
       },
+      // Renamed Kenya article -> new canonical slug
+      {
+        source: '/blogs/kenya-payment-gateway-options-small-business',
+        destination: '/blogs/kenya-payment-gatway',
+        permanent: true,
+      },
     ];
   },
 };
