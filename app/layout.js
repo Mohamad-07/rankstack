@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SchemaMarkup from "../components/SchemaMarkup";
-import AdLayer from "../components/AdLayer";
 import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
@@ -109,12 +108,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ---------- HILLTOPADS VERIFICATION ---------- */}
-        <meta
-          name="663333591aa821153ed80420bd3b4de6022d8ec8"
-          content="663333591aa821153ed80420bd3b4de6022d8ec8"
-        />
-
         {/* ---------- SCHEMA MARKUP ---------- */}
         <SchemaMarkup />
 
@@ -127,9 +120,6 @@ export default function RootLayout({ children }) {
 
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
-
-        {/* ---------- AD LAYER (anchor + pop, client-only) ---------- */}
-        <AdLayer />
       </body>
     </html>
   );

@@ -6,7 +6,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import RelatedResources from '@/components/RelatedResources'
-import { InlineAd } from '@/components/Ads'
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -271,18 +270,7 @@ const BlogPage = ({ params }) => {
                   return null
                 })()
 
-                const isThirdParagraph =
-                  section.type === 'paragraph' &&
-                  blog.sections
-                    .slice(0, index + 1)
-                    .filter((s) => s.type === 'paragraph').length === 3
-
-                return (
-                  <Fragment key={index}>
-                    {rendered}
-                    {isThirdParagraph && <InlineAd />}
-                  </Fragment>
-                )
+                return <Fragment key={index}>{rendered}</Fragment>
               })
             )}
           </article>
