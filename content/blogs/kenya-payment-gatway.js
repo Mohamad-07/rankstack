@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import QuickSummary from "@/components/QuickSummary";
 import Toc from "@/components/Toc";
@@ -369,23 +370,10 @@ const KenyaPaymentGatewayContent = () => (
         we ran ourselves.
       </p>
 
-      <figure>
-        <img
-          src="/best-payment-gateways-for-small-business.jfif"
-          alt="Kenya payment gateway options banner showing M-Pesa, Visa, Mastercard, KES, Pesapal and Airtel Money around a map of Kenya"
-          className="w-full"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>
-          The realistic shortlist for a Kenyan site: mobile money first, then cards and
-          regional options where they fit &mdash; each option below is rated on the facts
-          we verified on {REVIEWED}.
-        </figcaption>
-      </figure>
 
-      <div className="my-8 w-full overflow-x-auto">
-        <table className="w-full min-w-[960px] border-collapse text-left text-sm">
+
+      <div className="comparison-table -mx-5 my-8 overflow-x-auto border border-slate-200 md:mx-0 lg:-mx-20 xl:-mx-32">
+        <table>
           <thead>
             <tr>
               <th>Option</th>
@@ -398,35 +386,35 @@ const KenyaPaymentGatewayContent = () => (
           <tbody>
             <tr>
               <td>M-Pesa direct through Daraja</td>
-              <td>Safaricom PLC listed as PSP in the 10 Aug 2026 directory.</td>
+              <td className="cmp-yes">Safaricom PLC listed as PSP in the 10 Aug 2026 directory.</td>
               <td>APIs for payment receipt processing, B2C disbursements, reversals, and STK push. Consumer M-Pesa is not itself a gateway.</td>
               <td>No Safaricom-authored plugin found on WordPress.org; third-party options vary by country.</td>
               <td>Merchant onboarding, API pricing, callback handling, and settlement.</td>
             </tr>
             <tr>
               <td>Pesapal</td>
-              <td>Pesapal Limited listed as PSP in the 10 Aug 2026 directory.</td>
+              <td className="cmp-yes">Pesapal Limited listed as PSP in the 10 Aug 2026 directory.</td>
               <td>Mobile money, cards, and mobile banking; Paybill, Till, Xpress, cards, payment links, invoicing, and APIs. FAQ states up to 72 working hours to bank.</td>
               <td>WooCommerce extension listed on Pesapal's developer site; no Pesapal-authored WP.org plugin found.</td>
               <td>Exact fee, contract terms, country of settlement, and plugin support.</td>
             </tr>
             <tr>
               <td>Flutterwave Kenya</td>
-              <td>Not found in the CBK directory checked.</td>
+              <td className="cmp-no">Not found in the CBK directory checked.</td>
               <td>Official Kenya page lists 15+ options including cards, mobile money, M-Pesa, USSD, QR, bank transfer, and POS. Pricing page checked 22 Nov 2026: 3.2% local cards, 2.9% local wallets, 4.8% international, KES 100 transfers, VAT excluded, next-day local settlement.</td>
               <td>Provider-authored WordPress plugin `rave-woocommerce-payment-gateway`, v3.3.2, updated 8 Oct 2026.</td>
               <td>Current regulatory status, method availability for your category, and support.</td>
             </tr>
             <tr>
               <td>Paystack Kenya</td>
-              <td>Paystack Payments Kenya Limited listed as PSP in the 10 Aug 2026 directory.</td>
+              <td className="cmp-yes">Paystack Payments Kenya Limited listed as PSP in the 10 Aug 2026 directory.</td>
               <td>Official Kenya locale page and API ecosystem exist. We did not verify Kenya-specific fees, methods, or settlement from an official page.</td>
               <td>Provider-authored `woo-paystack` plugin, v5.9.0, updated 16 Nov 2026.</td>
               <td>Fees, supported methods, settlement, and KYC documents.</td>
             </tr>
             <tr>
               <td>Stripe and PayPal</td>
-              <td>Not found in the CBK directory checked in this research.</td>
+              <td className="cmp-no">Not found in the CBK directory checked in this research.</td>
               <td>Stripe lists Kenya under extended network; PayPal has a Kenya locale page. Neither source verified M-Pesa merchant acceptance.</td>
               <td>Stripe and PayPal have general WooCommerce plugins, but Kenya-specific readiness was not verified.</td>
               <td>Kenya merchant eligibility and local method support.</td>
@@ -600,18 +588,19 @@ const KenyaPaymentGatewayContent = () => (
 
       <figure>
         <img
-          src="/stripe-and-paypal-payment-gateway.jfif"
-          alt="Illustration of the Stripe and PayPal logos either side of a globe icon over a wireframe map of Africa"
+          src="/best-payment-gateways-for-small-business.jfif"
+          alt="Kenya payment gateway options banner showing M-Pesa, Visa, Mastercard, KES, Pesapal and Airtel Money around a map of Kenya"
           className="w-full"
           loading="lazy"
           decoding="async"
         />
         <figcaption>
-          Stripe and PayPal are strong on international cards, but neither source we
-          reviewed confirmed M-Pesa acceptance for a Kenyan website &mdash; confirm
-          eligibility in writing first.
+          The realistic shortlist for a Kenyan site mobile money first, then cards and
+          regional options where they fit each option below is rated on the facts
+          we verified on {REVIEWED}.
         </figcaption>
       </figure>
+
 
       <ProviderScorecard
         name="Stripe (Kenya, extended network)"
@@ -724,6 +713,20 @@ const KenyaPaymentGatewayContent = () => (
       <h2 id="choosing-for-african-markets" className="text-2xl font-bold">
         Choosing a gateway for wider African markets
       </h2>
+      <figure>
+        <img
+          src="/stripe-and-paypal-payment-gateway.jfif"
+          alt="Illustration of the Stripe and PayPal logos either side of a globe icon over a wireframe map of Africa"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Stripe and PayPal are strong on international cards, but neither source we
+          reviewed confirmed M-Pesa acceptance for a Kenyan website confirm
+          eligibility in writing first.
+        </figcaption>
+      </figure>
       <p>
         Kenya is a useful training ground, but African markets are not uniform. A provider that
         is strong in Kenya may not have the same licence, wallet coverage, settlement currency,
@@ -799,15 +802,16 @@ const KenyaPaymentGatewayContent = () => (
       <h2 id="faq-kenya-payment-gateway" className="text-2xl font-bold">
         Frequently asked questions
       </h2>
-      <div className="space-y-4">
+      <div className="faq-panel">
         {FAQ_ITEMS.map(({ question, answer }) => (
-          <details key={question} className="rounded-lg border border-slate-200 p-4">
-            <summary className="cursor-pointer font-semibold">
-              <h3 id={`faq-${question.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`} className="text-lg font-semibold">
+          <details key={question}>
+            <summary>
+              <h3 id={`faq-${question.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}>
                 {question}
               </h3>
+              <ChevronDown className="faq-chevron h-5 w-5" aria-hidden="true" />
             </summary>
-            <p className="mt-3 text-base text-slate-700">{answer}</p>
+            <p>{answer}</p>
           </details>
         ))}
       </div>
@@ -895,7 +899,7 @@ const article = {
   readingTime: "13 min read",
   description:
     "Compare Kenya payment gateway options for small business websites: CBK status, M-Pesa routes, Pesapal, Flutterwave, Paystack, plugin ownership, fees, settlement, and African market checks.",
-  imageUrl: "/blog-banner-1200x675.webp",
+  imageUrl: "/choosing-payment-gateway-in-kenya.jpg",
   keywords: [
     "kenya payment gateway options for small business website",
     "payment gateway Kenya",

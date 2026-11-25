@@ -537,6 +537,86 @@
   border-bottom-color: transparent;
 }
 
+/* ---------- Expert FAQ panel (opt-in: wrap items in .faq-panel) ---------
+   Turns the default stack of separately bordered <details> boxes into one
+   unified panel: divider rows, roomy full-width question targets, a
+   rotating chevron and a tinted open state. Scoped so plain details in
+   other articles are unchanged. */
+
+.blog-article .faq-panel {
+  margin: 2rem 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px -22px rgba(15, 23, 42, 0.45);
+  overflow: hidden;
+}
+
+.blog-article .faq-panel details {
+  border: 0;
+  border-radius: 0;
+  background-color: #ffffff;
+  padding: 0;
+}
+
+.blog-article .faq-panel details + details {
+  border-top: 1px solid #f1f5f9;
+}
+
+.blog-article .faq-panel details[open] {
+  background-color: #f8fafc;
+}
+
+.blog-article .faq-panel summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  list-style: none;
+  padding: 1.1rem 1.35rem;
+  transition: background-color 150ms ease;
+}
+
+.blog-article .faq-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.blog-article .faq-panel summary:hover {
+  background-color: #f8fafc;
+}
+
+.blog-article .faq-panel summary :is(h3, p, span) {
+  flex: 1 1 auto;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #0f172a;
+}
+
+.blog-article .faq-panel details[open] summary {
+  margin-bottom: 0;
+}
+
+.blog-article .faq-panel .faq-chevron {
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+  color: #059669;
+  transition: transform 200ms ease;
+}
+
+.blog-article .faq-panel details[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.blog-article .faq-panel details > p {
+  margin: 0;
+  padding: 0 1.35rem 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
 /* ---------- Charts / progress bars ---------- */
 
 .blog-article
