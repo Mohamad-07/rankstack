@@ -3,6 +3,7 @@ import Link from "next/link";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import QuickSummary from "@/components/QuickSummary";
 import Toc from "@/components/Toc";
+import ProviderScorecard from "@/components/ProviderScorecard";
 
 const ExternalLink = ({ href, children }) => (
   <a
@@ -14,6 +15,8 @@ const ExternalLink = ({ href, children }) => (
     {children}
   </a>
 );
+
+const REVIEWED = "22 November 2026";
 
 const FAQ_ITEMS = [
   {
@@ -153,6 +156,20 @@ const KenyaPaymentGatewayContent = () => (
     </section>
 
     <article className="mx-auto max-w-3xl space-y-6 px-5 py-10 text-lg leading-relaxed text-slate-800">
+      <figure>
+        <img
+          src="/choosing-payment-gateway-in-kenya.jpg"
+          alt="Choosing a payment gateway banner showing a card payment terminal, a laptop and currency symbols on a teal background"
+          className="w-full"
+          decoding="async"
+        />
+        <figcaption>
+          Choosing a gateway for a Kenyan website comes down to method fit,
+          regulator evidence, and plugin ownership &mdash; each checked against
+          primary sources for this guide.
+        </figcaption>
+      </figure>
+
       <Toc />
       <JumpLinks />
 
@@ -311,13 +328,61 @@ const KenyaPaymentGatewayContent = () => (
         fees as check with provider.
       </p>
 
+      <figure>
+        <img
+          src="/mpesa-payment-gateway.jpg"
+          alt="Safaricom business banner reading made for your business, opening a world of possibilities, with a shop counter scene and a Learn More button"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Safaricom&rsquo;s business messaging for M-Pesa: the consumer wallet, a merchant
+          Till or Paybill number, and Daraja API access are three different integrations
+          with three different onboarding paths.
+        </figcaption>
+      </figure>
+
+      <ProviderScorecard
+        name="M-Pesa via Daraja (Safaricom)"
+        href="https://developer.safaricom.co.ke/"
+        cta="Open the Safaricom Daraja portal"
+        checked={REVIEWED}
+        bestFor="Businesses with developer resources that want to own the M-Pesa flow directly through Safaricom's APIs"
+        overall={3.9}
+        scores={[
+          { label: "Local method coverage", value: 5.0 },
+          { label: "Pricing transparency", value: 2.5 },
+          { label: "Settlement clarity", value: 3.0 },
+          { label: "WordPress tooling", value: 3.0 },
+        ]}
+      />
+
       <h2 id="provider-options-compared" className="text-2xl font-bold">
         Provider options compared
       </h2>
       <p>
         The table uses primary-source information and labels the date of each snapshot. It is
-        a shortlist, not a ranking.
+        a shortlist, not a ranking. The star ratings in each provider card are our editorial
+        assessment of the verified facts in this guide &mdash; method coverage, published
+        pricing, settlement transparency, and plugin ownership &mdash; not results from tests
+        we ran ourselves.
       </p>
+
+      <figure>
+        <img
+          src="/best-payment-gateways-for-small-business.jfif"
+          alt="Kenya payment gateway options banner showing M-Pesa, Visa, Mastercard, KES, Pesapal and Airtel Money around a map of Kenya"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          The realistic shortlist for a Kenyan site: mobile money first, then cards and
+          regional options where they fit &mdash; each option below is rated on the facts
+          we verified on {REVIEWED}.
+        </figcaption>
+      </figure>
 
       <div className="my-8 w-full overflow-x-auto">
         <table className="w-full min-w-[960px] border-collapse text-left text-sm">
@@ -398,6 +463,36 @@ const KenyaPaymentGatewayContent = () => (
         identification. Ask which list applies to your exact entity type before you start.
       </p>
 
+      <figure>
+        <img
+          src="/pesapal-payment-gateway.jpg"
+          alt="Pesapal banner reading start accepting M-Pesa and card payments, showing a point-of-sale terminal with Tap to Pay and Scan to Pay options"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Pesapal&rsquo;s pitch to Kenyan merchants: M-Pesa Till, Paybill and Xpress
+          alongside Visa and Mastercard on one flow, with funds held in trust until a
+          settlement request is made.
+        </figcaption>
+      </figure>
+
+      <ProviderScorecard
+        name="Pesapal"
+        href="https://www.pesapal.com/business/online"
+        cta="Visit Pesapal's online payments page"
+        checked={REVIEWED}
+        bestFor="Kenyan SMEs that want M-Pesa, cards, and mobile banking under one CBK-listed provider"
+        overall={4.1}
+        scores={[
+          { label: "Local method coverage", value: 5.0 },
+          { label: "Pricing transparency", value: 3.0 },
+          { label: "Settlement clarity", value: 4.0 },
+          { label: "WordPress tooling", value: 3.5 },
+        ]}
+      />
+
       <h3 id="flutterwave-kenya" className="text-xl font-semibold">
         Flutterwave Kenya
       </h3>
@@ -421,6 +516,36 @@ const KenyaPaymentGatewayContent = () => (
         are separate questions.
       </p>
 
+      <figure>
+        <img
+          src="/flutterwave-payment-gateway.jpg"
+          alt="Flutterwave homepage hero reading endless possibilities for all, with the tagline empowering businesses of all sizes with seamless payment solutions"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Flutterwave positions itself for enterprises, startups, and emerging markets
+          &mdash; its Kenya pricing page is the most detailed dated fee schedule in this
+          comparison, checked {REVIEWED}.
+        </figcaption>
+      </figure>
+
+      <ProviderScorecard
+        name="Flutterwave Kenya"
+        href="https://flutterwave.com/ke/pricing"
+        cta="View Flutterwave Kenya pricing"
+        checked={REVIEWED}
+        bestFor="Merchants who want published, dated pricing and a provider-authored WooCommerce plugin"
+        overall={4.4}
+        scores={[
+          { label: "Local method coverage", value: 4.5 },
+          { label: "Pricing transparency", value: 5.0 },
+          { label: "Settlement clarity", value: 4.5 },
+          { label: "WordPress tooling", value: 4.5 },
+        ]}
+      />
+
       <h3 id="paystack-kenya" className="text-xl font-semibold">
         Paystack Kenya
       </h3>
@@ -433,6 +558,36 @@ const KenyaPaymentGatewayContent = () => (
         numbers as provider facts; request them in writing.
       </p>
 
+      <figure>
+        <img
+          src="/paystack-payment-gateway.jpg"
+          alt="Paystack homepage hero reading modern online and offline payments for Africa, with a Create a free account button"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Paystack&rsquo;s Africa-wide positioning: a CBK-listed PSP with a maintained
+          WooCommerce plugin &mdash; but Kenya-specific fees still need to be confirmed in
+          writing before you commit.
+        </figcaption>
+      </figure>
+
+      <ProviderScorecard
+        name="Paystack Kenya"
+        href="https://paystack.com/ke"
+        cta="Visit Paystack Kenya"
+        checked={REVIEWED}
+        bestFor="Merchants that want a CBK-listed PSP with a maintained WooCommerce plugin, after confirming fees in writing"
+        overall={3.2}
+        scores={[
+          { label: "Local method coverage", value: 3.0 },
+          { label: "Pricing transparency", value: 2.0 },
+          { label: "Settlement clarity", value: 2.5 },
+          { label: "WordPress tooling", value: 4.5 },
+        ]}
+      />
+
       <h3 id="stripe-and-paypal" className="text-xl font-semibold">
         Stripe and PayPal
       </h3>
@@ -442,6 +597,51 @@ const KenyaPaymentGatewayContent = () => (
         websites. They may still be relevant for international cards or global customers, but
         they should not be presented as local M-Pesa gateways without written confirmation.
       </p>
+
+      <figure>
+        <img
+          src="/stripe-and-paypal-payment-gateway.jfif"
+          alt="Illustration of the Stripe and PayPal logos either side of a globe icon over a wireframe map of Africa"
+          className="w-full"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Stripe and PayPal are strong on international cards, but neither source we
+          reviewed confirmed M-Pesa acceptance for a Kenyan website &mdash; confirm
+          eligibility in writing first.
+        </figcaption>
+      </figure>
+
+      <ProviderScorecard
+        name="Stripe (Kenya, extended network)"
+        href="https://stripe.com/"
+        cta="Visit Stripe"
+        checked={REVIEWED}
+        bestFor="Kenyan businesses billing international customers by card, where M-Pesa is not required at checkout"
+        overall={3.5}
+        scores={[
+          { label: "Local method coverage", value: 2.5 },
+          { label: "Pricing transparency", value: 3.5 },
+          { label: "Settlement clarity", value: 3.5 },
+          { label: "WordPress tooling", value: 4.5 },
+        ]}
+      />
+
+      <ProviderScorecard
+        name="PayPal Kenya"
+        href="https://www.paypal.com/ke"
+        cta="Visit PayPal Kenya"
+        checked={REVIEWED}
+        bestFor="A familiar buyer-side checkout for international customers, pending written confirmation of Kenya merchant eligibility"
+        overall={3.4}
+        scores={[
+          { label: "Local method coverage", value: 2.5 },
+          { label: "Pricing transparency", value: 3.5 },
+          { label: "Settlement clarity", value: 3.5 },
+          { label: "WordPress tooling", value: 4.0 },
+        ]}
+      />
 
       <h2 id="payment-methods-to-consider" className="text-2xl font-bold">
         Payment methods a small business website should consider
