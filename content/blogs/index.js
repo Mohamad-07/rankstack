@@ -44,6 +44,7 @@ import platformPaymentGatewaysAustralia from './payment-gateways-shopify-woocomm
 import stripePaymentGatewayAustralia from './stripe-payment-gateway-australia'
 import squarePaymentGatewayAustralia from './square-payment-gateway-australia'
 import nmiPaymentGatewayAustralia from './nmi-payment-gateway-australia'
+import bestWordpressHostingAustralia from './best-wordpress-hosting-australia'
 
 export const blogData = [
   misshostingthestressfreewebhostyouvebeenlookingfor,
@@ -92,6 +93,7 @@ export const blogData = [
   stripePaymentGatewayAustralia,
   squarePaymentGatewayAustralia,
   nmiPaymentGatewayAustralia,
+  bestWordpressHostingAustralia,
 
   // more blogs here
 ]

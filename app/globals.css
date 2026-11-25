@@ -465,6 +465,78 @@
   border-bottom-color: transparent;
 }
 
+/* ---------- Expert comparison table (opt-in: wrap in .comparison-table) ----
+   Scoped overrides for round-up tables that need more presence than the
+   default compact style: indigo header, zebra rows, roomier cells and a
+   wider measure on large screens. Specificity must beat the generic
+   .blog-article table/thead/tbody rules above. */
+
+.blog-article .comparison-table {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px -22px rgba(15, 23, 42, 0.45);
+}
+
+.blog-article .comparison-table table {
+  min-width: 860px;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.blog-article .comparison-table thead th,
+.blog-article .comparison-table thead :is(th, td) {
+  background-color: #4f46e5;
+  background-image: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  color: #ffffff;
+  border-color: #6366f1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.1rem;
+}
+
+.blog-article .comparison-table tbody :is(th, td) {
+  color: #334155;
+  border-color: #e2e8f0;
+  padding: 0.95rem 1.1rem;
+  vertical-align: top;
+}
+
+.blog-article .comparison-table tbody tr:nth-child(odd) {
+  background-color: #f8fafc;
+}
+
+.blog-article .comparison-table tbody tr:hover {
+  background-color: #eef2ff;
+}
+
+.blog-article .comparison-table tbody td:first-child {
+  color: #0f172a;
+  font-weight: 600;
+  border-left: 3px solid #a5b4fc;
+}
+
+.blog-article .comparison-table .cmp-price {
+  color: #4338ca;
+  font-weight: 700;
+}
+
+.blog-article .comparison-table .cmp-yes {
+  color: #047857;
+  font-weight: 600;
+}
+
+.blog-article .comparison-table .cmp-no {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.blog-article .comparison-table tbody tr:last-child :is(th, td) {
+  border-bottom-color: transparent;
+}
+
 /* ---------- Charts / progress bars ---------- */
 
 .blog-article
